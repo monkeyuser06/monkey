@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A68752B8-73A2-4DAF-A794-5BA1486A3D8F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>InventoryManager.My.MyApplication</StartupObject>
+    <RootNamespace>InventoryManager</RootNamespace>
+    <AssemblyName>J&amp;A Inventory Manager</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>J&amp;A Inventory Manager</ProductName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>J&amp;A Inventory Manager.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>J&amp;A Inventory Manager.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon salon_0`.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>44A72110081810CB129C89B83159CA1E4E59EB4C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>InventoryManager_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\MarcoBackUp\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\Downloads\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin">
+      <HintPath>..\..\MarcoBackUp\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\MarcoBackUp\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\..\MarcoBackUp\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmpName.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpName.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppointments.Designer.vb">
+      <DependentUpon>frmAppointments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppointments.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAppointmentsManager.Designer.vb">
+      <DependentUpon>frmAppointmentsManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppointmentsManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAppointmentTransactions.Designer.vb">
+      <DependentUpon>frmAppointmentTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppointmentTransactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServiceDialog.Designer.vb">
+      <DependentUpon>frmServiceDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmServiceDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccountLogs.Designer.vb">
+      <DependentUpon>frmAccountLogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAccountLogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccountNew.Designer.vb">
+      <DependentUpon>frmAccountNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAccountNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccounts.Designer.vb">
+      <DependentUpon>frmAccounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminPrompt.Designer.vb">
+      <DependentUpon>frmAdminPrompt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdminPrompt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDashboard.Designer.vb">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployeeManager.Designer.vb">
+      <DependentUpon>frmEmployeeManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployeeManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmForgotPassword.Designer.vb">
+      <DependentUpon>frmForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventory.Designer.vb">
+      <DependentUpon>frmInventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventoryItemLogs.Designer.vb">
+      <DependentUpon>frmInventoryItemLogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventoryItemLogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServiceCheckout.Designer.vb">
+      <DependentUpon>frmServiceCheckout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmServiceCheckout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItemManager.Designer.vb">
+      <DependentUpon>frmItemManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmItemManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItemQuantity.Designer.vb">
+      <DependentUpon>frmItemQuantity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmItemQuantity.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu.Designer.vb">
+      <DependentUpon>frmMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPasswordChange.Designer.vb">
+      <DependentUpon>frmPasswordChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPasswordChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchCustomer.Designer.vb">
+      <DependentUpon>frmSearchCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServiceConsumables.Designer.vb">
+      <DependentUpon>frmServiceConsumables.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmServiceConsumables.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServiceManager.Designer.vb">
+      <DependentUpon>frmServiceManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmServiceManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServices.Designer.vb">
+      <DependentUpon>frmServices.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmServices.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowCheckoutlist.Designer.vb">
+      <DependentUpon>frmShowCheckoutlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowCheckoutlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowDetailsTransaction.Designer.vb">
+      <DependentUpon>frmShowDetailsTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowDetailsTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransactionManager.Designer.vb">
+      <DependentUpon>frmTransactionManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransactionManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransactions.Designer.vb">
+      <DependentUpon>frmTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JandA2DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandA2DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandA2DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandA2DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandADataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandADataSet.vb">
+      <DependentUpon>JandADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandADataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandADataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandADataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandADataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandADataSet2.vb">
+      <DependentUpon>JandADataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandADataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandADataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandADataSet4.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandADataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandADataSet5.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandADataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="newModule.vb" />
+    <Compile Include="vbConnect.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmAppointments.resx">
+      <DependentUpon>frmAppointments.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppointmentsManager.resx">
+      <DependentUpon>frmAppointmentsManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppointmentTransactions.resx">
+      <DependentUpon>frmAppointmentTransactions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServiceDialog.resx">
+      <DependentUpon>frmServiceDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAccountLogs.resx">
+      <DependentUpon>frmAccountLogs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAccountNew.resx">
+      <DependentUpon>frmAccountNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAccounts.resx">
+      <DependentUpon>frmAccounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminPrompt.resx">
+      <DependentUpon>frmAdminPrompt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDashboard.resx">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployeeManager.resx">
+      <DependentUpon>frmEmployeeManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmForgotPassword.resx">
+      <DependentUpon>frmForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventory.resx">
+      <DependentUpon>frmInventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventoryItemLogs.resx">
+      <DependentUpon>frmInventoryItemLogs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServiceCheckout.resx">
+      <DependentUpon>frmServiceCheckout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItemManager.resx">
+      <DependentUpon>frmItemManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItemQuantity.resx">
+      <DependentUpon>frmItemQuantity.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPasswordChange.resx">
+      <DependentUpon>frmPasswordChange.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchCustomer.resx">
+      <DependentUpon>frmSearchCustomer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServiceConsumables.resx">
+      <DependentUpon>frmServiceConsumables.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServiceManager.resx">
+      <DependentUpon>frmServiceManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServices.resx">
+      <DependentUpon>frmServices.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowCheckoutlist.resx">
+      <DependentUpon>frmShowCheckoutlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowDetailsTransaction.resx">
+      <DependentUpon>frmShowDetailsTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransactionManager.resx">
+      <DependentUpon>frmTransactionManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransactions.resx">
+      <DependentUpon>frmTransactions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmpName.xsc">
+      <DependentUpon>EmpName.xsd</DependentUpon>
+    </None>
+    <None Include="EmpName.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmpName.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmpName.xss">
+      <DependentUpon>EmpName.xsd</DependentUpon>
+    </None>
+    <None Include="InventoryManager_TemporaryKey.pfx" />
+    <None Include="JandA2DataSet.xsc">
+      <DependentUpon>JandA2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JandA2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandA2DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandA2DataSet.xss">
+      <DependentUpon>JandA2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JandA2DataSet1.xsc">
+      <DependentUpon>JandA2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="JandA2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandA2DataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandA2DataSet1.xss">
+      <DependentUpon>JandA2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet.xsc">
+      <DependentUpon>JandADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandADataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandADataSet.xss">
+      <DependentUpon>JandADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet1.xsc">
+      <DependentUpon>JandADataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandADataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandADataSet1.xss">
+      <DependentUpon>JandADataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet2.xsc">
+      <DependentUpon>JandADataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandADataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandADataSet2.xss">
+      <DependentUpon>JandADataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet3.xsc">
+      <DependentUpon>JandADataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandADataSet3.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandADataSet3.xss">
+      <DependentUpon>JandADataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet4.xsc">
+      <DependentUpon>JandADataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandADataSet4.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandADataSet4.xss">
+      <DependentUpon>JandADataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet5.xsc">
+      <DependentUpon>JandADataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandADataSet5.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandADataSet5.xss">
+      <DependentUpon>JandADataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\J&amp;A_LOGO_SALON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon salon_0`.ico" />
+    <None Include="Resources\plus%283%29.png" />
+    <None Include="Resources\plus%281%29.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\New Project%281%292.png" />
+    <None Include="Resources\correct-symbol.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\excel.png" />
+    <None Include="Resources\icons8-about-500.png" />
+    <None Include="Resources\icons8-about-50.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\Trash.png" />
+    <None Include="Resources\edit %282%29.png" />
+    <None Include="Resources\edit1.png" />
+    <None Include="Resources\edit%281%29.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\medical-notes-symbol-of-a-list-paper-on-a-clipboard%282%29.png" />
+    <None Include="Resources\medical-notes-symbol-of-a-list-paper-on-a-clipboard%281%29.png" />
+    <None Include="Resources\medical-notes-symbol-of-a-list-paper-on-a-clipboard.png" />
+    <None Include="Resources\drop-down-arrow%281%29.png" />
+    <None Include="Resources\drop-down-arrow.png" />
+    <None Include="Resources\magnifying-glass%281%29.png" />
+    <None Include="Resources\magnifying-glass.png" />
+    <None Include="Resources\locked.png" />
+    <None Include="Resources\customer.png" />
+    <None Include="Resources\image-not-available-male.jpg" />
+    <None Include="Resources\employees.png" />
+    <None Include="Resources\New Project%286%29.png" />
+    <None Include="Resources\New Project%285%29.png" />
+    <None Include="Resources\New Project%284%29.png" />
+    <None Include="Resources\New Project%283%29.png" />
+    <None Include="Resources\New Project%282%29.png" />
+    <None Include="Resources\New Project%281%291.png" />
+    <None Include="Resources\New Project%281%29.png" />
+    <None Include="Resources\add%281%29.png" />
+    <None Include="Resources\add%282%29.png" />
+    <None Include="Resources\logout%281%29.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\speedometer.png" />
+    <None Include="Resources\dashboardIcon.png" />
+    <None Include="Resources\transactionsIcon.png" />
+    <None Include="Resources\inventory%281%29.png" />
+    <None Include="Resources\accountsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
