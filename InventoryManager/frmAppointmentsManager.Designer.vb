@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAppointmentsManager
     Inherits MetroFramework.Forms.MetroForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAppointmentsManager
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -30,21 +30,22 @@ Partial Class frmAppointmentsManager
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAppointmentsManager))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cboTime = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgvServiceList = New System.Windows.Forms.DataGridView()
         Me.checkbox = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.serv_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Serv_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpAppointmentDate = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtcontact1 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.txtAddress = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnSave = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.txtName = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvServiceList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -55,9 +56,10 @@ Partial Class frmAppointmentsManager
         '
         Me.Panel1.AutoScroll = True
         Me.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Panel1.Controls.Add(Me.cboTime)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.dgvServiceList)
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Panel1.Controls.Add(Me.dtpAppointmentDate)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.btnSave)
@@ -66,6 +68,20 @@ Partial Class frmAppointmentsManager
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(433, 419)
         Me.Panel1.TabIndex = 0
+        '
+        'cboTime
+        '
+        Me.cboTime.DropDownHeight = 100
+        Me.cboTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboTime.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTime.FormattingEnabled = True
+        Me.cboTime.IntegralHeight = False
+        Me.cboTime.Items.AddRange(New Object() {"10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM"})
+        Me.cboTime.Location = New System.Drawing.Point(143, 149)
+        Me.cboTime.MaxDropDownItems = 5
+        Me.cboTime.Name = "cboTime"
+        Me.cboTime.Size = New System.Drawing.Size(121, 25)
+        Me.cboTime.TabIndex = 56
         '
         'Label2
         '
@@ -144,18 +160,19 @@ Partial Class frmAppointmentsManager
         Me.status.Name = "status"
         Me.status.ReadOnly = True
         '
-        'DateTimePicker1
+        'dtpAppointmentDate
         '
-        Me.DateTimePicker1.CustomFormat = "MM/dd/yyyy"
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(11, 148)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(126, 26)
-        Me.DateTimePicker1.TabIndex = 53
+        Me.dtpAppointmentDate.CustomFormat = "MM/dd/yyyy"
+        Me.dtpAppointmentDate.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpAppointmentDate.Location = New System.Drawing.Point(11, 148)
+        Me.dtpAppointmentDate.Name = "dtpAppointmentDate"
+        Me.dtpAppointmentDate.Size = New System.Drawing.Size(126, 26)
+        Me.dtpAppointmentDate.TabIndex = 53
         '
         'GroupBox1
         '
+        Me.GroupBox1.AutoSize = True
         Me.GroupBox1.Controls.Add(Me.txtName)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtcontact1)
@@ -167,6 +184,15 @@ Partial Class frmAppointmentsManager
         Me.GroupBox1.TabIndex = 48
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Customer Details"
+        '
+        'txtName
+        '
+        Me.txtName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtName.Location = New System.Drawing.Point(7, 31)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(209, 23)
+        Me.txtName.TabIndex = 5
         '
         'Label3
         '
@@ -242,15 +268,6 @@ Partial Class frmAppointmentsManager
         Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'txtName
-        '
-        Me.txtName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.txtName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtName.Location = New System.Drawing.Point(7, 31)
-        Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(209, 23)
-        Me.txtName.TabIndex = 5
-        '
         'frmAppointmentsManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -279,7 +296,7 @@ Partial Class frmAppointmentsManager
     Friend WithEvents txtAddress As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents Label1 As Label
     Friend WithEvents btnSave As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtpAppointmentDate As DateTimePicker
     Friend WithEvents dgvServiceList As DataGridView
     Friend WithEvents checkbox As DataGridViewCheckBoxColumn
     Friend WithEvents serv_name As DataGridViewTextBoxColumn
@@ -290,4 +307,5 @@ Partial Class frmAppointmentsManager
     Friend WithEvents Label3 As Label
     Friend WithEvents txtcontact1 As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents txtName As TextBox
+    Friend WithEvents cboTime As ComboBox
 End Class

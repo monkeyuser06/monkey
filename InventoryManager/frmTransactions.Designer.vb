@@ -24,7 +24,10 @@ Partial Class frmTransactions
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTransactions))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dtpTransactionDate = New MetroFramework.Controls.MetroDateTime()
@@ -37,6 +40,7 @@ Partial Class frmTransactions
         Me.btnEditTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddTransactions = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.dgvTransactionsList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.btnCompleteTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.idno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txnno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.date_ = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,7 +49,6 @@ Partial Class frmTransactions
         Me.serv = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnCompleteTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         CType(Me.btnSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExportPdf, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -238,14 +241,14 @@ Partial Class frmTransactions
         Me.dgvTransactionsList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvTransactionsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTransactionsList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idno, Me.txnno, Me.date_, Me.time_, Me.cust, Me.serv, Me.price, Me.status})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvTransactionsList.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvTransactionsList.DefaultCellStyle = DataGridViewCellStyle6
         Me.dgvTransactionsList.DoubleBuffered = True
         Me.dgvTransactionsList.EnableHeadersVisualStyles = False
         Me.dgvTransactionsList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
@@ -258,63 +261,6 @@ Partial Class frmTransactions
         Me.dgvTransactionsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvTransactionsList.Size = New System.Drawing.Size(922, 367)
         Me.dgvTransactionsList.TabIndex = 22
-        '
-        'idno
-        '
-        Me.idno.DataPropertyName = "[JA-Transaction]"
-        Me.idno.HeaderText = "TXN"
-        Me.idno.Name = "idno"
-        Me.idno.ReadOnly = True
-        Me.idno.Visible = False
-        '
-        'txnno
-        '
-        Me.txnno.DataPropertyName = "TransactionNumber"
-        Me.txnno.HeaderText = "Transaction Number"
-        Me.txnno.Name = "txnno"
-        Me.txnno.ReadOnly = True
-        '
-        'date_
-        '
-        Me.date_.DataPropertyName = "Date"
-        Me.date_.HeaderText = "Date"
-        Me.date_.Name = "date_"
-        Me.date_.ReadOnly = True
-        '
-        'time_
-        '
-        Me.time_.DataPropertyName = "Time"
-        Me.time_.HeaderText = "Time"
-        Me.time_.Name = "time_"
-        Me.time_.ReadOnly = True
-        '
-        'cust
-        '
-        Me.cust.DataPropertyName = "CustomerName"
-        Me.cust.HeaderText = "Customer Name"
-        Me.cust.Name = "cust"
-        Me.cust.ReadOnly = True
-        '
-        'serv
-        '
-        Me.serv.DataPropertyName = "Service/s Availed"
-        Me.serv.HeaderText = "Services Availed"
-        Me.serv.Name = "serv"
-        Me.serv.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.DataPropertyName = "[Amount Collected]"
-        Me.price.HeaderText = "Price"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'status
-        '
-        Me.status.DataPropertyName = "TransactionStatus"
-        Me.status.HeaderText = "Status"
-        Me.status.Name = "status"
-        Me.status.ReadOnly = True
         '
         'btnCompleteTransaction
         '
@@ -350,6 +296,79 @@ Partial Class frmTransactions
         Me.btnCompleteTransaction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCompleteTransaction.Textcolor = System.Drawing.Color.White
         Me.btnCompleteTransaction.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        '
+        'idno
+        '
+        Me.idno.DataPropertyName = "[JA-Transaction]"
+        Me.idno.HeaderText = "TXN"
+        Me.idno.Name = "idno"
+        Me.idno.ReadOnly = True
+        Me.idno.Visible = False
+        '
+        'txnno
+        '
+        Me.txnno.DataPropertyName = "TransactionNumber"
+        Me.txnno.HeaderText = "Transaction Number"
+        Me.txnno.Name = "txnno"
+        Me.txnno.ReadOnly = True
+        '
+        'date_
+        '
+        Me.date_.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.date_.DataPropertyName = "Date"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.date_.DefaultCellStyle = DataGridViewCellStyle3
+        Me.date_.HeaderText = "Date"
+        Me.date_.Name = "date_"
+        Me.date_.ReadOnly = True
+        Me.date_.Width = 5
+        '
+        'time_
+        '
+        Me.time_.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.time_.DataPropertyName = "Time"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.time_.DefaultCellStyle = DataGridViewCellStyle4
+        Me.time_.HeaderText = "Time"
+        Me.time_.Name = "time_"
+        Me.time_.ReadOnly = True
+        Me.time_.Width = 5
+        '
+        'cust
+        '
+        Me.cust.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.cust.DataPropertyName = "CustomerName"
+        Me.cust.HeaderText = "Customer Name"
+        Me.cust.Name = "cust"
+        Me.cust.ReadOnly = True
+        '
+        'serv
+        '
+        Me.serv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.serv.DataPropertyName = "Service/s Availed"
+        Me.serv.HeaderText = "Services Availed"
+        Me.serv.Name = "serv"
+        Me.serv.ReadOnly = True
+        '
+        'price
+        '
+        Me.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.price.DataPropertyName = "[Amount Collected]"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.price.DefaultCellStyle = DataGridViewCellStyle5
+        Me.price.HeaderText = "Price"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        Me.price.Width = 69
+        '
+        'status
+        '
+        Me.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.status.DataPropertyName = "TransactionStatus"
+        Me.status.HeaderText = "Status"
+        Me.status.Name = "status"
+        Me.status.ReadOnly = True
+        Me.status.Width = 5
         '
         'frmTransactions
         '

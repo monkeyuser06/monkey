@@ -8,6 +8,25 @@ Public Class frmServiceCheckout
 
     Private Sub frmServiceCheckout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadservicelist()
+        loadtext()
+    End Sub
+
+    Private Sub loadtext()
+        Call ConnectTOSQLServer1()
+        strSQL = " select distinct CustomerName from tblAppointment
+ union 
+ select distinct CustomerName from tblTransactions
+ where CustomerName <>''"
+        dataadapter = New SqlDataAdapter(strSQL, Connection)
+        Dim namelist As New DataSet()
+        dataadapter.Fill(namelist, "tblTransactions")
+        Dim col As New AutoCompleteStringCollection
+        Dim i As Integer
+        For i = 0 To namelist.Tables(0).Rows.Count - 1
+            col.Add(namelist.Tables(0).Rows(i)("CustomerName").ToString())
+        Next
+        txtName.AutoCompleteCustomSource = col
+        Call DisConnectSQLServer()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -72,9 +91,9 @@ and b.TransactionID = " & lastTransID & " group by c.ItemID,c.ItemBrand,c.ItemDe
             While reader.Read()
                 txtName.Text = reader.GetString(0)
                 If reader.IsDBNull(1) = True Then
-                    txtContactNumber.Text = ""
+                    txtcontact1.Text = ""
                 Else
-                    txtContactNumber.Text = reader.GetString(1)
+                    txtcontact1.Text = reader.GetString(1)
                 End If
                 If reader.IsDBNull(2) = True Then
                     txtAddress.Text = ""
@@ -127,7 +146,7 @@ and b.TransactionID = " & lastTransID & " group by c.ItemID,c.ItemBrand,c.ItemDe
         End If
     End Sub
 
-    Private Sub txtName_EnabledChanged(sender As Object, e As EventArgs) Handles txtName.EnabledChanged
+    Private Sub txtName_EnabledChanged(sender As Object, e As EventArgs)
         If (txtName.Enabled = True) Then
             loadservicelist()
         End If
@@ -188,6 +207,15 @@ and b.TransactionID = " & lastTransID & " group by c.ItemID,c.ItemBrand,c.ItemDe
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         btnSearch_Click(sender, e)
+    End Sub
+
+    Private Sub txtcontact1_OnValueChanged(sender As Object, e As EventArgs) Handles txtcontact1.OnValueChanged
+        If (Len(txtcontact1.Text) > 9) Then
+            ErrorProvider1.SetError(txtcontact1, "Invalid Number.")
+            ErrorProvider1.SetIconPadding(txtcontact1, 5)
+        Else
+            ErrorProvider1.SetError(txtcontact1, "")
+        End If
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave_1.Click

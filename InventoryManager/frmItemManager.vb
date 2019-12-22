@@ -80,15 +80,7 @@ Public Class frmItemManager
         End If
     End Sub
 
-    Private Sub rdoSachet_CheckedChanged(sender As Object, e As EventArgs) Handles rdoSachet.CheckedChanged
-        If (rdoSachet.Checked = True) Then
-            txtVolume.Enabled = False
-            txtVolume.Text = "NA"
-        End If
-    End Sub
-
     Private Sub InitializeFlags()
-
         flag1 = True
         flag2 = True
         flag3 = True
@@ -192,20 +184,15 @@ Public Class frmItemManager
             Else
                 ContainerType = rdoSachet.Text
             End If
-            Dim vol As Object
-            If ContainerType = "Bottle" Then
-                vol = txtVolume.Text
-            Else
-                vol = DBNull.Value
-            End If
+
             If (saveType1 = 1) Then
 
-                Call AddItem(txtItemBrand.Text.Trim, txtDescription.Text.Trim, txtStocks.Text, vol, txtCritPoint.Text, ContainerType, txtPrice.Text, GetGroupBoxCheckedButton(groupBoxRole).Text, dtpExpirationDate.Value.ToString("MM/dd/yyyy"))
+                Call AddItem(txtItemBrand.Text.Trim, txtDescription.Text.Trim, txtStocks.Text, txtVolume.Text, txtCritPoint.Text, ContainerType, txtPrice.Text, GetGroupBoxCheckedButton(groupBoxRole).Text, dtpExpirationDate.Value.ToString("MM/dd/yyyy"))
                 MsgBox("Successfully added item.", MsgBoxStyle.Information, Application.ProductName)
                 logInfo = "Added new item#" & lastIDforcheckin & " successfully."
                 Call RecordLog(logInfo)
                 ElseIf (saveType1 = 2) Then
-                Call UpdateItem(txtStocks.Text, itemID, vol, dtpExpirationDate.Value.ToString("MM/dd/yyyy"))
+                Call UpdateItem(txtStocks.Text, itemID, txtVolume.Text, dtpExpirationDate.Value.ToString("MM/dd/yyyy"))
                 MsgBox("Successfully updated item.", MsgBoxStyle.Information, Application.ProductName)
             End If
             frmMenu.Enabled = True

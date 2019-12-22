@@ -25,6 +25,7 @@ Partial Class frmServices
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmServices))
         Me.dgvServiceList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
@@ -49,6 +50,11 @@ Partial Class frmServices
         Me.btnConsumables = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.servnum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.servname = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.servprice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.servtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.servstatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvServiceList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbServiceDetails.SuspendLayout()
@@ -76,14 +82,15 @@ Partial Class frmServices
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvServiceList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvServiceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvServiceList.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvServiceList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.servnum, Me.servname, Me.servprice, Me.servtype, Me.servstatus})
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvServiceList.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvServiceList.DoubleBuffered = True
         Me.dgvServiceList.EnableHeadersVisualStyles = False
         Me.dgvServiceList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
@@ -462,6 +469,43 @@ Partial Class frmServices
         Me.txtSearch.TabIndex = 33
         Me.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
+        'servnum
+        '
+        Me.servnum.DataPropertyName = "Service Number"
+        Me.servnum.HeaderText = "Service Number"
+        Me.servnum.Name = "servnum"
+        Me.servnum.ReadOnly = True
+        '
+        'servname
+        '
+        Me.servname.DataPropertyName = "Service Name"
+        Me.servname.HeaderText = "Service Name"
+        Me.servname.Name = "servname"
+        Me.servname.ReadOnly = True
+        '
+        'servprice
+        '
+        Me.servprice.DataPropertyName = "Service Price"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.servprice.DefaultCellStyle = DataGridViewCellStyle3
+        Me.servprice.HeaderText = "Service Price"
+        Me.servprice.Name = "servprice"
+        Me.servprice.ReadOnly = True
+        '
+        'servtype
+        '
+        Me.servtype.DataPropertyName = "Type"
+        Me.servtype.HeaderText = "Type"
+        Me.servtype.Name = "servtype"
+        Me.servtype.ReadOnly = True
+        '
+        'servstatus
+        '
+        Me.servstatus.DataPropertyName = "Status"
+        Me.servstatus.HeaderText = "Status"
+        Me.servstatus.Name = "servstatus"
+        Me.servstatus.ReadOnly = True
+        '
         'frmServices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -509,4 +553,9 @@ Partial Class frmServices
     Friend WithEvents btnConsumables As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents servnum As DataGridViewTextBoxColumn
+    Friend WithEvents servname As DataGridViewTextBoxColumn
+    Friend WithEvents servprice As DataGridViewTextBoxColumn
+    Friend WithEvents servtype As DataGridViewTextBoxColumn
+    Friend WithEvents servstatus As DataGridViewTextBoxColumn
 End Class

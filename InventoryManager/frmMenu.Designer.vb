@@ -86,7 +86,7 @@ Partial Class frmMenu
         Me.lblAccounts.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblAccounts.AutoSize = True
         Me.lblAccounts.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAccounts.Location = New System.Drawing.Point(236, 96)
+        Me.lblAccounts.Location = New System.Drawing.Point(686, 94)
         Me.lblAccounts.Name = "lblAccounts"
         Me.lblAccounts.Size = New System.Drawing.Size(77, 18)
         Me.lblAccounts.TabIndex = 6
@@ -108,7 +108,7 @@ Partial Class frmMenu
         Me.lblTransactions.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTransactions.AutoSize = True
         Me.lblTransactions.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTransactions.Location = New System.Drawing.Point(559, 94)
+        Me.lblTransactions.Location = New System.Drawing.Point(222, 96)
         Me.lblTransactions.Name = "lblTransactions"
         Me.lblTransactions.Size = New System.Drawing.Size(97, 18)
         Me.lblTransactions.TabIndex = 6
@@ -152,7 +152,7 @@ Partial Class frmMenu
         Me.lblServices.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblServices.AutoSize = True
         Me.lblServices.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblServices.Location = New System.Drawing.Point(682, 94)
+        Me.lblServices.Location = New System.Drawing.Point(573, 94)
         Me.lblServices.Name = "lblServices"
         Me.lblServices.Size = New System.Drawing.Size(69, 18)
         Me.lblServices.TabIndex = 6
@@ -231,7 +231,7 @@ Partial Class frmMenu
         Me.btnAccounts.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnAccounts.Image = Global.InventoryManager.My.Resources.Resources.accountsIcon
         Me.btnAccounts.ImageActive = Nothing
-        Me.btnAccounts.Location = New System.Drawing.Point(229, 3)
+        Me.btnAccounts.Location = New System.Drawing.Point(679, 3)
         Me.btnAccounts.Name = "btnAccounts"
         Me.btnAccounts.Size = New System.Drawing.Size(90, 90)
         Me.btnAccounts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -246,7 +246,7 @@ Partial Class frmMenu
         Me.btnTransactions.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnTransactions.Image = Global.InventoryManager.My.Resources.Resources.transactionsIcon
         Me.btnTransactions.ImageActive = Nothing
-        Me.btnTransactions.Location = New System.Drawing.Point(561, 3)
+        Me.btnTransactions.Location = New System.Drawing.Point(227, 3)
         Me.btnTransactions.Name = "btnTransactions"
         Me.btnTransactions.Size = New System.Drawing.Size(90, 90)
         Me.btnTransactions.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -261,7 +261,7 @@ Partial Class frmMenu
         Me.btnServices.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnServices.Image = Global.InventoryManager.My.Resources.Resources.customer
         Me.btnServices.ImageActive = Nothing
-        Me.btnServices.Location = New System.Drawing.Point(673, 3)
+        Me.btnServices.Location = New System.Drawing.Point(564, 3)
         Me.btnServices.Name = "btnServices"
         Me.btnServices.Size = New System.Drawing.Size(90, 90)
         Me.btnServices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom

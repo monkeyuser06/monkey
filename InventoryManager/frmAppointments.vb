@@ -19,7 +19,7 @@ Public Class frmAppointments
     'End Sub
 
     Private Sub frmAppointments_Load(sender As Object, e As EventArgs) Handles Me.Load
-        cond = "where convert(varchar, AppointmentDate,110) = '" & dtpAppointdate.Value.ToString("MM/dd/yyyy") & "'"
+        cond = " and Date = '" & dtpAppointdate.Value.ToString("MM/dd/yyyy") & "'"
         ExpiredAppointments()
         LoadDatagrid()
 
@@ -35,31 +35,33 @@ Public Class frmAppointments
 
     Private Sub LoadDatagrid()
         Call ConnectTOSQLServer1()
-        strSQL = "SELECT AppointmentID, CONVERT(Varchar,appointmentdate,101) as Date, CONVERT(VARCHAR(8),AppointmentDate,108) as [Time], CustomerName, ContactNumber, Address,
+        strSQL = "select * from (
+SELECT AppointmentID, CONVERT(Varchar,appointmentdate,101) as Date, CONVERT(varchar(15)
+,CAST(CONVERT(VARCHAR(8),AppointmentDate,108) AS time),100) as [Time], CustomerName, ContactNumber, Address,
 [Service/s Availed] = STUFF
                          ((SELECT DISTINCT ', ' + ServiceName
                           FROM            vw_AppointmentAvailed b
                           WHERE        b.AppointmentID = a.AppointmentID FOR XML PATH('')), 1, 2, '')
-, AppointmentStatus 
-FROM tblAppointment a " & cond
+, case when AppointmentStatus = 'Expired' then 'Lapsed' else AppointmentStatus end as AppointmentStatus 
+FROM tblAppointment a) f where [Service/s Availed] is not null  " & cond
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim Appointments As New DataSet()
-        dataadapter.Fill(Appointments, "vw_AppointmentAvailed")
+        dataadapter.Fill(Appointments, "f")
         dgvAppointments.DataSource = Appointments
-        dgvAppointments.DataMember = "vw_AppointmentAvailed"
+        dgvAppointments.DataMember = "f"
 
         If (dgvAppointments.Rows.Count > 0) Then
-            lblShow.Visible = True
-        Else
             lblShow.Visible = False
+        Else
+            lblShow.Visible = True
         End If
         Call DisConnectSQLServer()
     End Sub
 
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        cond = "where CustonerName like '%" & cond & "%'"
+        cond = " and CustomerName like '%" & txtSearchServ.Text & "%'"
         LoadDatagrid()
     End Sub
 
@@ -88,7 +90,19 @@ FROM tblAppointment a " & cond
     End Sub
 
     Private Sub dtpAppointdate_ValueChanged(sender As Object, e As EventArgs) Handles dtpAppointdate.ValueChanged
-        cond = "where convert(varchar, AppointmentDate,110) = '" & dtpAppointdate.Value.ToString("MM/dd/yyyy") & "'"
+        cond = " and Date = '" & dtpAppointdate.Value.ToString("MM/dd/yyyy") & "'"
         LoadDatagrid()
     End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked <> True Then
+            cond = " and Date = '" & dtpAppointdate.Value.ToString("MM/dd/yyyy") & "'"
+            LoadDatagrid()
+        Else
+            cond = ""
+        End If
+        LoadDatagrid()
+    End Sub
+
+
 End Class

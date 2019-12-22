@@ -9,7 +9,7 @@ Public Class frmAppointmentsManager
     Private Sub frmAppointmentsManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadtext()
         loadServiceList()
-        DateTimePicker1.MinDate = Date.Today.AddDays(1)
+        dtpAppointmentDate.MinDate = Date.Today.AddDays(1)
     End Sub
 
     Private Sub loadtext()
@@ -67,20 +67,13 @@ Public Class frmAppointmentsManager
         Select Case checkedCount
             Case 0
                 'No rows are checked.
-                ErrorProvider1.SetError(Label2, "Name is required.")
+                ErrorProvider1.SetError(Label2, "Atleast one service is required.")
                 ErrorProvider1.SetIconPadding(Label2, 5)
                 flag2 = False
             Case Else
                 'More than one row is checked.
                 ErrorProvider1.SetError(Label2, "")
         End Select
-    End Sub
-    Private Sub txtAddress_OnValueChanged(sender As Object, e As EventArgs) Handles txtAddress.OnValueChanged
-
-    End Sub
-
-    Private Sub txtName_OnValueChanged(sender As Object, e As EventArgs)
-
     End Sub
 
     Private Sub Initializeflag()
@@ -101,7 +94,9 @@ Public Class frmAppointmentsManager
 
         Dim ask = MsgBox("Do you want to save appointment?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If ask = vbYes Then
-            Call AddAppointment(txtName.Text.Trim, "+639" & txtcontact1.Text.Trim, txtAddress.Text.Trim, DateTimePicker1.Value.ToString("MM/dd/yyyy hh:mm"))
+            Dim appointdate = (dtpAppointmentDate.Text + " " + cboTime.Text)
+            Dim oDate As DateTime = DateTime.ParseExact(appointdate, "MM/dd/yyyy HH:mm tt", Nothing)
+            Call AddAppointment(txtName.Text.Trim, "+639" & txtcontact1.Text.Trim, txtAddress.Text.Trim, oDate)
             Call ConnectTOSQLServer1()
             Dim inserted As Integer = 0
             For Each row As DataGridViewRow In dgvServiceList.Rows

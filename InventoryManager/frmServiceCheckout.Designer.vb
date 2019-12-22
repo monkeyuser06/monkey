@@ -49,8 +49,6 @@ Partial Class frmServiceCheckout
         Me.service_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.emp_assigned = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.service_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtName = New Bunifu.Framework.UI.BunifuMaterialTextbox()
-        Me.txtContactNumber = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.txtAddress = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.lblTotal = New Bunifu.Framework.UI.BunifuCustomLabel()
@@ -72,6 +70,9 @@ Partial Class frmServiceCheckout
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnRemove = New Bunifu.Framework.UI.BunifuImageButton()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtName = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtcontact1 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         CType(Me.dgvSearchService, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvServiceListing, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -286,44 +287,6 @@ Partial Class frmServiceCheckout
         Me.service_price.Name = "service_price"
         Me.service_price.ReadOnly = True
         '
-        'txtName
-        '
-        Me.txtName.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtName.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.txtName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtName.HintForeColor = System.Drawing.Color.Gray
-        Me.txtName.HintText = "Customer Name"
-        Me.txtName.isPassword = False
-        Me.txtName.LineFocusedColor = System.Drawing.Color.Blue
-        Me.txtName.LineIdleColor = System.Drawing.Color.Gray
-        Me.txtName.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.txtName.LineThickness = 3
-        Me.txtName.Location = New System.Drawing.Point(7, 20)
-        Me.txtName.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(201, 33)
-        Me.txtName.TabIndex = 1
-        Me.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'txtContactNumber
-        '
-        Me.txtContactNumber.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtContactNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.txtContactNumber.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtContactNumber.HintForeColor = System.Drawing.Color.Gray
-        Me.txtContactNumber.HintText = "Contact Number"
-        Me.txtContactNumber.isPassword = False
-        Me.txtContactNumber.LineFocusedColor = System.Drawing.Color.Blue
-        Me.txtContactNumber.LineIdleColor = System.Drawing.Color.Gray
-        Me.txtContactNumber.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.txtContactNumber.LineThickness = 3
-        Me.txtContactNumber.Location = New System.Drawing.Point(245, 20)
-        Me.txtContactNumber.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtContactNumber.Name = "txtContactNumber"
-        Me.txtContactNumber.Size = New System.Drawing.Size(137, 33)
-        Me.txtContactNumber.TabIndex = 2
-        Me.txtContactNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
         'txtAddress
         '
         Me.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam
@@ -339,7 +302,7 @@ Partial Class frmServiceCheckout
         Me.txtAddress.Location = New System.Drawing.Point(7, 61)
         Me.txtAddress.Margin = New System.Windows.Forms.Padding(4)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(375, 33)
+        Me.txtAddress.Size = New System.Drawing.Size(390, 33)
         Me.txtAddress.TabIndex = 3
         Me.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
@@ -375,9 +338,10 @@ Partial Class frmServiceCheckout
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btnSave_1)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.txtcontact1)
         Me.GroupBox1.Controls.Add(Me.txtName)
-        Me.GroupBox1.Controls.Add(Me.txtContactNumber)
+        Me.GroupBox1.Controls.Add(Me.btnSave_1)
         Me.GroupBox1.Controls.Add(Me.txtAddress)
         Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 52)
@@ -594,6 +558,43 @@ Partial Class frmServiceCheckout
         Me.Button1.Text = "REFRESH"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'txtName
+        '
+        Me.txtName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtName.Location = New System.Drawing.Point(6, 31)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(232, 23)
+        Me.txtName.TabIndex = 55
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(264, 34)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(38, 17)
+        Me.Label3.TabIndex = 57
+        Me.Label3.Text = "+639"
+        '
+        'txtcontact1
+        '
+        Me.txtcontact1.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtcontact1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtcontact1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtcontact1.HintForeColor = System.Drawing.Color.Gray
+        Me.txtcontact1.HintText = "XXXXXXXXX"
+        Me.txtcontact1.isPassword = False
+        Me.txtcontact1.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txtcontact1.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtcontact1.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txtcontact1.LineThickness = 3
+        Me.txtcontact1.Location = New System.Drawing.Point(309, 29)
+        Me.txtcontact1.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtcontact1.Name = "txtcontact1"
+        Me.txtcontact1.Size = New System.Drawing.Size(88, 25)
+        Me.txtcontact1.TabIndex = 56
+        Me.txtcontact1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
         'frmServiceCheckout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -626,6 +627,7 @@ Partial Class frmServiceCheckout
         CType(Me.dgvSearchService, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvServiceListing, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvItemConsumed, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnRemove, System.ComponentModel.ISupportInitialize).EndInit()
@@ -638,8 +640,6 @@ Partial Class frmServiceCheckout
     Friend WithEvents dgvSearchService As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents btnSearch As Button
     Friend WithEvents dgvServiceListing As Bunifu.Framework.UI.BunifuCustomDataGrid
-    Friend WithEvents txtName As Bunifu.Framework.UI.BunifuMaterialTextbox
-    Friend WithEvents txtContactNumber As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents txtAddress As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents lblTotal As Bunifu.Framework.UI.BunifuCustomLabel
@@ -670,4 +670,7 @@ Partial Class frmServiceCheckout
     Friend WithEvents labelConsumed As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents btnRemove As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents Button1 As Button
+    Friend WithEvents txtName As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtcontact1 As Bunifu.Framework.UI.BunifuMaterialTextbox
 End Class

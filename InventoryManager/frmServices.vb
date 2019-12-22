@@ -75,7 +75,7 @@ Public Class frmServices
     End Sub
     Private Sub viewServices()
         Call ConnectTOSQLServer1()
-        strSQL = "select 'SID#' +RIGHT('000000' + CAST(ServiceID AS VARCHAR(10)), 6)  as [Service Number],ServiceName as [Service Name],ServicePrice as [Service Price],ServiceType as [Type],ServiceStatus as [Status] from tblServices " & cond
+        strSQL = "select 'SID#' +RIGHT('000000' + CAST(ServiceID AS VARCHAR(10)), 6)  as [Service Number],ServiceName as [Service Name],concat('Php' ,CAST(cast(ServicePrice as float) AS decimal(10,2))) as [Service Price],ServiceType as [Type],case when ServiceStatus = 1 then 'ACTIVE' else 'INACTIVE' end as [Status] from tblServices " & cond
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim ServiceList As New DataSet()
