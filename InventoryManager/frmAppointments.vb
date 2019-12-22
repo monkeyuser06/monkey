@@ -73,7 +73,8 @@ FROM tblAppointment a) f where [Service/s Availed] is not null  " & cond
                     Dim ask = MsgBox("Are you sure you want to proceed this to transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
                     If ask = vbYes Then
                         AppointmentID = dgvAppointments.CurrentRow.Cells("id").Value
-                        frmAppointmentTransactions.ShowDialog()
+                        Dim ab As New frmAppointmentTransactions
+                        ab.ShowDialog()
                         Me.Close()
                     End If
                 ElseIf (dgvAppointments.CurrentRow.Cells("status").Value = "Done") Then
@@ -90,6 +91,7 @@ FROM tblAppointment a) f where [Service/s Availed] is not null  " & cond
     End Sub
 
     Private Sub dtpAppointdate_ValueChanged(sender As Object, e As EventArgs) Handles dtpAppointdate.ValueChanged
+        CheckBox1.Checked = False
         cond = " and Date = '" & dtpAppointdate.Value.ToString("MM/dd/yyyy") & "'"
         LoadDatagrid()
     End Sub

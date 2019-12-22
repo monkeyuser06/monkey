@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmAppointmentTransactions
-    Inherits System.Windows.Forms.Form
+    Inherits MetroFramework.Forms.MetroForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -55,6 +55,11 @@ Partial Class frmAppointmentTransactions
         Me.emp_assigned = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.service_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvReserveList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.serv_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.serv_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.btnAdd = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btnRemove = New Bunifu.Framework.UI.BunifuImageButton()
@@ -64,7 +69,6 @@ Partial Class frmAppointmentTransactions
         Me.brand = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.desc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.consumed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnSave = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.dgvOfferings = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.sid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sname = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -74,11 +78,8 @@ Partial Class frmAppointmentTransactions
         Me.BunifuCustomLabel5 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.lblTotal = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.lblShownone = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.serv_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.serv_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnSasve = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvServiceListing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvReserveList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -302,7 +303,7 @@ Partial Class frmAppointmentTransactions
         Me.dgvReserveList.EnableHeadersVisualStyles = False
         Me.dgvReserveList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvReserveList.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvReserveList.Location = New System.Drawing.Point(437, 44)
+        Me.dgvReserveList.Location = New System.Drawing.Point(437, 73)
         Me.dgvReserveList.MultiSelect = False
         Me.dgvReserveList.Name = "dgvReserveList"
         Me.dgvReserveList.ReadOnly = True
@@ -326,11 +327,47 @@ Partial Class frmAppointmentTransactions
         Me.dgvReserveList.Size = New System.Drawing.Size(370, 194)
         Me.dgvReserveList.TabIndex = 46
         '
+        'serv_id
+        '
+        Me.serv_id.DataPropertyName = "ServiceID"
+        Me.serv_id.HeaderText = "ServiceID"
+        Me.serv_id.Name = "serv_id"
+        Me.serv_id.ReadOnly = True
+        Me.serv_id.Visible = False
+        '
+        'serv_name
+        '
+        Me.serv_name.DataPropertyName = "ServiceName"
+        Me.serv_name.HeaderText = "Service Name"
+        Me.serv_name.Name = "serv_name"
+        Me.serv_name.ReadOnly = True
+        '
+        'price
+        '
+        Me.price.DataPropertyName = "ServicePrice"
+        Me.price.HeaderText = "Price"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        '
+        'type
+        '
+        Me.type.DataPropertyName = "ServiceType"
+        Me.type.HeaderText = "Type"
+        Me.type.Name = "type"
+        Me.type.ReadOnly = True
+        '
+        'status
+        '
+        Me.status.DataPropertyName = "Service_Availability"
+        Me.status.HeaderText = "Availability"
+        Me.status.Name = "status"
+        Me.status.ReadOnly = True
+        '
         'BunifuCustomLabel1
         '
         Me.BunifuCustomLabel1.AutoSize = True
         Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(431, 24)
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(434, 53)
         Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
         Me.BunifuCustomLabel1.Size = New System.Drawing.Size(80, 17)
         Me.BunifuCustomLabel1.TabIndex = 61
@@ -341,7 +378,7 @@ Partial Class frmAppointmentTransactions
         Me.btnAdd.BackColor = System.Drawing.Color.Transparent
         Me.btnAdd.Image = Global.InventoryManager.My.Resources.Resources.plus_3_
         Me.btnAdd.ImageActive = Nothing
-        Me.btnAdd.Location = New System.Drawing.Point(782, 12)
+        Me.btnAdd.Location = New System.Drawing.Point(782, 44)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(25, 25)
         Me.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -366,7 +403,7 @@ Partial Class frmAppointmentTransactions
         '
         Me.labelConsumed.AutoSize = True
         Me.labelConsumed.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.labelConsumed.Location = New System.Drawing.Point(536, 271)
+        Me.labelConsumed.Location = New System.Drawing.Point(537, 299)
         Me.labelConsumed.Name = "labelConsumed"
         Me.labelConsumed.Size = New System.Drawing.Size(168, 17)
         Me.labelConsumed.TabIndex = 65
@@ -407,7 +444,7 @@ Partial Class frmAppointmentTransactions
         Me.dgvItemConsumed.EnableHeadersVisualStyles = False
         Me.dgvItemConsumed.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvItemConsumed.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvItemConsumed.Location = New System.Drawing.Point(437, 244)
+        Me.dgvItemConsumed.Location = New System.Drawing.Point(437, 271)
         Me.dgvItemConsumed.MultiSelect = False
         Me.dgvItemConsumed.Name = "dgvItemConsumed"
         Me.dgvItemConsumed.ReadOnly = True
@@ -428,7 +465,7 @@ Partial Class frmAppointmentTransactions
         Me.dgvItemConsumed.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvItemConsumed.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvItemConsumed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvItemConsumed.Size = New System.Drawing.Size(370, 184)
+        Me.dgvItemConsumed.Size = New System.Drawing.Size(370, 157)
         Me.dgvItemConsumed.TabIndex = 64
         '
         'ItemID
@@ -459,18 +496,6 @@ Partial Class frmAppointmentTransactions
         Me.consumed.HeaderText = "Consumed"
         Me.consumed.Name = "consumed"
         Me.consumed.ReadOnly = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Depth = 0
-        Me.btnSave.Location = New System.Drawing.Point(559, 449)
-        Me.btnSave.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Primary = True
-        Me.btnSave.Size = New System.Drawing.Size(85, 29)
-        Me.btnSave.TabIndex = 66
-        Me.btnSave.Text = "SAVE"
-        Me.btnSave.UseVisualStyleBackColor = True
         '
         'dgvOfferings
         '
@@ -507,7 +532,7 @@ Partial Class frmAppointmentTransactions
         Me.dgvOfferings.EnableHeadersVisualStyles = False
         Me.dgvOfferings.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvOfferings.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvOfferings.Location = New System.Drawing.Point(813, 44)
+        Me.dgvOfferings.Location = New System.Drawing.Point(813, 73)
         Me.dgvOfferings.MultiSelect = False
         Me.dgvOfferings.Name = "dgvOfferings"
         Me.dgvOfferings.ReadOnly = True
@@ -528,7 +553,7 @@ Partial Class frmAppointmentTransactions
         Me.dgvOfferings.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvOfferings.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvOfferings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvOfferings.Size = New System.Drawing.Size(356, 434)
+        Me.dgvOfferings.Size = New System.Drawing.Size(356, 405)
         Me.dgvOfferings.TabIndex = 67
         '
         'sid
@@ -597,53 +622,37 @@ Partial Class frmAppointmentTransactions
         Me.lblShownone.TabIndex = 70
         Me.lblShownone.Text = "No Service Selected Yet."
         '
-        'serv_id
+        'Button1
         '
-        Me.serv_id.DataPropertyName = "ServiceID"
-        Me.serv_id.HeaderText = "ServiceID"
-        Me.serv_id.Name = "serv_id"
-        Me.serv_id.ReadOnly = True
-        Me.serv_id.Visible = False
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(319, 159)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 71
+        Me.Button1.Text = "Refresh"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'serv_name
+        'btnSasve
         '
-        Me.serv_name.DataPropertyName = "ServiceName"
-        Me.serv_name.HeaderText = "Service Name"
-        Me.serv_name.Name = "serv_name"
-        Me.serv_name.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.DataPropertyName = "ServicePrice"
-        Me.price.HeaderText = "Price"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'type
-        '
-        Me.type.DataPropertyName = "ServiceType"
-        Me.type.HeaderText = "Type"
-        Me.type.Name = "type"
-        Me.type.ReadOnly = True
-        '
-        'status
-        '
-        Me.status.DataPropertyName = "Service_Availability"
-        Me.status.HeaderText = "Availability"
-        Me.status.Name = "status"
-        Me.status.ReadOnly = True
+        Me.btnSasve.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSasve.Location = New System.Drawing.Point(476, 472)
+        Me.btnSasve.Name = "btnSasve"
+        Me.btnSasve.Size = New System.Drawing.Size(91, 27)
+        Me.btnSasve.TabIndex = 72
+        Me.btnSasve.Text = "Save"
+        Me.btnSasve.UseVisualStyleBackColor = True
         '
         'frmAppointmentTransactions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1181, 522)
+        Me.Controls.Add(Me.btnSasve)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblShownone)
         Me.Controls.Add(Me.BunifuCustomLabel5)
         Me.Controls.Add(Me.lblTotal)
         Me.Controls.Add(Me.dgvOfferings)
-        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.labelConsumed)
         Me.Controls.Add(Me.dgvItemConsumed)
         Me.Controls.Add(Me.btnAdd)
@@ -652,9 +661,11 @@ Partial Class frmAppointmentTransactions
         Me.Controls.Add(Me.dgvReserveList)
         Me.Controls.Add(Me.dgvServiceListing)
         Me.Controls.Add(Me.GroupBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "frmAppointmentTransactions"
+        Me.Resizable = False
+        Me.Style = MetroFramework.MetroColorStyle.Pink
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.dgvServiceListing, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvReserveList, System.ComponentModel.ISupportInitialize).EndInit()
@@ -688,7 +699,6 @@ Partial Class frmAppointmentTransactions
     Friend WithEvents brand As DataGridViewTextBoxColumn
     Friend WithEvents desc As DataGridViewTextBoxColumn
     Friend WithEvents consumed As DataGridViewTextBoxColumn
-    Friend WithEvents btnSave As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents dgvOfferings As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents sid As DataGridViewTextBoxColumn
     Friend WithEvents sname As DataGridViewTextBoxColumn
@@ -703,4 +713,6 @@ Partial Class frmAppointmentTransactions
     Friend WithEvents price As DataGridViewTextBoxColumn
     Friend WithEvents type As DataGridViewTextBoxColumn
     Friend WithEvents status As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnSasve As Button
 End Class

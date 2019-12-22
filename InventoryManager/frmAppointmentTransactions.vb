@@ -119,11 +119,10 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
         End If
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSasve.Click
         If (dgvServiceListing.Rows.Count > 0) Then
             Dim ask = MsgBox("Are you sure you want to proceed and create this transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If ask = vbYes Then
-                Me.Close()
             End If
         Else
             MsgBox("Please select atleast one service.", MsgBoxStyle.Information, Application.ProductName)
@@ -148,4 +147,9 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
     Private Sub GroupBox1_MouseHover(sender As Object, e As EventArgs) Handles GroupBox1.MouseHover
         getdata()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        getdata()
+    End Sub
+
 End Class
