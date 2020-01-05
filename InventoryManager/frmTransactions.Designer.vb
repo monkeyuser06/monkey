@@ -353,7 +353,7 @@ Partial Class frmTransactions
         'price
         '
         Me.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.price.DataPropertyName = "[Amount Collected]"
+        Me.price.DataPropertyName = "Amount Collected"
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         Me.price.DefaultCellStyle = DataGridViewCellStyle5
         Me.price.HeaderText = "Price"

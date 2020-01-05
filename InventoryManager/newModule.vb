@@ -157,6 +157,7 @@ values(@itemID,'" & Physi & "','" & Volume & "',case when '" & Cont & "'= 'Bottl
         cmd.Parameters.AddWithValue("@ServiceID", SqlDbType.Int).Value = serv
         cmd.Parameters.AddWithValue("@Emp", SqlDbType.Int).Value = emp
         ServiceAvailed = cmd.ExecuteScalar()
+        Call Notification(serv)
         Call DisConnectSQLServer()
         InventoryProcessing()
     End Sub
@@ -273,5 +274,74 @@ where TransactionID = " & id
         cmd = New SqlCommand(strSQL, Connection)
         cmd.ExecuteNonQuery()
         Call DisConnectSQLServer()
+    End Sub
+
+
+    Public Sub Notification(serviceid_1 As Int32)
+        ConnectTOSQLServer1()
+        strSQL = "select * from (
+select itemid,ItemNo, 
+case 
+when PhysicalStock = 0 then 'Item had ran out of stock.' 
+ when PhysicalStock < CriticalPoint then 'Item had reached critical level.'
+else 'Normal' end
+ as ItemStatus
+ from tblInventory where ItemID in (
+select ItemID from tblServiceConsumables where ServiceID = " & serviceid_1 & ")) a
+where ItemStatus = 'Item had reached critical level.'"
+        cmd = New SqlCommand(strSQL, Connection)
+        reader = cmd.ExecuteReader
+        If reader.Read Then
+            MsgBox("An item had reached it's critical point. Please check the notifications and restock soon!", MsgBoxStyle.Exclamation, Application.ProductName)
+            strSQL = "insert into tblNotifications
+select
+getdate() as Date,ItemID,ItemStatus
+ from (
+select * from (
+select itemid,ItemNo, 
+case 
+when PhysicalStock = 0 then 'Item had ran out of stock.' 
+ when PhysicalStock < CriticalPoint then 'Item had reached critical level.'
+else 'Normal' end
+ as ItemStatus
+ from tblInventory where ItemID in (
+select ItemID from tblServiceConsumables where ServiceID = " & serviceid_1 & ")) a
+where ItemStatus = 'Item had reached critical level.') b"
+            cmd = New SqlCommand(strSQL, Connection)
+            cmd.ExecuteNonQuery()
+        End If
+        reader.Close()
+        strSQL = "select * from (
+select itemid,ItemNo, 
+case 
+when PhysicalStock = 0 then 'Item had ran out of stock.' 
+ when PhysicalStock < CriticalPoint then 'Item had reached critical level.'
+else 'Normal' end
+ as ItemStatus
+ from tblInventory where ItemID in (
+select ItemID from tblServiceConsumables where ServiceID = " & serviceid_1 & ")) a
+where ItemStatus = 'Item had ran out of stock.'"
+        cmd = New SqlCommand(strSQL, Connection)
+        reader = cmd.ExecuteReader
+        If reader.Read Then
+            MsgBox("An item had become out of stock. Please check the notifications and restock soon!", MsgBoxStyle.Exclamation, Application.ProductName)
+            strSQL = "insert into tblNotifications
+select
+getdate() as Date,ItemID,ItemStatus
+ from (
+select * from (
+select itemid,ItemNo, 
+case 
+when PhysicalStock = 0 then 'Item had ran out of stock.' 
+ when PhysicalStock < CriticalPoint then 'Item had reached critical level.'
+else 'Normal' end
+ as ItemStatus
+ from tblInventory where ItemID in (
+select ItemID from tblServiceConsumables where ServiceID = " & serviceid_1 & ")) a
+where ItemStatus = 'Item had ran out of stock.') b"
+            cmd = New SqlCommand(strSQL, Connection)
+            cmd.ExecuteNonQuery()
+        End If
+        DisConnectSQLServer()
     End Sub
 End Module

@@ -164,6 +164,12 @@
     <Compile Include="frmAppointmentTransactions.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmNotifications.Designer.vb">
+      <DependentUpon>frmNotifications.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotifications.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmServiceDialog.Designer.vb">
       <DependentUpon>frmServiceDialog.vb</DependentUpon>
     </Compile>
@@ -383,6 +389,9 @@
     <EmbeddedResource Include="frmAppointmentTransactions.resx">
       <DependentUpon>frmAppointmentTransactions.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNotifications.resx">
+      <DependentUpon>frmNotifications.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmServiceDialog.resx">
       <DependentUpon>frmServiceDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -582,6 +591,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon salon_0`.ico" />
+    <None Include="Resources\alarm.png" />
+    <None Include="Resources\bell.png" />
     <None Include="Resources\plus%283%29.png" />
     <None Include="Resources\plus%281%29.png" />
     <None Include="Resources\plus.png" />

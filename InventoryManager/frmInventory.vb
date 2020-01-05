@@ -92,6 +92,10 @@ Public Class frmInventory
         Call viewItemList_reload()
     End Sub
 
+    Private Sub btnNotifications_Click(sender As Object, e As EventArgs) Handles btnNotifications.Click
+        frmNotifications.ShowDialog()
+    End Sub
+
     Private Sub frmInventory_EnabledChanged(sender As Object, e As EventArgs) Handles MyBase.EnabledChanged
         Call viewItemList_reload()
     End Sub

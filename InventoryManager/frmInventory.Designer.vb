@@ -27,13 +27,6 @@ Partial Class frmInventory
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInventory))
         Me.dgvItemList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.btnUpdateItem = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.btnAddItem = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.btnExportExcel = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.itemno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.brand = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.desc = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,8 +37,17 @@ Partial Class frmInventory
         Me.container1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.classtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.cboClass = New System.Windows.Forms.ComboBox()
+        Me.btnNotifications = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btnExportExcel = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.btnUpdateItem = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.btnAddItem = New Bunifu.Framework.UI.BunifuFlatButton()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnNotifications, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -94,6 +96,78 @@ Partial Class frmInventory
         Me.dgvItemList.Size = New System.Drawing.Size(933, 372)
         Me.dgvItemList.TabIndex = 8
         '
+        'itemno
+        '
+        Me.itemno.DataPropertyName = "ItemNo"
+        Me.itemno.HeaderText = "ItemNumber"
+        Me.itemno.Name = "itemno"
+        Me.itemno.ReadOnly = True
+        Me.itemno.Visible = False
+        '
+        'brand
+        '
+        Me.brand.DataPropertyName = "ItemBrand"
+        Me.brand.HeaderText = "Brand"
+        Me.brand.Name = "brand"
+        Me.brand.ReadOnly = True
+        '
+        'desc
+        '
+        Me.desc.DataPropertyName = "ItemDescription"
+        Me.desc.HeaderText = "Description"
+        Me.desc.Name = "desc"
+        Me.desc.ReadOnly = True
+        '
+        'stocks
+        '
+        Me.stocks.DataPropertyName = "PhysicalStock"
+        Me.stocks.HeaderText = "Stocks"
+        Me.stocks.Name = "stocks"
+        Me.stocks.ReadOnly = True
+        '
+        'volumeperstock
+        '
+        Me.volumeperstock.DataPropertyName = "VolumePerStock"
+        Me.volumeperstock.HeaderText = "Volume Per Stock"
+        Me.volumeperstock.Name = "volumeperstock"
+        Me.volumeperstock.ReadOnly = True
+        '
+        'totalvolume
+        '
+        Me.totalvolume.DataPropertyName = "TotalVolume"
+        Me.totalvolume.HeaderText = "Total Volume"
+        Me.totalvolume.Name = "totalvolume"
+        Me.totalvolume.ReadOnly = True
+        '
+        'criticalpoint
+        '
+        Me.criticalpoint.DataPropertyName = "CriticalPoint"
+        Me.criticalpoint.HeaderText = "Critical Point"
+        Me.criticalpoint.Name = "criticalpoint"
+        Me.criticalpoint.ReadOnly = True
+        '
+        'container1
+        '
+        Me.container1.DataPropertyName = "ContainerType"
+        Me.container1.HeaderText = "Container"
+        Me.container1.Name = "container1"
+        Me.container1.ReadOnly = True
+        Me.container1.Visible = False
+        '
+        'price
+        '
+        Me.price.DataPropertyName = "Price"
+        Me.price.HeaderText = "Price"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        '
+        'classtype
+        '
+        Me.classtype.DataPropertyName = "ItemClass"
+        Me.classtype.HeaderText = "Class"
+        Me.classtype.Name = "classtype"
+        Me.classtype.ReadOnly = True
+        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.SandyBrown
@@ -122,6 +196,46 @@ Partial Class frmInventory
         Me.txtSearch.Size = New System.Drawing.Size(240, 33)
         Me.txtSearch.TabIndex = 31
         Me.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'cboClass
+        '
+        Me.cboClass.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cboClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboClass.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.cboClass.FormattingEnabled = True
+        Me.cboClass.Items.AddRange(New Object() {"ALL", "BODY", "FACE", "HAIR", "NAILS"})
+        Me.cboClass.Location = New System.Drawing.Point(535, 87)
+        Me.cboClass.Name = "cboClass"
+        Me.cboClass.Size = New System.Drawing.Size(127, 25)
+        Me.cboClass.TabIndex = 34
+        '
+        'btnNotifications
+        '
+        Me.btnNotifications.BackColor = System.Drawing.Color.Transparent
+        Me.btnNotifications.ErrorImage = Global.InventoryManager.My.Resources.Resources.alarm
+        Me.btnNotifications.Image = Global.InventoryManager.My.Resources.Resources.bell
+        Me.btnNotifications.ImageActive = Nothing
+        Me.btnNotifications.Location = New System.Drawing.Point(12, 82)
+        Me.btnNotifications.Name = "btnNotifications"
+        Me.btnNotifications.Size = New System.Drawing.Size(32, 33)
+        Me.btnNotifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnNotifications.TabIndex = 35
+        Me.btnNotifications.TabStop = False
+        Me.btnNotifications.Zoom = 10
+        '
+        'btnExportExcel
+        '
+        Me.btnExportExcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportExcel.BackColor = System.Drawing.Color.Transparent
+        Me.btnExportExcel.Image = Global.InventoryManager.My.Resources.Resources.excel
+        Me.btnExportExcel.ImageActive = Nothing
+        Me.btnExportExcel.Location = New System.Drawing.Point(1000, 120)
+        Me.btnExportExcel.Name = "btnExportExcel"
+        Me.btnExportExcel.Size = New System.Drawing.Size(46, 48)
+        Me.btnExportExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnExportExcel.TabIndex = 33
+        Me.btnExportExcel.TabStop = False
+        Me.btnExportExcel.Zoom = 10
         '
         'btnSearch
         '
@@ -205,110 +319,13 @@ Partial Class frmInventory
         Me.btnAddItem.Textcolor = System.Drawing.Color.White
         Me.btnAddItem.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
-        'btnExportExcel
-        '
-        Me.btnExportExcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExportExcel.BackColor = System.Drawing.Color.Transparent
-        Me.btnExportExcel.Image = Global.InventoryManager.My.Resources.Resources.excel
-        Me.btnExportExcel.ImageActive = Nothing
-        Me.btnExportExcel.Location = New System.Drawing.Point(1000, 120)
-        Me.btnExportExcel.Name = "btnExportExcel"
-        Me.btnExportExcel.Size = New System.Drawing.Size(46, 48)
-        Me.btnExportExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btnExportExcel.TabIndex = 33
-        Me.btnExportExcel.TabStop = False
-        Me.btnExportExcel.Zoom = 10
-        '
-        'itemno
-        '
-        Me.itemno.DataPropertyName = "ItemNo"
-        Me.itemno.HeaderText = "ItemNumber"
-        Me.itemno.Name = "itemno"
-        Me.itemno.ReadOnly = True
-        Me.itemno.Visible = False
-        '
-        'brand
-        '
-        Me.brand.DataPropertyName = "ItemBrand"
-        Me.brand.HeaderText = "Brand"
-        Me.brand.Name = "brand"
-        Me.brand.ReadOnly = True
-        '
-        'desc
-        '
-        Me.desc.DataPropertyName = "ItemDescription"
-        Me.desc.HeaderText = "Description"
-        Me.desc.Name = "desc"
-        Me.desc.ReadOnly = True
-        '
-        'stocks
-        '
-        Me.stocks.DataPropertyName = "PhysicalStock"
-        Me.stocks.HeaderText = "Stocks"
-        Me.stocks.Name = "stocks"
-        Me.stocks.ReadOnly = True
-        '
-        'volumeperstock
-        '
-        Me.volumeperstock.DataPropertyName = "VolumePerStock"
-        Me.volumeperstock.HeaderText = "Volume Per Stock"
-        Me.volumeperstock.Name = "volumeperstock"
-        Me.volumeperstock.ReadOnly = True
-        '
-        'totalvolume
-        '
-        Me.totalvolume.DataPropertyName = "TotalVolume"
-        Me.totalvolume.HeaderText = "Total Volume"
-        Me.totalvolume.Name = "totalvolume"
-        Me.totalvolume.ReadOnly = True
-        '
-        'criticalpoint
-        '
-        Me.criticalpoint.DataPropertyName = "CriticalPoint"
-        Me.criticalpoint.HeaderText = "Critical Point"
-        Me.criticalpoint.Name = "criticalpoint"
-        Me.criticalpoint.ReadOnly = True
-        '
-        'container1
-        '
-        Me.container1.DataPropertyName = "ContainerType"
-        Me.container1.HeaderText = "Container"
-        Me.container1.Name = "container1"
-        Me.container1.ReadOnly = True
-        Me.container1.Visible = False
-        '
-        'price
-        '
-        Me.price.DataPropertyName = "Price"
-        Me.price.HeaderText = "Price"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'classtype
-        '
-        Me.classtype.DataPropertyName = "ItemClass"
-        Me.classtype.HeaderText = "Class"
-        Me.classtype.Name = "classtype"
-        Me.classtype.ReadOnly = True
-        '
-        'cboClass
-        '
-        Me.cboClass.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cboClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboClass.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.cboClass.FormattingEnabled = True
-        Me.cboClass.Items.AddRange(New Object() {"ALL", "BODY", "FACE", "HAIR", "NAILS"})
-        Me.cboClass.Location = New System.Drawing.Point(535, 87)
-        Me.cboClass.Name = "cboClass"
-        Me.cboClass.Size = New System.Drawing.Size(127, 25)
-        Me.cboClass.TabIndex = 34
-        '
         'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.btnNotifications)
         Me.Controls.Add(Me.cboClass)
         Me.Controls.Add(Me.btnExportExcel)
         Me.Controls.Add(Me.btnSearch)
@@ -321,6 +338,7 @@ Partial Class frmInventory
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmInventory"
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnNotifications, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -344,4 +362,5 @@ Partial Class frmInventory
     Friend WithEvents price As DataGridViewTextBoxColumn
     Friend WithEvents classtype As DataGridViewTextBoxColumn
     Friend WithEvents cboClass As ComboBox
+    Friend WithEvents btnNotifications As Bunifu.Framework.UI.BunifuImageButton
 End Class
