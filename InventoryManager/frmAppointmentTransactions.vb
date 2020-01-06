@@ -13,7 +13,6 @@ Public Class frmAppointmentTransactions
 
     Private Sub frmAppointmentTransactions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Width = 814
-        getdata()
         AcceptAppointment(AppointmentID)
         AddTransaction(txtName.Text, txtAddress.Text, "Pending")
         MsgBox("Please assign employees to services.", MsgBoxStyle.Information, Application.ProductName)
@@ -32,8 +31,6 @@ Public Class frmAppointmentTransactions
             txtAddress.Text = reader.GetString(2)
         End While
         reader.Close()
-
-
         strSQL = " select ServiceAvailedID,ServiceID, ServiceName,Emp_Fullname,ServicePrice from vw_ServiceAvailed where DataStatus = 'ACTIVE' and  TransactionID = " & lastTransID
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim ServiceAvailedList As New DataSet()
@@ -158,4 +155,7 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
         getdata()
     End Sub
 
+    Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class

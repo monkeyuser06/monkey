@@ -18,7 +18,7 @@ Imports System.Data.Odbc
 
 Module newModule
 
-    Public newProdID, ServiceAvailed, AppointmentID As Integer
+    Public newProdID, ServiceAvailed, AppointmentID, translabel As Integer
     Public Sub ConnectTOSQLServer1()
         Connection = New SqlConnection(sqlConnectionString1)
         Try

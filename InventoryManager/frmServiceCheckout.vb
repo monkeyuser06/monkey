@@ -7,8 +7,17 @@ Public Class frmServiceCheckout
 
 
     Private Sub frmServiceCheckout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loadservicelist()
-        loadtext()
+        If translabel = 1 Then
+            loadservicelist()
+            loadtext()
+        ElseIf translabel = 2 Then
+            Me.Width = 814
+            AcceptAppointment(AppointmentID)
+            AddTransaction(txtName.Text, txtAddress.Text, "Pending")
+            MsgBox("Please assign employees to services.", MsgBoxStyle.Information, Application.ProductName)
+            GroupBox1.Enabled = False
+            getdata()
+        End If
     End Sub
 
     Private Sub loadtext()
@@ -237,5 +246,76 @@ and b.TransactionID = " & lastTransID & " group by c.ItemID,c.ItemBrand,c.ItemDe
             MsgBox("Please select atleast one service.", MsgBoxStyle.Information, Application.ProductName)
         End If
     End Sub
+    Private Sub getdata()
+        Call ConnectTOSQLServer1()
+        strSQL = "select CustomerName,ContactNumber,Address from tblAppointment where AppointmentID = " & AppointmentID
+        cmd = New SqlCommand(strSQL, Connection)
+        reader = cmd.ExecuteReader
+        While reader.Read
+            txtName.Text = reader.GetString(0)
+            txtcontact1.Text = reader.GetString(1)
+            txtAddress.Text = reader.GetString(2)
+        End While
+        reader.Close()
+        strSQL = " select ServiceAvailedID,ServiceID, ServiceName,Emp_Fullname,ServicePrice from vw_ServiceAvailed where DataStatus = 'ACTIVE' and  TransactionID = " & lastTransID
+        dataadapter = New SqlDataAdapter(strSQL, Connection)
+        Dim ServiceAvailedList As New DataSet()
+        dataadapter.Fill(ServiceAvailedList, "vw_ServiceAvailed")
+        dgvServiceListing.DataSource = ServiceAvailedList
+        dgvServiceListing.DataMember = "vw_ServiceAvailed"
 
+
+        strSQL = "select ServiceID,ServiceName,ServicePrice,ServiceType,
+case when  ServiceID in 
+(select ServiceID from vw_ItemCheck where Status = 'Not Available') 
+then 'Not Available' 
+else 'Available' 
+end as Service_Availability 
+from tblServices 
+where ServiceStatus = 1 and ServiceID in (
+select ServiceID from vw_appointmentavailed where AppointmentID = " & AppointmentID & ")"
+        dataadapter = New SqlDataAdapter(strSQL, Connection)
+        Dim Appointments As New DataSet()
+        dataadapter.Fill(Appointments, "tblServices")
+        dgvServiceListing.DataSource = Appointments
+        dgvServiceListing.DataMember = "tblServices"
+
+        strSQL = "select ItemID,ItemBrand,ItemDescription,sum(abs(ConsumedNumber)) as Consumed from vw_TransactionList a 
+inner join vw_ServiceAvailed b on a.[JA-Transaction] = b.TransactionID
+inner join vw_ServiceConsumables c on c.ServiceID = b.ServiceID
+where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by ItemID,ItemBrand,ItemDescription"
+        dataadapter = New SqlDataAdapter(strSQL, Connection)
+        Dim consumedlist As New DataSet()
+        dataadapter.Fill(consumedlist, "vw_TransactionList")
+        dgvItemConsumed.DataSource = consumedlist
+        dgvItemConsumed.DataMember = "vw_TransactionList"
+
+
+        If dgvItemConsumed.Rows.Count = 0 Then
+            labelConsumed.Visible = True
+        Else
+            labelConsumed.Visible = False
+        End If
+
+        'Dim sum As Double = 0
+
+        'For i As Integer = 0 To dgvServiceListing.Rows.Count - 1
+        '    sum += Convert.ToDouble(dgvServiceListing.Rows(i).Cells("service_price").Value)
+        'Next
+
+
+        ' lblTotal.Text = sum.ToString()
+        If (dgvServiceListing.Rows.Count = 0) Then
+            lblShownone.Visible = True
+        Else
+            lblShownone.Visible = False
+        End If
+
+
+        Call DisConnectSQLServer()
+    End Sub
+
+    Private Sub frmServiceCheckout_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        translabel = 1
+    End Sub
 End Class

@@ -72,8 +72,9 @@ FROM tblAppointment a) f where [Service/s Availed] is not null   " & cond & " or
                 If dgvAppointments.CurrentRow.Cells("status").Value = "Pending" Then
                     Dim ask = MsgBox("Are you sure you want to proceed this to transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
                     If ask = vbYes Then
+                        translabel = 2
                         AppointmentID = dgvAppointments.CurrentRow.Cells("id").Value
-                        Dim ab As New frmAppointmentTransactions
+                        Dim ab As New frmServiceCheckout
                         ab.ShowDialog()
                         Me.Close()
                     End If
