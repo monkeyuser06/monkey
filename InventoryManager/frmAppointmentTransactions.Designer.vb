@@ -635,7 +635,7 @@ Partial Class frmAppointmentTransactions
         'btnSasve
         '
         Me.btnSasve.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSasve.Location = New System.Drawing.Point(476, 472)
+        Me.btnSasve.Location = New System.Drawing.Point(447, 472)
         Me.btnSasve.Name = "btnSasve"
         Me.btnSasve.Size = New System.Drawing.Size(91, 27)
         Me.btnSasve.TabIndex = 72
