@@ -17,7 +17,6 @@ Public Class frmAppointmentTransactions
         AddTransaction(txtName.Text, txtAddress.Text, "Pending")
         MsgBox("Please assign employees to services.", MsgBoxStyle.Information, Application.ProductName)
         GroupBox1.Enabled = False
-        getdata()
     End Sub
 
     Private Sub getdata()
@@ -121,11 +120,6 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
         If (dgvServiceListing.Rows.Count > 0) Then
             Dim ask = MsgBox("Are you sure you want to proceed and create this transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If ask = vbYes Then
-                Try
-                    Me.Hide()
-                Catch ex As Exception
-
-                End Try
             End If
         Else
             MsgBox("Please select atleast one service.", MsgBoxStyle.Information, Application.ProductName)

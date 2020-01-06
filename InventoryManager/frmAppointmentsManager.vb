@@ -94,9 +94,9 @@ Public Class frmAppointmentsManager
 
         Dim ask = MsgBox("Do you want to save appointment?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If ask = vbYes Then
-            Dim appointdate = (dtpAppointmentDate.Value.ToString("MM/dd/yyyy") + " " + cboTime.Text)
-            '  Dim oDate As DateTime = DateTime.ParseExact(appointdate, "MM/dd/yyyy HH:mm tt", Nothing)
-            Call AddAppointment(txtName.Text.Trim, "+639" & txtcontact1.Text.Trim, txtAddress.Text.Trim, appointdate)
+            Dim appointdate = (dtpAppointmentDate.Text + " " + cboTime.Text)
+            Dim oDate As DateTime = DateTime.ParseExact(appointdate, "MM/dd/yyyy HH:mm tt", Nothing)
+            Call AddAppointment(txtName.Text.Trim, "+639" & txtcontact1.Text.Trim, txtAddress.Text.Trim, oDate)
             Call ConnectTOSQLServer1()
             Dim inserted As Integer = 0
             For Each row As DataGridViewRow In dgvServiceList.Rows

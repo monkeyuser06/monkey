@@ -76,7 +76,7 @@ Partial Class frmAppointmentsManager
         Me.cboTime.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTime.FormattingEnabled = True
         Me.cboTime.IntegralHeight = False
-        Me.cboTime.Items.AddRange(New Object() {"10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"})
+        Me.cboTime.Items.AddRange(New Object() {"10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM"})
         Me.cboTime.Location = New System.Drawing.Point(143, 149)
         Me.cboTime.MaxDropDownItems = 5
         Me.cboTime.Name = "cboTime"

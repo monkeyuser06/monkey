@@ -36,14 +36,14 @@ Public Class frmAppointments
     Private Sub LoadDatagrid()
         Call ConnectTOSQLServer1()
         strSQL = "select * from (
-SELECT AppointmentID, cast(CONVERT(Varchar,appointmentdate,101) as Date) as Date, CONVERT(varchar(15)
+SELECT AppointmentID, CONVERT(Varchar,appointmentdate,101) as Date, CONVERT(varchar(15)
 ,CAST(CONVERT(VARCHAR(8),AppointmentDate,108) AS time),100) as [Time], CustomerName, ContactNumber, Address,
 [Service/s Availed] = STUFF
                          ((SELECT DISTINCT ', ' + ServiceName
                           FROM            vw_AppointmentAvailed b
                           WHERE        b.AppointmentID = a.AppointmentID FOR XML PATH('')), 1, 2, '')
 , case when AppointmentStatus = 'Expired' then 'Lapsed' else AppointmentStatus end as AppointmentStatus 
-FROM tblAppointment a) f where [Service/s Availed] is not null   " & cond & " order by Date desc"
+FROM tblAppointment a) f where [Service/s Availed] is not null  " & cond
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim Appointments As New DataSet()
