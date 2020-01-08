@@ -14,9 +14,10 @@ Public Class frmAppointmentTransactions
     Private Sub frmAppointmentTransactions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Width = 814
         AcceptAppointment(AppointmentID)
-        AddTransaction(txtName.Text, txtAddress.Text, "Pending")
         MsgBox("Please assign employees to services.", MsgBoxStyle.Information, Application.ProductName)
         GroupBox1.Enabled = False
+        getdata()
+        AddTransaction(txtName.Text, txtAddress.Text, "Pending")
     End Sub
 
     Private Sub getdata()
@@ -120,6 +121,7 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
         If (dgvServiceListing.Rows.Count > 0) Then
             Dim ask = MsgBox("Are you sure you want to proceed and create this transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If ask = vbYes Then
+                Me.Close()
             End If
         Else
             MsgBox("Please select atleast one service.", MsgBoxStyle.Information, Application.ProductName)
@@ -151,5 +153,9 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
 
     Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub frmAppointmentTransactions_EnabledChanged(sender As Object, e As EventArgs) Handles Me.EnabledChanged
+        frmAppointmentTransactions_Load(sender, e)
     End Sub
 End Class

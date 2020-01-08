@@ -24,13 +24,11 @@ Partial Class frmAppointmentTransactions
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -41,6 +39,11 @@ Partial Class frmAppointmentTransactions
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAppointmentTransactions))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -49,20 +52,8 @@ Partial Class frmAppointmentTransactions
         Me.txtContactNumber = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.txtAddress = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.dgvServiceListing = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.serv_availid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.service_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.emp_assigned = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.service_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvReserveList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.serv_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.serv_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.btnAdd = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btnRemove = New Bunifu.Framework.UI.BunifuImageButton()
         Me.labelConsumed = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.dgvItemConsumed = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.ItemID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -70,23 +61,35 @@ Partial Class frmAppointmentTransactions
         Me.desc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.consumed = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvOfferings = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.sid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sname = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sprice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.stype = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.savailability = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BunifuCustomLabel5 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.lblTotal = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.lblShownone = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnSasve = New System.Windows.Forms.Button()
+        Me.btnAdd = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btnRemove = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.serv_availid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.service_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.emp_assigned = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.service_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.serv_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.serv_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sname = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sprice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.savailability = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvServiceListing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvReserveList, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnAdd, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnRemove, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvItemConsumed, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvOfferings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnAdd, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnRemove, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -195,14 +198,14 @@ Partial Class frmAppointmentTransactions
         Me.dgvServiceListing.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvServiceListing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvServiceListing.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.serv_availid, Me.ServiceID, Me.service_name, Me.emp_assigned, Me.service_price})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvServiceListing.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvServiceListing.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvServiceListing.DoubleBuffered = True
         Me.dgvServiceListing.EnableHeadersVisualStyles = False
         Me.dgvServiceListing.HeaderBgColor = System.Drawing.Color.LightSeaGreen
@@ -212,17 +215,17 @@ Partial Class frmAppointmentTransactions
         Me.dgvServiceListing.Name = "dgvServiceListing"
         Me.dgvServiceListing.ReadOnly = True
         Me.dgvServiceListing.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvServiceListing.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgvServiceListing.RowHeadersVisible = False
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvServiceListing.RowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgvServiceListing.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgvServiceListing.RowHeadersVisible = False
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvServiceListing.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvServiceListing.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvServiceListing.RowTemplate.ReadOnly = True
         Me.dgvServiceListing.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -231,74 +234,37 @@ Partial Class frmAppointmentTransactions
         Me.dgvServiceListing.Size = New System.Drawing.Size(413, 246)
         Me.dgvServiceListing.TabIndex = 45
         '
-        'serv_availid
-        '
-        Me.serv_availid.DataPropertyName = "ServiceAvailedID"
-        Me.serv_availid.HeaderText = "ServiceAvailedID"
-        Me.serv_availid.Name = "serv_availid"
-        Me.serv_availid.ReadOnly = True
-        Me.serv_availid.Visible = False
-        '
-        'ServiceID
-        '
-        Me.ServiceID.DataPropertyName = "ServiceID"
-        Me.ServiceID.HeaderText = "ServiceID"
-        Me.ServiceID.Name = "ServiceID"
-        Me.ServiceID.ReadOnly = True
-        Me.ServiceID.Visible = False
-        '
-        'service_name
-        '
-        Me.service_name.DataPropertyName = "ServiceName"
-        Me.service_name.HeaderText = "Service Name"
-        Me.service_name.Name = "service_name"
-        Me.service_name.ReadOnly = True
-        '
-        'emp_assigned
-        '
-        Me.emp_assigned.DataPropertyName = "Emp_Fullname"
-        Me.emp_assigned.HeaderText = "Employee Assigned"
-        Me.emp_assigned.Name = "emp_assigned"
-        Me.emp_assigned.ReadOnly = True
-        '
-        'service_price
-        '
-        Me.service_price.DataPropertyName = "ServicePrice"
-        Me.service_price.HeaderText = "Price"
-        Me.service_price.Name = "service_price"
-        Me.service_price.ReadOnly = True
-        '
         'dgvReserveList
         '
         Me.dgvReserveList.AllowUserToAddRows = False
         Me.dgvReserveList.AllowUserToDeleteRows = False
         Me.dgvReserveList.AllowUserToResizeColumns = False
         Me.dgvReserveList.AllowUserToResizeRows = False
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvReserveList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvReserveList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
         Me.dgvReserveList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvReserveList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.dgvReserveList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvReserveList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvReserveList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Snow
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvReserveList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvReserveList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvReserveList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReserveList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.serv_id, Me.serv_name, Me.price, Me.type, Me.status})
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvReserveList.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvReserveList.DefaultCellStyle = DataGridViewCellStyle10
         Me.dgvReserveList.DoubleBuffered = True
         Me.dgvReserveList.EnableHeadersVisualStyles = False
         Me.dgvReserveList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
@@ -308,17 +274,17 @@ Partial Class frmAppointmentTransactions
         Me.dgvReserveList.Name = "dgvReserveList"
         Me.dgvReserveList.ReadOnly = True
         Me.dgvReserveList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvReserveList.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvReserveList.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.dgvReserveList.RowHeadersVisible = False
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvReserveList.RowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvReserveList.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvReserveList.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvReserveList.RowTemplate.ReadOnly = True
         Me.dgvReserveList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -326,42 +292,6 @@ Partial Class frmAppointmentTransactions
         Me.dgvReserveList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReserveList.Size = New System.Drawing.Size(370, 194)
         Me.dgvReserveList.TabIndex = 46
-        '
-        'serv_id
-        '
-        Me.serv_id.DataPropertyName = "ServiceID"
-        Me.serv_id.HeaderText = "ServiceID"
-        Me.serv_id.Name = "serv_id"
-        Me.serv_id.ReadOnly = True
-        Me.serv_id.Visible = False
-        '
-        'serv_name
-        '
-        Me.serv_name.DataPropertyName = "ServiceName"
-        Me.serv_name.HeaderText = "Service Name"
-        Me.serv_name.Name = "serv_name"
-        Me.serv_name.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.DataPropertyName = "ServicePrice"
-        Me.price.HeaderText = "Price"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'type
-        '
-        Me.type.DataPropertyName = "ServiceType"
-        Me.type.HeaderText = "Type"
-        Me.type.Name = "type"
-        Me.type.ReadOnly = True
-        '
-        'status
-        '
-        Me.status.DataPropertyName = "Service_Availability"
-        Me.status.HeaderText = "Availability"
-        Me.status.Name = "status"
-        Me.status.ReadOnly = True
         '
         'BunifuCustomLabel1
         '
@@ -372,32 +302,6 @@ Partial Class frmAppointmentTransactions
         Me.BunifuCustomLabel1.Size = New System.Drawing.Size(80, 17)
         Me.BunifuCustomLabel1.TabIndex = 61
         Me.BunifuCustomLabel1.Text = "Service List:"
-        '
-        'btnAdd
-        '
-        Me.btnAdd.BackColor = System.Drawing.Color.Transparent
-        Me.btnAdd.Image = Global.InventoryManager.My.Resources.Resources.plus_3_
-        Me.btnAdd.ImageActive = Nothing
-        Me.btnAdd.Location = New System.Drawing.Point(782, 44)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(25, 25)
-        Me.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btnAdd.TabIndex = 63
-        Me.btnAdd.TabStop = False
-        Me.btnAdd.Zoom = 10
-        '
-        'btnRemove
-        '
-        Me.btnRemove.BackColor = System.Drawing.Color.Transparent
-        Me.btnRemove.Image = Global.InventoryManager.My.Resources.Resources.minus
-        Me.btnRemove.ImageActive = Nothing
-        Me.btnRemove.Location = New System.Drawing.Point(400, 157)
-        Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.Size = New System.Drawing.Size(25, 25)
-        Me.btnRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btnRemove.TabIndex = 56
-        Me.btnRemove.TabStop = False
-        Me.btnRemove.Zoom = 10
         '
         'labelConsumed
         '
@@ -415,31 +319,31 @@ Partial Class frmAppointmentTransactions
         Me.dgvItemConsumed.AllowUserToDeleteRows = False
         Me.dgvItemConsumed.AllowUserToResizeColumns = False
         Me.dgvItemConsumed.AllowUserToResizeRows = False
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvItemConsumed.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvItemConsumed.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
         Me.dgvItemConsumed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvItemConsumed.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.dgvItemConsumed.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvItemConsumed.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvItemConsumed.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Snow
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvItemConsumed.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvItemConsumed.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.dgvItemConsumed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvItemConsumed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemID, Me.brand, Me.desc, Me.consumed})
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvItemConsumed.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvItemConsumed.DefaultCellStyle = DataGridViewCellStyle15
         Me.dgvItemConsumed.DoubleBuffered = True
         Me.dgvItemConsumed.EnableHeadersVisualStyles = False
         Me.dgvItemConsumed.HeaderBgColor = System.Drawing.Color.LightSeaGreen
@@ -449,17 +353,17 @@ Partial Class frmAppointmentTransactions
         Me.dgvItemConsumed.Name = "dgvItemConsumed"
         Me.dgvItemConsumed.ReadOnly = True
         Me.dgvItemConsumed.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvItemConsumed.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvItemConsumed.RowHeadersDefaultCellStyle = DataGridViewCellStyle16
         Me.dgvItemConsumed.RowHeadersVisible = False
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvItemConsumed.RowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvItemConsumed.RowsDefaultCellStyle = DataGridViewCellStyle17
         Me.dgvItemConsumed.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvItemConsumed.RowTemplate.ReadOnly = True
         Me.dgvItemConsumed.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -503,31 +407,31 @@ Partial Class frmAppointmentTransactions
         Me.dgvOfferings.AllowUserToDeleteRows = False
         Me.dgvOfferings.AllowUserToResizeColumns = False
         Me.dgvOfferings.AllowUserToResizeRows = False
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvOfferings.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvOfferings.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle18
         Me.dgvOfferings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvOfferings.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.dgvOfferings.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvOfferings.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvOfferings.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle17.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle17.ForeColor = System.Drawing.Color.Snow
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvOfferings.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle19.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle19.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvOfferings.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle19
         Me.dgvOfferings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvOfferings.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sid, Me.sname, Me.sprice, Me.stype, Me.savailability})
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvOfferings.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvOfferings.DefaultCellStyle = DataGridViewCellStyle21
         Me.dgvOfferings.DoubleBuffered = True
         Me.dgvOfferings.EnableHeadersVisualStyles = False
         Me.dgvOfferings.HeaderBgColor = System.Drawing.Color.LightSeaGreen
@@ -537,17 +441,17 @@ Partial Class frmAppointmentTransactions
         Me.dgvOfferings.Name = "dgvOfferings"
         Me.dgvOfferings.ReadOnly = True
         Me.dgvOfferings.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvOfferings.RowHeadersDefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle22.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvOfferings.RowHeadersDefaultCellStyle = DataGridViewCellStyle22
         Me.dgvOfferings.RowHeadersVisible = False
-        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvOfferings.RowsDefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvOfferings.RowsDefaultCellStyle = DataGridViewCellStyle23
         Me.dgvOfferings.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvOfferings.RowTemplate.ReadOnly = True
         Me.dgvOfferings.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -555,42 +459,6 @@ Partial Class frmAppointmentTransactions
         Me.dgvOfferings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvOfferings.Size = New System.Drawing.Size(356, 405)
         Me.dgvOfferings.TabIndex = 67
-        '
-        'sid
-        '
-        Me.sid.DataPropertyName = "ServiceID"
-        Me.sid.HeaderText = "ServiceID"
-        Me.sid.Name = "sid"
-        Me.sid.ReadOnly = True
-        Me.sid.Visible = False
-        '
-        'sname
-        '
-        Me.sname.DataPropertyName = "ServiceName"
-        Me.sname.HeaderText = "Service Name"
-        Me.sname.Name = "sname"
-        Me.sname.ReadOnly = True
-        '
-        'sprice
-        '
-        Me.sprice.DataPropertyName = "ServicePrice"
-        Me.sprice.HeaderText = "Price"
-        Me.sprice.Name = "sprice"
-        Me.sprice.ReadOnly = True
-        '
-        'stype
-        '
-        Me.stype.DataPropertyName = "ServiceType"
-        Me.stype.HeaderText = "Type"
-        Me.stype.Name = "stype"
-        Me.stype.ReadOnly = True
-        '
-        'savailability
-        '
-        Me.savailability.DataPropertyName = "Service_Availability"
-        Me.savailability.HeaderText = "Availability"
-        Me.savailability.Name = "savailability"
-        Me.savailability.ReadOnly = True
         '
         'BunifuCustomLabel5
         '
@@ -635,12 +503,153 @@ Partial Class frmAppointmentTransactions
         'btnSasve
         '
         Me.btnSasve.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSasve.Location = New System.Drawing.Point(476, 472)
+        Me.btnSasve.Location = New System.Drawing.Point(414, 472)
         Me.btnSasve.Name = "btnSasve"
         Me.btnSasve.Size = New System.Drawing.Size(91, 27)
         Me.btnSasve.TabIndex = 72
         Me.btnSasve.Text = "Save"
         Me.btnSasve.UseVisualStyleBackColor = True
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.Color.Transparent
+        Me.btnAdd.Image = Global.InventoryManager.My.Resources.Resources.plus_3_
+        Me.btnAdd.ImageActive = Nothing
+        Me.btnAdd.Location = New System.Drawing.Point(782, 44)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(25, 25)
+        Me.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnAdd.TabIndex = 63
+        Me.btnAdd.TabStop = False
+        Me.btnAdd.Zoom = 10
+        '
+        'btnRemove
+        '
+        Me.btnRemove.BackColor = System.Drawing.Color.Transparent
+        Me.btnRemove.Image = Global.InventoryManager.My.Resources.Resources.minus
+        Me.btnRemove.ImageActive = Nothing
+        Me.btnRemove.Location = New System.Drawing.Point(400, 157)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(25, 25)
+        Me.btnRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnRemove.TabIndex = 56
+        Me.btnRemove.TabStop = False
+        Me.btnRemove.Zoom = 10
+        '
+        'serv_availid
+        '
+        Me.serv_availid.DataPropertyName = "ServiceAvailedID"
+        Me.serv_availid.HeaderText = "ServiceAvailedID"
+        Me.serv_availid.Name = "serv_availid"
+        Me.serv_availid.ReadOnly = True
+        Me.serv_availid.Visible = False
+        '
+        'ServiceID
+        '
+        Me.ServiceID.DataPropertyName = "ServiceID"
+        Me.ServiceID.HeaderText = "ServiceID"
+        Me.ServiceID.Name = "ServiceID"
+        Me.ServiceID.ReadOnly = True
+        Me.ServiceID.Visible = False
+        '
+        'service_name
+        '
+        Me.service_name.DataPropertyName = "ServiceName"
+        Me.service_name.HeaderText = "Service Name"
+        Me.service_name.Name = "service_name"
+        Me.service_name.ReadOnly = True
+        '
+        'emp_assigned
+        '
+        Me.emp_assigned.DataPropertyName = "Emp_Fullname"
+        Me.emp_assigned.HeaderText = "Employee Assigned"
+        Me.emp_assigned.Name = "emp_assigned"
+        Me.emp_assigned.ReadOnly = True
+        '
+        'service_price
+        '
+        Me.service_price.DataPropertyName = "ServicePrice"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.service_price.DefaultCellStyle = DataGridViewCellStyle3
+        Me.service_price.HeaderText = "Price"
+        Me.service_price.Name = "service_price"
+        Me.service_price.ReadOnly = True
+        '
+        'serv_id
+        '
+        Me.serv_id.DataPropertyName = "ServiceID"
+        Me.serv_id.HeaderText = "ServiceID"
+        Me.serv_id.Name = "serv_id"
+        Me.serv_id.ReadOnly = True
+        Me.serv_id.Visible = False
+        '
+        'serv_name
+        '
+        Me.serv_name.DataPropertyName = "ServiceName"
+        Me.serv_name.HeaderText = "Service Name"
+        Me.serv_name.Name = "serv_name"
+        Me.serv_name.ReadOnly = True
+        '
+        'price
+        '
+        Me.price.DataPropertyName = "ServicePrice"
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.price.DefaultCellStyle = DataGridViewCellStyle9
+        Me.price.HeaderText = "Price"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        '
+        'type
+        '
+        Me.type.DataPropertyName = "ServiceType"
+        Me.type.HeaderText = "Type"
+        Me.type.Name = "type"
+        Me.type.ReadOnly = True
+        '
+        'status
+        '
+        Me.status.DataPropertyName = "Service_Availability"
+        Me.status.HeaderText = "Availability"
+        Me.status.Name = "status"
+        Me.status.ReadOnly = True
+        '
+        'sid
+        '
+        Me.sid.DataPropertyName = "ServiceID"
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.sid.DefaultCellStyle = DataGridViewCellStyle20
+        Me.sid.HeaderText = "ServiceID"
+        Me.sid.Name = "sid"
+        Me.sid.ReadOnly = True
+        Me.sid.Visible = False
+        '
+        'sname
+        '
+        Me.sname.DataPropertyName = "ServiceName"
+        Me.sname.HeaderText = "Service Name"
+        Me.sname.Name = "sname"
+        Me.sname.ReadOnly = True
+        '
+        'sprice
+        '
+        Me.sprice.DataPropertyName = "ServicePrice"
+        Me.sprice.HeaderText = "Price"
+        Me.sprice.Name = "sprice"
+        Me.sprice.ReadOnly = True
+        '
+        'stype
+        '
+        Me.stype.DataPropertyName = "ServiceType"
+        Me.stype.HeaderText = "Type"
+        Me.stype.Name = "stype"
+        Me.stype.ReadOnly = True
+        '
+        'savailability
+        '
+        Me.savailability.DataPropertyName = "Service_Availability"
+        Me.savailability.HeaderText = "Availability"
+        Me.savailability.Name = "savailability"
+        Me.savailability.ReadOnly = True
         '
         'frmAppointmentTransactions
         '
@@ -669,10 +678,10 @@ Partial Class frmAppointmentTransactions
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.dgvServiceListing, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvReserveList, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnAdd, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnRemove, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvItemConsumed, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvOfferings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnAdd, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnRemove, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -683,11 +692,6 @@ Partial Class frmAppointmentTransactions
     Friend WithEvents txtContactNumber As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents txtAddress As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents dgvServiceListing As Bunifu.Framework.UI.BunifuCustomDataGrid
-    Friend WithEvents serv_availid As DataGridViewTextBoxColumn
-    Friend WithEvents ServiceID As DataGridViewTextBoxColumn
-    Friend WithEvents service_name As DataGridViewTextBoxColumn
-    Friend WithEvents emp_assigned As DataGridViewTextBoxColumn
-    Friend WithEvents service_price As DataGridViewTextBoxColumn
     Friend WithEvents dgvReserveList As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents btnRemove As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
@@ -700,19 +704,24 @@ Partial Class frmAppointmentTransactions
     Friend WithEvents desc As DataGridViewTextBoxColumn
     Friend WithEvents consumed As DataGridViewTextBoxColumn
     Friend WithEvents dgvOfferings As Bunifu.Framework.UI.BunifuCustomDataGrid
-    Friend WithEvents sid As DataGridViewTextBoxColumn
-    Friend WithEvents sname As DataGridViewTextBoxColumn
-    Friend WithEvents sprice As DataGridViewTextBoxColumn
-    Friend WithEvents stype As DataGridViewTextBoxColumn
-    Friend WithEvents savailability As DataGridViewTextBoxColumn
     Friend WithEvents BunifuCustomLabel5 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents lblTotal As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents lblShownone As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnSasve As Button
+    Friend WithEvents serv_availid As DataGridViewTextBoxColumn
+    Friend WithEvents ServiceID As DataGridViewTextBoxColumn
+    Friend WithEvents service_name As DataGridViewTextBoxColumn
+    Friend WithEvents emp_assigned As DataGridViewTextBoxColumn
+    Friend WithEvents service_price As DataGridViewTextBoxColumn
     Friend WithEvents serv_id As DataGridViewTextBoxColumn
     Friend WithEvents serv_name As DataGridViewTextBoxColumn
     Friend WithEvents price As DataGridViewTextBoxColumn
     Friend WithEvents type As DataGridViewTextBoxColumn
     Friend WithEvents status As DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As Button
-    Friend WithEvents btnSasve As Button
+    Friend WithEvents sid As DataGridViewTextBoxColumn
+    Friend WithEvents sname As DataGridViewTextBoxColumn
+    Friend WithEvents sprice As DataGridViewTextBoxColumn
+    Friend WithEvents stype As DataGridViewTextBoxColumn
+    Friend WithEvents savailability As DataGridViewTextBoxColumn
 End Class

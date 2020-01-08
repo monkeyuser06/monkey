@@ -40,7 +40,6 @@ Partial Class frmTransactions
         Me.btnEditTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddTransactions = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.dgvTransactionsList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.btnCompleteTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.idno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txnno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.date_ = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,6 +48,7 @@ Partial Class frmTransactions
         Me.serv = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnCompleteTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         CType(Me.btnSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExportPdf, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,6 +131,7 @@ Partial Class frmTransactions
         Me.btnExportPdf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.btnExportPdf.TabIndex = 19
         Me.btnExportPdf.TabStop = False
+        Me.btnExportPdf.Visible = False
         Me.btnExportPdf.Zoom = 10
         '
         'btnExportExcel
@@ -145,6 +146,7 @@ Partial Class frmTransactions
         Me.btnExportExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.btnExportExcel.TabIndex = 18
         Me.btnExportExcel.TabStop = False
+        Me.btnExportExcel.Visible = False
         Me.btnExportExcel.Zoom = 10
         '
         'btnEditTransaction
@@ -262,41 +264,6 @@ Partial Class frmTransactions
         Me.dgvTransactionsList.Size = New System.Drawing.Size(922, 367)
         Me.dgvTransactionsList.TabIndex = 22
         '
-        'btnCompleteTransaction
-        '
-        Me.btnCompleteTransaction.Activecolor = System.Drawing.Color.Green
-        Me.btnCompleteTransaction.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCompleteTransaction.BackColor = System.Drawing.Color.Green
-        Me.btnCompleteTransaction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnCompleteTransaction.BorderRadius = 7
-        Me.btnCompleteTransaction.ButtonText = "Complete Transaction"
-        Me.btnCompleteTransaction.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCompleteTransaction.DisabledColor = System.Drawing.Color.Gray
-        Me.btnCompleteTransaction.Iconcolor = System.Drawing.Color.Transparent
-        Me.btnCompleteTransaction.Iconimage = Global.InventoryManager.My.Resources.Resources.New_Project_4_
-        Me.btnCompleteTransaction.Iconimage_right = Nothing
-        Me.btnCompleteTransaction.Iconimage_right_Selected = Nothing
-        Me.btnCompleteTransaction.Iconimage_Selected = Nothing
-        Me.btnCompleteTransaction.IconMarginLeft = 0
-        Me.btnCompleteTransaction.IconMarginRight = 0
-        Me.btnCompleteTransaction.IconRightVisible = True
-        Me.btnCompleteTransaction.IconRightZoom = 0R
-        Me.btnCompleteTransaction.IconVisible = True
-        Me.btnCompleteTransaction.IconZoom = 90.0R
-        Me.btnCompleteTransaction.IsTab = False
-        Me.btnCompleteTransaction.Location = New System.Drawing.Point(951, 290)
-        Me.btnCompleteTransaction.Name = "btnCompleteTransaction"
-        Me.btnCompleteTransaction.Normalcolor = System.Drawing.Color.Green
-        Me.btnCompleteTransaction.OnHovercolor = System.Drawing.Color.LimeGreen
-        Me.btnCompleteTransaction.OnHoverTextColor = System.Drawing.Color.White
-        Me.btnCompleteTransaction.selected = False
-        Me.btnCompleteTransaction.Size = New System.Drawing.Size(191, 48)
-        Me.btnCompleteTransaction.TabIndex = 12
-        Me.btnCompleteTransaction.Text = "Complete Transaction"
-        Me.btnCompleteTransaction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCompleteTransaction.Textcolor = System.Drawing.Color.White
-        Me.btnCompleteTransaction.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        '
         'idno
         '
         Me.idno.DataPropertyName = "[JA-Transaction]"
@@ -369,6 +336,41 @@ Partial Class frmTransactions
         Me.status.Name = "status"
         Me.status.ReadOnly = True
         Me.status.Width = 5
+        '
+        'btnCompleteTransaction
+        '
+        Me.btnCompleteTransaction.Activecolor = System.Drawing.Color.Green
+        Me.btnCompleteTransaction.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCompleteTransaction.BackColor = System.Drawing.Color.Green
+        Me.btnCompleteTransaction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnCompleteTransaction.BorderRadius = 7
+        Me.btnCompleteTransaction.ButtonText = "Complete Transaction"
+        Me.btnCompleteTransaction.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCompleteTransaction.DisabledColor = System.Drawing.Color.Gray
+        Me.btnCompleteTransaction.Iconcolor = System.Drawing.Color.Transparent
+        Me.btnCompleteTransaction.Iconimage = Global.InventoryManager.My.Resources.Resources.New_Project_4_
+        Me.btnCompleteTransaction.Iconimage_right = Nothing
+        Me.btnCompleteTransaction.Iconimage_right_Selected = Nothing
+        Me.btnCompleteTransaction.Iconimage_Selected = Nothing
+        Me.btnCompleteTransaction.IconMarginLeft = 0
+        Me.btnCompleteTransaction.IconMarginRight = 0
+        Me.btnCompleteTransaction.IconRightVisible = True
+        Me.btnCompleteTransaction.IconRightZoom = 0R
+        Me.btnCompleteTransaction.IconVisible = True
+        Me.btnCompleteTransaction.IconZoom = 90.0R
+        Me.btnCompleteTransaction.IsTab = False
+        Me.btnCompleteTransaction.Location = New System.Drawing.Point(951, 290)
+        Me.btnCompleteTransaction.Name = "btnCompleteTransaction"
+        Me.btnCompleteTransaction.Normalcolor = System.Drawing.Color.Green
+        Me.btnCompleteTransaction.OnHovercolor = System.Drawing.Color.LimeGreen
+        Me.btnCompleteTransaction.OnHoverTextColor = System.Drawing.Color.White
+        Me.btnCompleteTransaction.selected = False
+        Me.btnCompleteTransaction.Size = New System.Drawing.Size(191, 48)
+        Me.btnCompleteTransaction.TabIndex = 12
+        Me.btnCompleteTransaction.Text = "Complete Transaction"
+        Me.btnCompleteTransaction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCompleteTransaction.Textcolor = System.Drawing.Color.White
+        Me.btnCompleteTransaction.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
         'frmTransactions
         '

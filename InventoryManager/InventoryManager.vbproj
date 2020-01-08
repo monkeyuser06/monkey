@@ -158,6 +158,12 @@
     <Compile Include="frmAppointmentsManager.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAppointments_Transactions.Designer.vb">
+      <DependentUpon>frmAppointments_Transactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppointments_Transactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAppointmentTransactions.Designer.vb">
       <DependentUpon>frmAppointmentTransactions.vb</DependentUpon>
     </Compile>
@@ -385,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAppointmentsManager.resx">
       <DependentUpon>frmAppointmentsManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppointments_Transactions.resx">
+      <DependentUpon>frmAppointments_Transactions.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAppointmentTransactions.resx">
       <DependentUpon>frmAppointmentTransactions.vb</DependentUpon>

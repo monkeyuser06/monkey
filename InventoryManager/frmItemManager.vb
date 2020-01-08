@@ -43,6 +43,7 @@ Public Class frmItemManager
             ElseIf (reader.GetString(7) = "Nails") Then
                 rdoNails.Checked = True
             End If
+            txtVolume.Text = CStr(reader.GetDecimal(3))
             Console.WriteLine(strSQL)
         End While
         reader.Close()
@@ -184,14 +185,12 @@ Public Class frmItemManager
             Else
                 ContainerType = rdoSachet.Text
             End If
-
             If (saveType1 = 1) Then
-
                 Call AddItem(txtItemBrand.Text.Trim, txtDescription.Text.Trim, txtStocks.Text, txtVolume.Text, txtCritPoint.Text, ContainerType, txtPrice.Text, GetGroupBoxCheckedButton(groupBoxRole).Text, dtpExpirationDate.Value.ToString("MM/dd/yyyy"))
                 MsgBox("Successfully added item.", MsgBoxStyle.Information, Application.ProductName)
                 logInfo = "Added new item#" & lastIDforcheckin & " successfully."
                 Call RecordLog(logInfo)
-                ElseIf (saveType1 = 2) Then
+            ElseIf (saveType1 = 2) Then
                 Call UpdateItem(txtStocks.Text, itemID, txtVolume.Text, dtpExpirationDate.Value.ToString("MM/dd/yyyy"))
                 MsgBox("Successfully updated item.", MsgBoxStyle.Information, Application.ProductName)
             End If

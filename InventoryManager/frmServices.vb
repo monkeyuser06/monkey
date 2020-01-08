@@ -94,8 +94,8 @@ Public Class frmServices
     Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles btnConsumables.Click
         If (selectedRow > -1) Then
             frmMenu.Enabled = False
-            Dim ab As New frmServiceConsumables
-            ab.ShowDialog() '
+            Dim frmServiceConsumablestemp As New frmServiceConsumables
+            frmServiceConsumablestemp.ShowDialog() '
             Console.WriteLine(selectedRow)
         Else
             MsgBox("Please select a row.", MsgBoxStyle.Information, Application.ProductName)

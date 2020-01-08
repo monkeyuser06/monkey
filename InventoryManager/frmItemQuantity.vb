@@ -3,6 +3,7 @@ Imports System.Text.RegularExpressions
 
 Public Class frmItemQuantity
     Dim flag1 As Boolean
+
     Private Sub frmItemQuantity_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not String.Compare(container1, "Sachet") Then
             lblWordings.Text = "Please put number of Sachets to be used."

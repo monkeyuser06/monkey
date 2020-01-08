@@ -8,6 +8,9 @@ Public Class frmServiceConsumables
     Private Sub frmServiceManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadDatagrids()
     End Sub
+    Private Sub frmServiceConsumables_EnabledChanged(sender As Object, e As EventArgs) Handles Me.EnabledChanged
+        loadDatagrids()
+    End Sub
 
     Private Sub loadDatagrids()
         Call ConnectTOSQLServer1()
@@ -69,8 +72,8 @@ inner join tblInventory d on c.ItemID = d.ItemID
                 selectedRow = e.RowIndex
                 itemID = dgvItemList.CurrentRow.Cells("ID").Value
                 container1 = dgvItemList.CurrentRow.Cells("Container_").Value
-                Dim ab As New frmItemQuantity
-                ab.ShowDialog()
+                Dim frmItemQuantitytemp As New frmItemQuantity
+                frmItemQuantitytemp.ShowDialog()
             Catch ex As Exception
             End Try
         End If
@@ -103,5 +106,13 @@ where ItemUsageID = " & dgvConsumables.CurrentRow.Cells("item_id").Value
                 Call DisConnectSQLServer()
             End If
         End If
+    End Sub
+
+    Private Sub dgvItemList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemList.CellContentClick
+
+    End Sub
+
+    Private Sub btnSearch_EnabledChanged(sender As Object, e As EventArgs) Handles btnSearch.EnabledChanged
+        loadDatagrids()
     End Sub
 End Class

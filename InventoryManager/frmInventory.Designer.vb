@@ -235,6 +235,7 @@ Partial Class frmInventory
         Me.btnExportExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.btnExportExcel.TabIndex = 33
         Me.btnExportExcel.TabStop = False
+        Me.btnExportExcel.Visible = False
         Me.btnExportExcel.Zoom = 10
         '
         'btnSearch

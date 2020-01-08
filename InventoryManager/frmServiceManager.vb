@@ -18,15 +18,15 @@ Public Class frmServiceManager
 
     Private Sub loadvalues()
         Call ConnectTOSQLServer1()
-        strSQL = "select ServiceName,ServicePrice,ServiceType,ServiceStatus from tblServices where ServiceID = " & lastTransID
+        strSQL = "select ServiceName,cast(ServicePrice as int) as ServicePrice,ServiceType,ServiceStatus from tblServices where ServiceID = " & lastTransID
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader
         Console.WriteLine(strSQL)
         While reader.Read()
             txtServiceName.Text = reader.GetString(0)
-            txtServicePrice.Text = reader.GetDecimal(1)
+            txtServicePrice.Text = CStr(reader.GetInt32(1))
             If (reader.GetString(2) = "Hair") Then
-                rdoBody.Checked = True
+                rdoHair.Checked = True
             ElseIf (reader.GetString(2) = "Face") Then
                 rdoFace.Checked = True
             ElseIf (reader.GetString(2) = "Body") Then
@@ -34,7 +34,9 @@ Public Class frmServiceManager
             ElseIf (reader.GetString(2) = "Nails") Then
                 rdoNails.Checked = True
             End If
-            If reader.GetBoolean(3) = 1 Then
+            Console.WriteLine(reader.GetBoolean(3))
+
+            If reader.GetBoolean(3) = True Then
                 rdoActive.Checked = True
             Else
                 rdoInactive.Checked = True
@@ -96,7 +98,7 @@ Public Class frmServiceManager
                 Me.Close()
             Else
                 Call UpdateService(txtServiceName.Text, txtServicePrice.Text, WhatRadioIsSelected(panelServiceStatus), WhatRadioIsSelected(panelServiceType))
-                MsgBox("Successfully created service.")
+                MsgBox("Successfully updated service.")
                 frmMenu.Enabled = True
                 Me.Close()
             End If

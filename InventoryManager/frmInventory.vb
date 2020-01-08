@@ -28,10 +28,8 @@ Public Class frmInventory
         If (selectedRow >= 0) Then
             saveType1 = 2
             itemID = dgvItemList.Rows(selectedRow).Cells("itemno").Value()
-            frmItemManager.txtVolume.Text = IIf(IsDBNull(dgvItemList.Rows(selectedRow).Cells(4).Value()), "NA", dgvItemList.Rows(selectedRow).Cells(4).Value())
-            Dim ab As New frmItemManager
-            ab.Show()
-            ab.txtVolume.Text = IIf(IsDBNull(dgvItemList.Rows(selectedRow).Cells(4).Value()), "NA", dgvItemList.Rows(selectedRow).Cells(4).Value())
+            Dim frmitemmanagertemp As New frmItemManager
+            frmitemmanagertemp.Show()
             frmMenu.Enabled = False
         End If
     End Sub

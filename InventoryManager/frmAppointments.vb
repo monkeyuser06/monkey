@@ -22,7 +22,6 @@ Public Class frmAppointments
         cond = " and Date = '" & dtpAppointdate.Value.ToString("MM/dd/yyyy") & "'"
         ExpiredAppointments()
         LoadDatagrid()
-
     End Sub
 
     Private Sub ExpiredAppointments()
@@ -36,14 +35,15 @@ Public Class frmAppointments
     Private Sub LoadDatagrid()
         Call ConnectTOSQLServer1()
         strSQL = "select * from (
-SELECT AppointmentID, CONVERT(Varchar,appointmentdate,101) as Date, CONVERT(varchar(15)
+SELECT AppointmentID, cast(CONVERT(Varchar,appointmentdate,101) as Date) as Date, CONVERT(varchar(15)
 ,CAST(CONVERT(VARCHAR(8),AppointmentDate,108) AS time),100) as [Time], CustomerName, ContactNumber, Address,
 [Service/s Availed] = STUFF
                          ((SELECT DISTINCT ', ' + ServiceName
                           FROM            vw_AppointmentAvailed b
                           WHERE        b.AppointmentID = a.AppointmentID FOR XML PATH('')), 1, 2, '')
 , case when AppointmentStatus = 'Expired' then 'Lapsed' else AppointmentStatus end as AppointmentStatus 
-FROM tblAppointment a) f where [Service/s Availed] is not null  " & cond
+FROM tblAppointment a) f where [Service/s Availed] is not null
+  " & cond & " order by date desc, cast(time as time) desc"
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim Appointments As New DataSet()
@@ -74,9 +74,8 @@ FROM tblAppointment a) f where [Service/s Availed] is not null  " & cond
                     If ask = vbYes Then
                         translabel = 2
                         AppointmentID = dgvAppointments.CurrentRow.Cells("id").Value
-                        Dim ab As New frmServiceCheckout
+                        Dim ab As New frmAppointmentTransactions
                         ab.ShowDialog()
-                        Me.Close()
                     End If
                 ElseIf (dgvAppointments.CurrentRow.Cells("status").Value = "Done") Then
                     MsgBox("Appointment is already " & dgvAppointments.CurrentRow.Cells("status").Value)
@@ -84,7 +83,7 @@ FROM tblAppointment a) f where [Service/s Availed] is not null  " & cond
                     MsgBox("Appointment is already " & dgvAppointments.CurrentRow.Cells("status").Value)
                 End If
             End If
-            End If
+        End If
     End Sub
 
     Private Sub frmAppointments_EnabledChanged(sender As Object, e As EventArgs) Handles Me.EnabledChanged

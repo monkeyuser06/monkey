@@ -40,12 +40,12 @@ Partial Class frmServiceConsumables
         Me.lblPrice = New System.Windows.Forms.Label()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.dgvItemList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.dgvConsumables = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Brand = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Description = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Container_ = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvConsumables = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.item_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.service_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Service_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -224,6 +224,42 @@ Partial Class frmServiceConsumables
         Me.dgvItemList.Size = New System.Drawing.Size(498, 380)
         Me.dgvItemList.TabIndex = 45
         '
+        'ID
+        '
+        Me.ID.DataPropertyName = "ItemID"
+        Me.ID.HeaderText = "Item ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        Me.ID.Visible = False
+        '
+        'Brand
+        '
+        Me.Brand.DataPropertyName = "ItemBrand"
+        Me.Brand.HeaderText = "Brand"
+        Me.Brand.Name = "Brand"
+        Me.Brand.ReadOnly = True
+        '
+        'Description
+        '
+        Me.Description.DataPropertyName = "ItemDescription"
+        Me.Description.HeaderText = "Description"
+        Me.Description.Name = "Description"
+        Me.Description.ReadOnly = True
+        '
+        'Type
+        '
+        Me.Type.DataPropertyName = "ItemClass"
+        Me.Type.HeaderText = "Class"
+        Me.Type.Name = "Type"
+        Me.Type.ReadOnly = True
+        '
+        'Container_
+        '
+        Me.Container_.DataPropertyName = "ContainerType"
+        Me.Container_.HeaderText = "Container Type"
+        Me.Container_.Name = "Container_"
+        Me.Container_.ReadOnly = True
+        '
         'dgvConsumables
         '
         Me.dgvConsumables.AllowUserToAddRows = False
@@ -273,42 +309,6 @@ Partial Class frmServiceConsumables
         Me.dgvConsumables.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvConsumables.Size = New System.Drawing.Size(376, 321)
         Me.dgvConsumables.TabIndex = 46
-        '
-        'ID
-        '
-        Me.ID.DataPropertyName = "ItemID"
-        Me.ID.HeaderText = "Item ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        Me.ID.Visible = False
-        '
-        'Brand
-        '
-        Me.Brand.DataPropertyName = "ItemBrand"
-        Me.Brand.HeaderText = "Brand"
-        Me.Brand.Name = "Brand"
-        Me.Brand.ReadOnly = True
-        '
-        'Description
-        '
-        Me.Description.DataPropertyName = "ItemDescription"
-        Me.Description.HeaderText = "Description"
-        Me.Description.Name = "Description"
-        Me.Description.ReadOnly = True
-        '
-        'Type
-        '
-        Me.Type.DataPropertyName = "ItemClass"
-        Me.Type.HeaderText = "Class"
-        Me.Type.Name = "Type"
-        Me.Type.ReadOnly = True
-        '
-        'Container_
-        '
-        Me.Container_.DataPropertyName = "ContainerType"
-        Me.Container_.HeaderText = "Container Type"
-        Me.Container_.Name = "Container_"
-        Me.Container_.ReadOnly = True
         '
         'item_id
         '
