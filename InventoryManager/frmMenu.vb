@@ -188,4 +188,12 @@
         Call RecordLog(logInfo)
         OpenPanel(New frmAppointments)
     End Sub
+
+    Private Sub lblServices_Click(sender As Object, e As EventArgs) Handles lblServices.Click
+
+    End Sub
+
+    Private Sub lblInventory_Click(sender As Object, e As EventArgs) Handles lblInventory.Click
+
+    End Sub
 End Class

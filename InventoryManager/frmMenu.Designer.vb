@@ -97,7 +97,7 @@ Partial Class frmMenu
         Me.lblInventory.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblInventory.AutoSize = True
         Me.lblInventory.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInventory.Location = New System.Drawing.Point(457, 94)
+        Me.lblInventory.Location = New System.Drawing.Point(341, 94)
         Me.lblInventory.Name = "lblInventory"
         Me.lblInventory.Size = New System.Drawing.Size(76, 18)
         Me.lblInventory.TabIndex = 6
@@ -141,7 +141,7 @@ Partial Class frmMenu
         Me.lblEmployees.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblEmployees.AutoSize = True
         Me.lblEmployees.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmployees.Location = New System.Drawing.Point(341, 94)
+        Me.lblEmployees.Location = New System.Drawing.Point(561, 94)
         Me.lblEmployees.Name = "lblEmployees"
         Me.lblEmployees.Size = New System.Drawing.Size(89, 18)
         Me.lblEmployees.TabIndex = 6
@@ -152,7 +152,7 @@ Partial Class frmMenu
         Me.lblServices.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblServices.AutoSize = True
         Me.lblServices.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblServices.Location = New System.Drawing.Point(573, 94)
+        Me.lblServices.Location = New System.Drawing.Point(457, 94)
         Me.lblServices.Name = "lblServices"
         Me.lblServices.Size = New System.Drawing.Size(69, 18)
         Me.lblServices.TabIndex = 6
@@ -162,22 +162,22 @@ Partial Class frmMenu
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.Controls.Add(Me.btnInventory)
+        Me.Panel1.Controls.Add(Me.lblServices)
         Me.Panel1.Controls.Add(Me.btnAppointment)
+        Me.Panel1.Controls.Add(Me.lblInventory)
         Me.Panel1.Controls.Add(Me.lblApp)
+        Me.Panel1.Controls.Add(Me.btnServices)
         Me.Panel1.Controls.Add(Me.btnDashboard)
         Me.Panel1.Controls.Add(Me.lblDashboard)
         Me.Panel1.Controls.Add(Me.btnAccounts)
         Me.Panel1.Controls.Add(Me.btnTransactions)
         Me.Panel1.Controls.Add(Me.lblEmployees)
-        Me.Panel1.Controls.Add(Me.btnServices)
-        Me.Panel1.Controls.Add(Me.lblServices)
         Me.Panel1.Controls.Add(Me.btnEmployeeList)
-        Me.Panel1.Controls.Add(Me.btnInventory)
         Me.Panel1.Controls.Add(Me.lblExit)
         Me.Panel1.Controls.Add(Me.btnExit)
         Me.Panel1.Controls.Add(Me.lblTransactions)
         Me.Panel1.Controls.Add(Me.lblAccounts)
-        Me.Panel1.Controls.Add(Me.lblInventory)
         Me.Panel1.Location = New System.Drawing.Point(266, 66)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(934, 121)
@@ -261,7 +261,7 @@ Partial Class frmMenu
         Me.btnServices.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnServices.Image = Global.InventoryManager.My.Resources.Resources.customer
         Me.btnServices.ImageActive = Nothing
-        Me.btnServices.Location = New System.Drawing.Point(564, 3)
+        Me.btnServices.Location = New System.Drawing.Point(448, 3)
         Me.btnServices.Name = "btnServices"
         Me.btnServices.Size = New System.Drawing.Size(90, 90)
         Me.btnServices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -276,7 +276,7 @@ Partial Class frmMenu
         Me.btnEmployeeList.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnEmployeeList.Image = Global.InventoryManager.My.Resources.Resources.employees
         Me.btnEmployeeList.ImageActive = Nothing
-        Me.btnEmployeeList.Location = New System.Drawing.Point(340, 3)
+        Me.btnEmployeeList.Location = New System.Drawing.Point(560, 3)
         Me.btnEmployeeList.Name = "btnEmployeeList"
         Me.btnEmployeeList.Size = New System.Drawing.Size(90, 90)
         Me.btnEmployeeList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -291,7 +291,7 @@ Partial Class frmMenu
         Me.btnInventory.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnInventory.Image = Global.InventoryManager.My.Resources.Resources.inventory_1_
         Me.btnInventory.ImageActive = Nothing
-        Me.btnInventory.Location = New System.Drawing.Point(450, 3)
+        Me.btnInventory.Location = New System.Drawing.Point(334, 3)
         Me.btnInventory.Name = "btnInventory"
         Me.btnInventory.Size = New System.Drawing.Size(90, 90)
         Me.btnInventory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom

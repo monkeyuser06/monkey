@@ -108,7 +108,7 @@ values(@itemID,'" & Physi & "','" & Volume & "',case when '" & Cont & "'= 'Bottl
 
     Public Sub UpdateItem(Stock As Decimal, ItemID As String, volume As Decimal, expi As Date)
         Call ConnectTOSQLServer1()
-        strSQL = "update tblInventory set PhysicalStock = PhysicalStock + @Physi, TotalVolume = (PhysicalStock + @Physi) *VolumePerStock where ItemNo = @itemno; insert into tblInventoryLogs(ItemID,PhysicalStock,VolumePerStock,TotalVolume,ExpirationDate,Author,AddedDate,ContainerType) select ItemID,@physi,VolumePerStock,case when ContainerType = 'Bottle' then (2*VolumePerStock)else null end,@expidate,@author,getdate(),ContainerType from tblInventory where ItemID = cast(RIGHT(@itemno,5) as int)"
+        strSQL = "update tblInventory set PhysicalStock = PhysicalStock + @Physi, TotalVolume = TotalVolume + (PhysicalStock + @Physi) *VolumePerStock where ItemNo = @itemno; insert into tblInventoryLogs(ItemID,PhysicalStock,VolumePerStock,TotalVolume,ExpirationDate,Author,AddedDate,ContainerType) select ItemID,@physi,VolumePerStock,case when ContainerType = 'Bottle' then TotalVolume +  (@physi*VolumePerStock)else null end,@expidate,@author,getdate(),ContainerType from tblInventory where ItemID = cast(RIGHT(@itemno,5) as int)"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@Physi", SqlDbType.Decimal).Value = Stock
         cmd.Parameters.AddWithValue("@itemno", SqlDbType.VarChar).Value = ItemID
@@ -169,8 +169,9 @@ else 'Normal' end
 select ItemID from tblServiceConsumables where ServiceID = " & serv & ")) a
 where ItemStatus = 'Item had reached critical level.'"
         cmd = New SqlCommand(strSQL, Connection)
-        reader = cmd.ExecuteReader
+        reader = cmd.ExecuteReader()
         If reader.Read = True Then
+            reader.Close()
             MsgBox("An item had reached it's critical point. Please check the notifications and restock soon!", MsgBoxStyle.Exclamation, Application.ProductName)
             strSQL = "insert into tblNotifications
 select
@@ -188,8 +189,10 @@ select ItemID from tblServiceConsumables where ServiceID = " & serv & ")) a
 where ItemStatus = 'Item had reached critical level.') b"
             cmd = New SqlCommand(strSQL, Connection)
             cmd.ExecuteNonQuery()
+        Else
+            reader.Close()
         End If
-        reader.Close()
+
 
         strSQL = "select * from (
 select itemid,ItemNo, 
@@ -204,6 +207,8 @@ where ItemStatus = 'Item had ran out of stock.'"
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader
         If reader.Read = True Then
+            reader.Close()
+
             MsgBox("An item had become out of stock. Please check the notifications and restock soon!", MsgBoxStyle.Exclamation, Application.ProductName)
             strSQL = "insert into tblNotifications
 select
@@ -221,6 +226,8 @@ select ItemID from tblServiceConsumables where ServiceID = " & serv & ")) a
 where ItemStatus = 'Item had ran out of stock.') b"
             cmd = New SqlCommand(strSQL, Connection)
             cmd.ExecuteNonQuery()
+        Else
+            reader.Close()
         End If
 
         Call DisConnectSQLServer()
@@ -360,6 +367,8 @@ where ItemStatus = 'Item had reached critical level.'"
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader
         If reader.Read Then
+            reader.Close()
+
             MsgBox("An item had reached it's critical point. Please check the notifications and restock soon!", MsgBoxStyle.Exclamation, Application.ProductName)
             strSQL = "insert into tblNotifications
 select
@@ -378,7 +387,6 @@ where ItemStatus = 'Item had reached critical level.') b"
             cmd = New SqlCommand(strSQL, Connection)
             cmd.ExecuteNonQuery()
         End If
-        reader.Close()
 
         strSQL = "select * from (
 select itemid,ItemNo, 
@@ -391,8 +399,9 @@ else 'Normal' end
 select ItemID from tblServiceConsumables where ServiceID = " & serviceid_1 & ")) a
 where ItemStatus = 'Item had ran out of stock.'"
         cmd = New SqlCommand(strSQL, Connection)
-        reader = cmd.ExecuteReader
+        reader = cmd.ExecuteReader()
         If reader.Read Then
+            reader.Close()
             MsgBox("An item had become out of stock. Please check the notifications and restock soon!", MsgBoxStyle.Exclamation, Application.ProductName)
             strSQL = "insert into tblNotifications
 select

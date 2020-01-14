@@ -34,14 +34,18 @@ Public Class frmInventory
         End If
     End Sub
 
-    Private Sub cardCritStock_Click(sender As Object, e As EventArgs)
-        cond = "  where Quantity <= [Critical Point] "
-        Call viewItemList_reload()
+    Private Sub cardCritStock_Click(sender As Object, e As EventArgs) Handles rdoCritical.CheckedChanged
+        If rdoCritical.Checked = True Then
+            cond = "  where PhysicalStock <= CriticalPoint and PhysicalStock <> 0"
+            Call viewItemList_reload()
+        End If
     End Sub
 
-    Private Sub cardOutofStock_Click(sender As Object, e As EventArgs)
-        cond = " where Quantity = '0'"
-        Call viewItemList_reload()
+    Private Sub cardOutofStock_Click(sender As Object, e As EventArgs) Handles rdoOutofStock.CheckedChanged
+        If rdoOutofStock.Checked = True Then
+            cond = " where PhysicalStock = '0'"
+            Call viewItemList_reload()
+        End If
     End Sub
 
     Private Sub btnExportItemList_Click(sender As Object, e As EventArgs) Handles btnExportExcel.Click
@@ -93,6 +97,12 @@ Public Class frmInventory
     Private Sub btnNotifications_Click(sender As Object, e As EventArgs) Handles btnNotifications.Click
         frmNotifications.ShowDialog()
     End Sub
+
+    Private Sub rdoAll_CheckedChanged(sender As Object, e As EventArgs) Handles rdoAll.CheckedChanged
+        viewItemList_reload()
+    End Sub
+
+
 
     Private Sub frmInventory_EnabledChanged(sender As Object, e As EventArgs) Handles MyBase.EnabledChanged
         Call viewItemList_reload()

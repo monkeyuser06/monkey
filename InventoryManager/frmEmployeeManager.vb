@@ -86,16 +86,9 @@ Public Class frmEmployeeManager
         ElseIf (saveClass = 2) Then
             Dim ask = MsgBox("Are you sure you want to update employee?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If (ask = vbYes) Then
-                'Try
-                '    fileName = Path.GetFileName(ImageFileName)
-                '    fileSavePath = Path.Combine(saveDirectory, fileName)
-                '    File.Copy(ImageFileName, fileSavePath, True)
-                'Catch
-                '    fileSavePath = ""
-                'End Try
                 Call ConnectTOSQLServer1()
-                strSQL = "update tblEmployee set Emp_Firstname = @fname, Emp_Lastname = @lname, Emp_Middlename = @mname, Emp_Email = @email, Emp_ContactNumber = @contact, Hire_Date = @date, Exp_hair = @hair, Exp_Body = @body, Exp_Face = @face, Exp_Nail = @nail, Emp_Status = @status where EmployeeNo = @id"
-                cmd = New SqlCommand(strSQL, Connection)
+                Console.WriteLine(dgvEmployeeList.Rows(selectedRow).Cells("idno").Value)
+                strSQL = "update tblEmployee set Emp_Firstname = @fname, Emp_Lastname = @lname, Emp_Middlename = @mname, Emp_Email = @email, Emp_ContactNumber = @contact, Hire_Date = @date, Exp_hair = @hair, Exp_Body = @body, Exp_Face = @face, Exp_Nail = @nail, Emp_Status = @status where EmployeeID = @id"
                 cmd = New SqlCommand(strSQL, Connection)
                 cmd.Parameters.AddWithValue("@fname", SqlDbType.VarChar).Value = txtFirstname.Text
                 cmd.Parameters.AddWithValue("@lname", SqlDbType.VarChar).Value = txtLastname.Text
@@ -108,7 +101,7 @@ Public Class frmEmployeeManager
                 cmd.Parameters.AddWithValue("@nail", SqlDbType.Bit).Value = cboNails.CheckState
                 cmd.Parameters.AddWithValue("@date", SqlDbType.Date).Value = dtpHireDate.Value
                 cmd.Parameters.AddWithValue("@status", SqlDbType.Bit).Value = IIf(rdoActive.Checked = True, rdoActive.Text, rdoInactive.Text)
-                cmd.Parameters.AddWithValue("@id", SqlDbType.VarChar).Value = dgvEmployeeList.Rows(selectedRow).Cells(0).Value
+                cmd.Parameters.AddWithValue("@id", SqlDbType.Int).Value = userID
 
                 Console.WriteLine(strSQL)
                 cmd.ExecuteNonQuery()
@@ -125,7 +118,7 @@ Public Class frmEmployeeManager
         If (dgvEmployeeList.Rows.Count > 0) Then
             Try
                 selectedRow = e.RowIndex
-                userID = dgvEmployeeList.Rows(selectedRow).Cells(0).Value()
+                userID = dgvEmployeeList.Rows(selectedRow).Cells("idno").Value
             Catch ex As Exception
             End Try
         End If

@@ -46,6 +46,9 @@ Partial Class frmInventory
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnUpdateItem = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddItem = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.rdoCritical = New System.Windows.Forms.RadioButton()
+        Me.rdoOutofStock = New System.Windows.Forms.RadioButton()
+        Me.rdoAll = New System.Windows.Forms.RadioButton()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnNotifications, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -320,12 +323,54 @@ Partial Class frmInventory
         Me.btnAddItem.Textcolor = System.Drawing.Color.White
         Me.btnAddItem.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
+        'rdoCritical
+        '
+        Me.rdoCritical.AutoSize = True
+        Me.rdoCritical.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.rdoCritical.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoCritical.Location = New System.Drawing.Point(223, 95)
+        Me.rdoCritical.Name = "rdoCritical"
+        Me.rdoCritical.Size = New System.Drawing.Size(110, 21)
+        Me.rdoCritical.TabIndex = 36
+        Me.rdoCritical.TabStop = True
+        Me.rdoCritical.Text = "Critical Stock"
+        Me.rdoCritical.UseVisualStyleBackColor = True
+        '
+        'rdoOutofStock
+        '
+        Me.rdoOutofStock.AutoSize = True
+        Me.rdoOutofStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.rdoOutofStock.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoOutofStock.Location = New System.Drawing.Point(339, 95)
+        Me.rdoOutofStock.Name = "rdoOutofStock"
+        Me.rdoOutofStock.Size = New System.Drawing.Size(105, 21)
+        Me.rdoOutofStock.TabIndex = 37
+        Me.rdoOutofStock.TabStop = True
+        Me.rdoOutofStock.Text = "Out of Stock"
+        Me.rdoOutofStock.UseVisualStyleBackColor = True
+        '
+        'rdoAll
+        '
+        Me.rdoAll.AutoSize = True
+        Me.rdoAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.rdoAll.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdoAll.Location = New System.Drawing.Point(450, 95)
+        Me.rdoAll.Name = "rdoAll"
+        Me.rdoAll.Size = New System.Drawing.Size(40, 21)
+        Me.rdoAll.TabIndex = 38
+        Me.rdoAll.TabStop = True
+        Me.rdoAll.Text = "All"
+        Me.rdoAll.UseVisualStyleBackColor = True
+        '
         'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.rdoAll)
+        Me.Controls.Add(Me.rdoOutofStock)
+        Me.Controls.Add(Me.rdoCritical)
         Me.Controls.Add(Me.btnNotifications)
         Me.Controls.Add(Me.cboClass)
         Me.Controls.Add(Me.btnExportExcel)
@@ -342,6 +387,7 @@ Partial Class frmInventory
         CType(Me.btnNotifications, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnUpdateItem As Bunifu.Framework.UI.BunifuFlatButton
@@ -364,4 +410,7 @@ Partial Class frmInventory
     Friend WithEvents classtype As DataGridViewTextBoxColumn
     Friend WithEvents cboClass As ComboBox
     Friend WithEvents btnNotifications As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents rdoCritical As RadioButton
+    Friend WithEvents rdoOutofStock As RadioButton
+    Friend WithEvents rdoAll As RadioButton
 End Class
