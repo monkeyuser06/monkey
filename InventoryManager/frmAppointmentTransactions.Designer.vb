@@ -22,16 +22,19 @@ Partial Class frmAppointmentTransactions
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -42,17 +45,20 @@ Partial Class frmAppointmentTransactions
         Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAppointmentTransactions))
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnSave_1 = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.txtName = New Bunifu.Framework.UI.BunifuMaterialTextbox()
-        Me.txtContactNumber = New Bunifu.Framework.UI.BunifuMaterialTextbox()
-        Me.txtAddress = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.dgvServiceListing = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.serv_availid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.service_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.emp_assigned = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.service_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvReserveList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.serv_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.serv_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.labelConsumed = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.dgvItemConsumed = New Bunifu.Framework.UI.BunifuCustomDataGrid()
@@ -61,119 +67,37 @@ Partial Class frmAppointmentTransactions
         Me.desc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.consumed = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvOfferings = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.BunifuCustomLabel5 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.lblTotal = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.lblShownone = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnSasve = New System.Windows.Forms.Button()
-        Me.btnAdd = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btnRemove = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.serv_availid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.service_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.emp_assigned = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.service_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.serv_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.serv_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sname = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sprice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.stype = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.savailability = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GroupBox1.SuspendLayout()
+        Me.BunifuCustomLabel5 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.lblTotal = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.lblShownone = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnSasve = New System.Windows.Forms.Button()
+        Me.btnRemove = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtName = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtcontact1 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.txtAddress = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.btnAdd = New Bunifu.Framework.UI.BunifuImageButton()
         CType(Me.dgvServiceListing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvReserveList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvItemConsumed, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvOfferings, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnAdd, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnRemove, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnAdd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.btnSave_1)
-        Me.GroupBox1.Controls.Add(Me.txtName)
-        Me.GroupBox1.Controls.Add(Me.txtContactNumber)
-        Me.GroupBox1.Controls.Add(Me.txtAddress)
-        Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(413, 139)
-        Me.GroupBox1.TabIndex = 1
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Customer Details"
-        '
-        'btnSave_1
-        '
-        Me.btnSave_1.Depth = 0
-        Me.btnSave_1.Location = New System.Drawing.Point(160, 101)
-        Me.btnSave_1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnSave_1.Name = "btnSave_1"
-        Me.btnSave_1.Primary = True
-        Me.btnSave_1.Size = New System.Drawing.Size(85, 29)
-        Me.btnSave_1.TabIndex = 64
-        Me.btnSave_1.Text = "SAVE"
-        Me.btnSave_1.UseVisualStyleBackColor = True
-        '
-        'txtName
-        '
-        Me.txtName.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtName.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.txtName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtName.HintForeColor = System.Drawing.Color.Gray
-        Me.txtName.HintText = "Customer Name"
-        Me.txtName.isPassword = False
-        Me.txtName.LineFocusedColor = System.Drawing.Color.Blue
-        Me.txtName.LineIdleColor = System.Drawing.Color.Gray
-        Me.txtName.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.txtName.LineThickness = 3
-        Me.txtName.Location = New System.Drawing.Point(7, 20)
-        Me.txtName.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(201, 33)
-        Me.txtName.TabIndex = 1
-        Me.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'txtContactNumber
-        '
-        Me.txtContactNumber.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtContactNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.txtContactNumber.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtContactNumber.HintForeColor = System.Drawing.Color.Gray
-        Me.txtContactNumber.HintText = "Contact Number"
-        Me.txtContactNumber.isPassword = False
-        Me.txtContactNumber.LineFocusedColor = System.Drawing.Color.Blue
-        Me.txtContactNumber.LineIdleColor = System.Drawing.Color.Gray
-        Me.txtContactNumber.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.txtContactNumber.LineThickness = 3
-        Me.txtContactNumber.Location = New System.Drawing.Point(245, 20)
-        Me.txtContactNumber.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtContactNumber.Name = "txtContactNumber"
-        Me.txtContactNumber.Size = New System.Drawing.Size(137, 33)
-        Me.txtContactNumber.TabIndex = 2
-        Me.txtContactNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'txtAddress
-        '
-        Me.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtAddress.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.txtAddress.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtAddress.HintForeColor = System.Drawing.Color.Gray
-        Me.txtAddress.HintText = "Address"
-        Me.txtAddress.isPassword = False
-        Me.txtAddress.LineFocusedColor = System.Drawing.Color.Blue
-        Me.txtAddress.LineIdleColor = System.Drawing.Color.Gray
-        Me.txtAddress.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.txtAddress.LineThickness = 3
-        Me.txtAddress.Location = New System.Drawing.Point(7, 61)
-        Me.txtAddress.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(375, 33)
-        Me.txtAddress.TabIndex = 3
-        Me.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'dgvServiceListing
         '
@@ -234,6 +158,45 @@ Partial Class frmAppointmentTransactions
         Me.dgvServiceListing.Size = New System.Drawing.Size(413, 246)
         Me.dgvServiceListing.TabIndex = 45
         '
+        'serv_availid
+        '
+        Me.serv_availid.DataPropertyName = "ServiceAvailedID"
+        Me.serv_availid.HeaderText = "ServiceAvailedID"
+        Me.serv_availid.Name = "serv_availid"
+        Me.serv_availid.ReadOnly = True
+        Me.serv_availid.Visible = False
+        '
+        'ServiceID
+        '
+        Me.ServiceID.DataPropertyName = "ServiceID"
+        Me.ServiceID.HeaderText = "ServiceID"
+        Me.ServiceID.Name = "ServiceID"
+        Me.ServiceID.ReadOnly = True
+        Me.ServiceID.Visible = False
+        '
+        'service_name
+        '
+        Me.service_name.DataPropertyName = "ServiceName"
+        Me.service_name.HeaderText = "Service Name"
+        Me.service_name.Name = "service_name"
+        Me.service_name.ReadOnly = True
+        '
+        'emp_assigned
+        '
+        Me.emp_assigned.DataPropertyName = "Emp_Fullname"
+        Me.emp_assigned.HeaderText = "Employee Assigned"
+        Me.emp_assigned.Name = "emp_assigned"
+        Me.emp_assigned.ReadOnly = True
+        '
+        'service_price
+        '
+        Me.service_price.DataPropertyName = "ServicePrice"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.service_price.DefaultCellStyle = DataGridViewCellStyle3
+        Me.service_price.HeaderText = "Price"
+        Me.service_price.Name = "service_price"
+        Me.service_price.ReadOnly = True
+        '
         'dgvReserveList
         '
         Me.dgvReserveList.AllowUserToAddRows = False
@@ -292,6 +255,44 @@ Partial Class frmAppointmentTransactions
         Me.dgvReserveList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReserveList.Size = New System.Drawing.Size(370, 194)
         Me.dgvReserveList.TabIndex = 46
+        '
+        'serv_id
+        '
+        Me.serv_id.DataPropertyName = "ServiceID"
+        Me.serv_id.HeaderText = "ServiceID"
+        Me.serv_id.Name = "serv_id"
+        Me.serv_id.ReadOnly = True
+        Me.serv_id.Visible = False
+        '
+        'serv_name
+        '
+        Me.serv_name.DataPropertyName = "ServiceName"
+        Me.serv_name.HeaderText = "Service Name"
+        Me.serv_name.Name = "serv_name"
+        Me.serv_name.ReadOnly = True
+        '
+        'price
+        '
+        Me.price.DataPropertyName = "ServicePrice"
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.price.DefaultCellStyle = DataGridViewCellStyle9
+        Me.price.HeaderText = "Price"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        '
+        'type
+        '
+        Me.type.DataPropertyName = "ServiceType"
+        Me.type.HeaderText = "Type"
+        Me.type.Name = "type"
+        Me.type.ReadOnly = True
+        '
+        'status
+        '
+        Me.status.DataPropertyName = "Service_Availability"
+        Me.status.HeaderText = "Availability"
+        Me.status.Name = "status"
+        Me.status.ReadOnly = True
         '
         'BunifuCustomLabel1
         '
@@ -460,159 +461,6 @@ Partial Class frmAppointmentTransactions
         Me.dgvOfferings.Size = New System.Drawing.Size(356, 405)
         Me.dgvOfferings.TabIndex = 67
         '
-        'BunifuCustomLabel5
-        '
-        Me.BunifuCustomLabel5.AutoSize = True
-        Me.BunifuCustomLabel5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BunifuCustomLabel5.Location = New System.Drawing.Point(277, 437)
-        Me.BunifuCustomLabel5.Name = "BunifuCustomLabel5"
-        Me.BunifuCustomLabel5.Size = New System.Drawing.Size(75, 16)
-        Me.BunifuCustomLabel5.TabIndex = 68
-        Me.BunifuCustomLabel5.Text = "Total Price"
-        '
-        'lblTotal
-        '
-        Me.lblTotal.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.lblTotal.Location = New System.Drawing.Point(357, 437)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.lblTotal.Size = New System.Drawing.Size(71, 17)
-        Me.lblTotal.TabIndex = 69
-        Me.lblTotal.Text = "0"
-        '
-        'lblShownone
-        '
-        Me.lblShownone.AutoSize = True
-        Me.lblShownone.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.lblShownone.Location = New System.Drawing.Point(133, 244)
-        Me.lblShownone.Name = "lblShownone"
-        Me.lblShownone.Size = New System.Drawing.Size(163, 17)
-        Me.lblShownone.TabIndex = 70
-        Me.lblShownone.Text = "No Service Selected Yet."
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(319, 159)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 71
-        Me.Button1.Text = "Refresh"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'btnSasve
-        '
-        Me.btnSasve.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSasve.Location = New System.Drawing.Point(414, 472)
-        Me.btnSasve.Name = "btnSasve"
-        Me.btnSasve.Size = New System.Drawing.Size(91, 27)
-        Me.btnSasve.TabIndex = 72
-        Me.btnSasve.Text = "Save"
-        Me.btnSasve.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.BackColor = System.Drawing.Color.Transparent
-        Me.btnAdd.Image = Global.InventoryManager.My.Resources.Resources.plus_3_
-        Me.btnAdd.ImageActive = Nothing
-        Me.btnAdd.Location = New System.Drawing.Point(782, 44)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(25, 25)
-        Me.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btnAdd.TabIndex = 63
-        Me.btnAdd.TabStop = False
-        Me.btnAdd.Zoom = 10
-        '
-        'btnRemove
-        '
-        Me.btnRemove.BackColor = System.Drawing.Color.Transparent
-        Me.btnRemove.Image = Global.InventoryManager.My.Resources.Resources.minus
-        Me.btnRemove.ImageActive = Nothing
-        Me.btnRemove.Location = New System.Drawing.Point(400, 157)
-        Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.Size = New System.Drawing.Size(25, 25)
-        Me.btnRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btnRemove.TabIndex = 56
-        Me.btnRemove.TabStop = False
-        Me.btnRemove.Zoom = 10
-        '
-        'serv_availid
-        '
-        Me.serv_availid.DataPropertyName = "ServiceAvailedID"
-        Me.serv_availid.HeaderText = "ServiceAvailedID"
-        Me.serv_availid.Name = "serv_availid"
-        Me.serv_availid.ReadOnly = True
-        Me.serv_availid.Visible = False
-        '
-        'ServiceID
-        '
-        Me.ServiceID.DataPropertyName = "ServiceID"
-        Me.ServiceID.HeaderText = "ServiceID"
-        Me.ServiceID.Name = "ServiceID"
-        Me.ServiceID.ReadOnly = True
-        Me.ServiceID.Visible = False
-        '
-        'service_name
-        '
-        Me.service_name.DataPropertyName = "ServiceName"
-        Me.service_name.HeaderText = "Service Name"
-        Me.service_name.Name = "service_name"
-        Me.service_name.ReadOnly = True
-        '
-        'emp_assigned
-        '
-        Me.emp_assigned.DataPropertyName = "Emp_Fullname"
-        Me.emp_assigned.HeaderText = "Employee Assigned"
-        Me.emp_assigned.Name = "emp_assigned"
-        Me.emp_assigned.ReadOnly = True
-        '
-        'service_price
-        '
-        Me.service_price.DataPropertyName = "ServicePrice"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.service_price.DefaultCellStyle = DataGridViewCellStyle3
-        Me.service_price.HeaderText = "Price"
-        Me.service_price.Name = "service_price"
-        Me.service_price.ReadOnly = True
-        '
-        'serv_id
-        '
-        Me.serv_id.DataPropertyName = "ServiceID"
-        Me.serv_id.HeaderText = "ServiceID"
-        Me.serv_id.Name = "serv_id"
-        Me.serv_id.ReadOnly = True
-        Me.serv_id.Visible = False
-        '
-        'serv_name
-        '
-        Me.serv_name.DataPropertyName = "ServiceName"
-        Me.serv_name.HeaderText = "Service Name"
-        Me.serv_name.Name = "serv_name"
-        Me.serv_name.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.DataPropertyName = "ServicePrice"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.price.DefaultCellStyle = DataGridViewCellStyle9
-        Me.price.HeaderText = "Price"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'type
-        '
-        Me.type.DataPropertyName = "ServiceType"
-        Me.type.HeaderText = "Type"
-        Me.type.Name = "type"
-        Me.type.ReadOnly = True
-        '
-        'status
-        '
-        Me.status.DataPropertyName = "Service_Availability"
-        Me.status.HeaderText = "Availability"
-        Me.status.Name = "status"
-        Me.status.ReadOnly = True
-        '
         'sid
         '
         Me.sid.DataPropertyName = "ServiceID"
@@ -651,11 +499,213 @@ Partial Class frmAppointmentTransactions
         Me.savailability.Name = "savailability"
         Me.savailability.ReadOnly = True
         '
+        'BunifuCustomLabel5
+        '
+        Me.BunifuCustomLabel5.AutoSize = True
+        Me.BunifuCustomLabel5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel5.Location = New System.Drawing.Point(277, 437)
+        Me.BunifuCustomLabel5.Name = "BunifuCustomLabel5"
+        Me.BunifuCustomLabel5.Size = New System.Drawing.Size(75, 16)
+        Me.BunifuCustomLabel5.TabIndex = 68
+        Me.BunifuCustomLabel5.Text = "Total Price"
+        '
+        'lblTotal
+        '
+        Me.lblTotal.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.lblTotal.Location = New System.Drawing.Point(357, 437)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.lblTotal.Size = New System.Drawing.Size(71, 17)
+        Me.lblTotal.TabIndex = 69
+        Me.lblTotal.Text = "0"
+        '
+        'lblShownone
+        '
+        Me.lblShownone.AutoSize = True
+        Me.lblShownone.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.lblShownone.Location = New System.Drawing.Point(133, 244)
+        Me.lblShownone.Name = "lblShownone"
+        Me.lblShownone.Size = New System.Drawing.Size(163, 17)
+        Me.lblShownone.TabIndex = 70
+        Me.lblShownone.Text = "No Service Selected Yet."
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(701, 47)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 71
+        Me.Button1.Text = "Refresh"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnSasve
+        '
+        Me.btnSasve.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSasve.Location = New System.Drawing.Point(414, 472)
+        Me.btnSasve.Name = "btnSasve"
+        Me.btnSasve.Size = New System.Drawing.Size(91, 27)
+        Me.btnSasve.TabIndex = 72
+        Me.btnSasve.Text = "Save"
+        Me.btnSasve.UseVisualStyleBackColor = True
+        '
+        'btnRemove
+        '
+        Me.btnRemove.BackColor = System.Drawing.Color.Transparent
+        Me.btnRemove.Image = Global.InventoryManager.My.Resources.Resources.minus
+        Me.btnRemove.ImageActive = Nothing
+        Me.btnRemove.Location = New System.Drawing.Point(782, 45)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(25, 25)
+        Me.btnRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnRemove.TabIndex = 56
+        Me.btnRemove.TabStop = False
+        Me.btnRemove.Zoom = 10
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.AutoSize = True
+        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.txtName)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.txtcontact1)
+        Me.GroupBox1.Controls.Add(Me.txtAddress)
+        Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 20)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(410, 168)
+        Me.GroupBox1.TabIndex = 73
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Customer Details"
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(289, 119)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(91, 27)
+        Me.Button2.TabIndex = 73
+        Me.Button2.Text = "Save"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownHeight = 100
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.IntegralHeight = False
+        Me.ComboBox1.Items.AddRange(New Object() {"10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM"})
+        Me.ComboBox1.Location = New System.Drawing.Point(141, 120)
+        Me.ComboBox1.MaxDropDownItems = 5
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 25)
+        Me.ComboBox1.TabIndex = 59
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "MM/dd/yyyy"
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(9, 119)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(126, 26)
+        Me.DateTimePicker1.TabIndex = 58
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.Label2.Location = New System.Drawing.Point(5, 96)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(130, 17)
+        Me.Label2.TabIndex = 57
+        Me.Label2.Text = "Appointment Date"
+        '
+        'txtName
+        '
+        Me.txtName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtName.Location = New System.Drawing.Point(7, 31)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(209, 23)
+        Me.txtName.TabIndex = 5
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(222, 36)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(38, 17)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "+639"
+        '
+        'txtcontact1
+        '
+        Me.txtcontact1.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtcontact1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtcontact1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtcontact1.HintForeColor = System.Drawing.Color.Gray
+        Me.txtcontact1.HintText = "XXXXXXXXX"
+        Me.txtcontact1.isPassword = False
+        Me.txtcontact1.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txtcontact1.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtcontact1.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txtcontact1.LineThickness = 3
+        Me.txtcontact1.Location = New System.Drawing.Point(256, 29)
+        Me.txtcontact1.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtcontact1.Name = "txtcontact1"
+        Me.txtcontact1.Size = New System.Drawing.Size(88, 25)
+        Me.txtcontact1.TabIndex = 2
+        Me.txtcontact1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'txtAddress
+        '
+        Me.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtAddress.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtAddress.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtAddress.HintForeColor = System.Drawing.Color.Gray
+        Me.txtAddress.HintText = "Address"
+        Me.txtAddress.isPassword = False
+        Me.txtAddress.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txtAddress.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtAddress.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txtAddress.LineThickness = 3
+        Me.txtAddress.Location = New System.Drawing.Point(7, 61)
+        Me.txtAddress.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtAddress.Name = "txtAddress"
+        Me.txtAddress.Size = New System.Drawing.Size(375, 33)
+        Me.txtAddress.TabIndex = 3
+        Me.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.Color.Transparent
+        Me.btnAdd.Image = Global.InventoryManager.My.Resources.Resources.plus_3_
+        Me.btnAdd.ImageActive = Nothing
+        Me.btnAdd.Location = New System.Drawing.Point(552, 20)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(25, 25)
+        Me.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnAdd.TabIndex = 63
+        Me.btnAdd.TabStop = False
+        Me.btnAdd.Visible = False
+        Me.btnAdd.Zoom = 10
+        '
         'frmAppointmentTransactions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1181, 522)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSasve)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblShownone)
@@ -669,34 +719,28 @@ Partial Class frmAppointmentTransactions
         Me.Controls.Add(Me.btnRemove)
         Me.Controls.Add(Me.dgvReserveList)
         Me.Controls.Add(Me.dgvServiceListing)
-        Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "frmAppointmentTransactions"
         Me.Resizable = False
         Me.Style = MetroFramework.MetroColorStyle.Pink
-        Me.GroupBox1.ResumeLayout(False)
         CType(Me.dgvServiceListing, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvReserveList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvItemConsumed, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvOfferings, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnAdd, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnRemove, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnAdd, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents txtName As Bunifu.Framework.UI.BunifuMaterialTextbox
-    Friend WithEvents txtContactNumber As Bunifu.Framework.UI.BunifuMaterialTextbox
-    Friend WithEvents txtAddress As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents dgvServiceListing As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents dgvReserveList As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents btnRemove As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents btnAdd As Bunifu.Framework.UI.BunifuImageButton
-    Friend WithEvents btnSave_1 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents labelConsumed As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents dgvItemConsumed As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents ItemID As DataGridViewTextBoxColumn
@@ -724,4 +768,15 @@ Partial Class frmAppointmentTransactions
     Friend WithEvents sprice As DataGridViewTextBoxColumn
     Friend WithEvents stype As DataGridViewTextBoxColumn
     Friend WithEvents savailability As DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents txtName As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtcontact1 As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents txtAddress As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label2 As Label
+    Friend WithEvents btnAdd As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents Button2 As Button
 End Class

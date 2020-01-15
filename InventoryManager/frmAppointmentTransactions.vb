@@ -10,6 +10,15 @@ Public Class frmAppointmentTransactions
         End If
         getdata()
     End Sub
+    Private Sub txtcontact1_OnValueChanged(sender As Object, e As EventArgs) Handles txtcontact1.OnValueChanged
+
+        If (Len(txtcontact1.Text) > 9) Then
+            ErrorProvider1.SetError(txtcontact1, "Invalid Number.")
+            ErrorProvider1.SetIconPadding(txtcontact1, 5)
+        Else
+            ErrorProvider1.SetError(txtcontact1, "")
+        End If
+    End Sub
 
     Private Sub frmAppointmentTransactions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Width = 814
@@ -39,15 +48,7 @@ Public Class frmAppointmentTransactions
         dgvServiceListing.DataMember = "vw_ServiceAvailed"
 
 
-        strSQL = "select ServiceID,ServiceName,ServicePrice,ServiceType,
-case when  ServiceID in 
-(select ServiceID from vw_ItemCheck where Status = 'Not Available') 
-then 'Not Available' 
-else 'Available' 
-end as Service_Availability 
-from tblServices 
-where ServiceStatus = 1 and ServiceID in (
-select ServiceID from vw_appointmentavailed where AppointmentID = " & AppointmentID & ")"
+        strSQL = "select ServiceID,ServiceName,ServicePrice,ServiceType,case when  ServiceID in (select ServiceID from vw_ItemCheck where Status = 'Not Available') then 'Not Available' else 'Available' end as Service_Availability from tblServices where ServiceStatus = 1 " & cond
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim Appointments As New DataSet()
         dataadapter.Fill(Appointments, "tblServices")
@@ -143,7 +144,7 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
         End If
     End Sub
 
-    Private Sub GroupBox1_MouseHover(sender As Object, e As EventArgs) Handles GroupBox1.MouseHover
+    Private Sub GroupBox1_MouseHover(sender As Object, e As EventArgs)
         getdata()
     End Sub
 
@@ -157,5 +158,9 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
 
     Private Sub frmAppointmentTransactions_EnabledChanged(sender As Object, e As EventArgs) Handles Me.EnabledChanged
         frmAppointmentTransactions_Load(sender, e)
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
     End Sub
 End Class

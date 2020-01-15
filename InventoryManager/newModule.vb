@@ -132,7 +132,6 @@ where ItemID = @itemno"
         cmd.Parameters.AddWithValue("@Physi", SqlDbType.Decimal).Value = stock
         cmd.Parameters.AddWithValue("@itemno", SqlDbType.VarChar).Value = itemid
         Console.WriteLine(strSQL)
-
         cmd.ExecuteNonQuery()
         DisConnectSQLServer()
     End Sub
@@ -148,6 +147,20 @@ where ItemID = @itemno"
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL)
         Call DisConnectSQLServer()
+    End Sub
+
+    Public Sub AddAppointment_V2(datetime As DateTime, custname As String, contact As String, address As String)
+        ConnectTOSQLServer1()
+        strSQL = "insert into tblTransactions([Date/Time],Author,DataStatus,CustomerName,ContactNumber,Address,TransactionStatus)
+values(@datetime,@author,'ACTIVE',@customername,@contactnumber,@address,'For Appointment')"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@datetime", SqlDbType.VarChar).Value = datetime
+        cmd.Parameters.AddWithValue("@author", SqlDbType.VarChar).Value = login_id
+        cmd.Parameters.AddWithValue("@customername", SqlDbType.VarChar).Value = custname
+        cmd.Parameters.AddWithValue("@contactnumber", SqlDbType.VarChar).Value = contact
+        cmd.Parameters.AddWithValue("@address", SqlDbType.VarChar).Value = address
+        cmd.ExecuteNonQuery()
+        DisConnectSQLServer()
     End Sub
 
     Public Sub UpdateService(ServiceName As String, Price As Decimal, Status As String, Type As String)
