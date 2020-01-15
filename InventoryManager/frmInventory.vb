@@ -7,6 +7,11 @@ Public Class frmInventory
 
     Private Sub frmInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboClass.SelectedIndex = 0
+        If login_accesstype = "ADMINISTRATOR" Then
+            btnDeductStocks.Visible = True
+        Else
+            btnDeductStocks.Visible = False
+        End If
         'TODO: This line of code loads data into the 'JandADataSet3.tblInventory' table. You can move, or remove it, as needed.
         Call viewItemList_reload()
     End Sub
@@ -27,7 +32,8 @@ Public Class frmInventory
     Private Sub btnUpdateItem_Click(sender As Object, e As EventArgs) Handles btnUpdateItem.Click
         If (selectedRow >= 0) Then
             saveType1 = 2
-            itemID = dgvItemList.Rows(selectedRow).Cells("itemno").Value()
+            Console.WriteLine(dgvItemList.CurrentRow.Cells("itemno").Value())
+            itemID = dgvItemList.CurrentRow.Cells("itemno").Value()
             Dim frmitemmanagertemp As New frmItemManager
             frmitemmanagertemp.Show()
             frmMenu.Enabled = False
@@ -102,7 +108,17 @@ Public Class frmInventory
         viewItemList_reload()
     End Sub
 
+    Private Sub dgvItemList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemList.CellContentClick
 
+    End Sub
+
+    Private Sub btnDeductStocks_Click(sender As Object, e As EventArgs) Handles btnDeductStocks.Click
+        Dim ask = MsgBox("Do you want to deduct stocks from this item?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+        If ask = vbYes Then
+            itemID = dgvItemList.CurrentRow.Cells(0).Value
+            frmDeductionForm.ShowDialog()
+        End If
+    End Sub
 
     Private Sub frmInventory_EnabledChanged(sender As Object, e As EventArgs) Handles MyBase.EnabledChanged
         Call viewItemList_reload()
@@ -114,7 +130,7 @@ Public Class frmInventory
     End Sub
     Private Sub viewItemList_reload()
         Call ConnectTOSQLServer1()
-        strSQL = "select ItemNo,ItemBrand,ItemDescription,
+        strSQL = "select ItemID,ItemBrand,ItemDescription,
 concat(PhysicalStock,' ',ContainerType,case when PhysicalStock > 1 then 's' else '' end) as PhysicalStock
 ,concat(VolumePerStock,' ml') as VolumePerStock,concat(TotalVolume,' ml') as TotalVolume,
 concat(CriticalPoint,' ',ContainerType,case when PhysicalStock > 1 then 's' else '' end)  as CriticalPoint,ContainerType,

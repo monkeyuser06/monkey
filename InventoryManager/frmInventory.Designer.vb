@@ -49,6 +49,7 @@ Partial Class frmInventory
         Me.rdoCritical = New System.Windows.Forms.RadioButton()
         Me.rdoOutofStock = New System.Windows.Forms.RadioButton()
         Me.rdoAll = New System.Windows.Forms.RadioButton()
+        Me.btnDeductStocks = New Bunifu.Framework.UI.BunifuFlatButton()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnNotifications, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +102,7 @@ Partial Class frmInventory
         '
         'itemno
         '
-        Me.itemno.DataPropertyName = "ItemNo"
+        Me.itemno.DataPropertyName = "ItemID"
         Me.itemno.HeaderText = "ItemNumber"
         Me.itemno.Name = "itemno"
         Me.itemno.ReadOnly = True
@@ -131,14 +132,14 @@ Partial Class frmInventory
         'volumeperstock
         '
         Me.volumeperstock.DataPropertyName = "VolumePerStock"
-        Me.volumeperstock.HeaderText = "Volume Per Stock"
+        Me.volumeperstock.HeaderText = "Unit Volume"
         Me.volumeperstock.Name = "volumeperstock"
         Me.volumeperstock.ReadOnly = True
         '
         'totalvolume
         '
         Me.totalvolume.DataPropertyName = "TotalVolume"
-        Me.totalvolume.HeaderText = "Total Volume"
+        Me.totalvolume.HeaderText = "Remaining Volume"
         Me.totalvolume.Name = "totalvolume"
         Me.totalvolume.ReadOnly = True
         '
@@ -160,7 +161,7 @@ Partial Class frmInventory
         'price
         '
         Me.price.DataPropertyName = "Price"
-        Me.price.HeaderText = "Price"
+        Me.price.HeaderText = "Unit Price"
         Me.price.Name = "price"
         Me.price.ReadOnly = True
         '
@@ -362,6 +363,41 @@ Partial Class frmInventory
         Me.rdoAll.Text = "All"
         Me.rdoAll.UseVisualStyleBackColor = True
         '
+        'btnDeductStocks
+        '
+        Me.btnDeductStocks.Activecolor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.btnDeductStocks.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnDeductStocks.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.btnDeductStocks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnDeductStocks.BorderRadius = 7
+        Me.btnDeductStocks.ButtonText = "Deduct Stocks"
+        Me.btnDeductStocks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeductStocks.DisabledColor = System.Drawing.Color.Gray
+        Me.btnDeductStocks.Iconcolor = System.Drawing.Color.Transparent
+        Me.btnDeductStocks.Iconimage = Global.InventoryManager.My.Resources.Resources.New_Project_3_
+        Me.btnDeductStocks.Iconimage_right = Nothing
+        Me.btnDeductStocks.Iconimage_right_Selected = Nothing
+        Me.btnDeductStocks.Iconimage_Selected = Nothing
+        Me.btnDeductStocks.IconMarginLeft = 0
+        Me.btnDeductStocks.IconMarginRight = 0
+        Me.btnDeductStocks.IconRightVisible = True
+        Me.btnDeductStocks.IconRightZoom = 0R
+        Me.btnDeductStocks.IconVisible = True
+        Me.btnDeductStocks.IconZoom = 90.0R
+        Me.btnDeductStocks.IsTab = False
+        Me.btnDeductStocks.Location = New System.Drawing.Point(951, 282)
+        Me.btnDeductStocks.Name = "btnDeductStocks"
+        Me.btnDeductStocks.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.btnDeductStocks.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.btnDeductStocks.OnHoverTextColor = System.Drawing.Color.White
+        Me.btnDeductStocks.selected = False
+        Me.btnDeductStocks.Size = New System.Drawing.Size(191, 48)
+        Me.btnDeductStocks.TabIndex = 11
+        Me.btnDeductStocks.Text = "Deduct Stocks"
+        Me.btnDeductStocks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDeductStocks.Textcolor = System.Drawing.Color.White
+        Me.btnDeductStocks.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        '
         'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -377,6 +413,7 @@ Partial Class frmInventory
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.btnDeductStocks)
         Me.Controls.Add(Me.btnUpdateItem)
         Me.Controls.Add(Me.btnAddItem)
         Me.Controls.Add(Me.dgvItemList)
@@ -398,6 +435,11 @@ Partial Class frmInventory
     Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents btnExportExcel As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents cboClass As ComboBox
+    Friend WithEvents btnNotifications As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents rdoCritical As RadioButton
+    Friend WithEvents rdoOutofStock As RadioButton
+    Friend WithEvents rdoAll As RadioButton
     Friend WithEvents itemno As DataGridViewTextBoxColumn
     Friend WithEvents brand As DataGridViewTextBoxColumn
     Friend WithEvents desc As DataGridViewTextBoxColumn
@@ -408,9 +450,5 @@ Partial Class frmInventory
     Friend WithEvents container1 As DataGridViewTextBoxColumn
     Friend WithEvents price As DataGridViewTextBoxColumn
     Friend WithEvents classtype As DataGridViewTextBoxColumn
-    Friend WithEvents cboClass As ComboBox
-    Friend WithEvents btnNotifications As Bunifu.Framework.UI.BunifuImageButton
-    Friend WithEvents rdoCritical As RadioButton
-    Friend WithEvents rdoOutofStock As RadioButton
-    Friend WithEvents rdoAll As RadioButton
+    Friend WithEvents btnDeductStocks As Bunifu.Framework.UI.BunifuFlatButton
 End Class

@@ -21,7 +21,7 @@ Public Class frmItemManager
 
     Private Sub GatherDataForUpdate()
         Call ConnectTOSQLServer1()
-        strSQL = "select ItemBrand,ItemDescription,PhysicalStock,VolumePerStock,CriticalPoint,ContainerType,Price,ItemClass,ContainerType from tblInventory"
+        strSQL = "select ItemBrand,ItemDescription,PhysicalStock,VolumePerStock,CriticalPoint,ContainerType,Price,ItemClass,ContainerType from tblInventory where ItemID = " & itemID
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()
         While reader.Read()

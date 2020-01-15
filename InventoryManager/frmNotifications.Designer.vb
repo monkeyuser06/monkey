@@ -27,11 +27,11 @@ Partial Class frmNotifications
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNotifications))
         Me.dgvNotifications = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.btnClose = New System.Windows.Forms.Button()
         Me.itemno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemBrand = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.serv_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.dgvNotifications, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -69,7 +69,6 @@ Partial Class frmNotifications
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvNotifications.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvNotifications.DoubleBuffered = True
-        Me.dgvNotifications.Enabled = False
         Me.dgvNotifications.EnableHeadersVisualStyles = False
         Me.dgvNotifications.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvNotifications.HeaderForeColor = System.Drawing.Color.Snow
@@ -85,15 +84,6 @@ Partial Class frmNotifications
         Me.dgvNotifications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvNotifications.Size = New System.Drawing.Size(476, 264)
         Me.dgvNotifications.TabIndex = 44
-        '
-        'btnClose
-        '
-        Me.btnClose.Location = New System.Drawing.Point(211, 305)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(79, 27)
-        Me.btnClose.TabIndex = 45
-        Me.btnClose.Text = "CLOSE"
-        Me.btnClose.UseVisualStyleBackColor = True
         '
         'itemno
         '
@@ -122,6 +112,15 @@ Partial Class frmNotifications
         Me.status.HeaderText = "Message"
         Me.status.Name = "status"
         Me.status.ReadOnly = True
+        '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(211, 305)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(79, 27)
+        Me.btnClose.TabIndex = 45
+        Me.btnClose.Text = "CLOSE"
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'frmNotifications
         '

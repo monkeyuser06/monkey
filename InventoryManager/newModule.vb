@@ -106,9 +106,11 @@ values(@itemID,'" & Physi & "','" & Volume & "',case when '" & Cont & "'= 'Bottl
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub UpdateItem(Stock As Decimal, ItemID As String, volume As Decimal, expi As Date)
+    Public Sub UpdateItem(Stock As Decimal, ItemID As Int32, volume As Decimal, expi As Date)
         Call ConnectTOSQLServer1()
-        strSQL = "update tblInventory set PhysicalStock = PhysicalStock + @Physi, TotalVolume = TotalVolume + (PhysicalStock + @Physi) *VolumePerStock where ItemNo = @itemno; insert into tblInventoryLogs(ItemID,PhysicalStock,VolumePerStock,TotalVolume,ExpirationDate,Author,AddedDate,ContainerType) select ItemID,@physi,VolumePerStock,case when ContainerType = 'Bottle' then TotalVolume +  (@physi*VolumePerStock)else null end,@expidate,@author,getdate(),ContainerType from tblInventory where ItemID = cast(RIGHT(@itemno,5) as int)"
+        strSQL = "update tblInventory set PhysicalStock = PhysicalStock + @Physi, TotalVolume = TotalVolume + ( @Physi *VolumePerStock) 
+where ItemID = @itemno; insert into tblInventoryLogs(ItemID,PhysicalStock,VolumePerStock,TotalVolume,ExpirationDate,Author,AddedDate,ContainerType) select ItemID,@physi,VolumePerStock,TotalVolume + (@physi*VolumePerStock),@expidate,@author,getdate(),ContainerType from tblInventory where ItemID = @itemno"
+
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@Physi", SqlDbType.Decimal).Value = Stock
         cmd.Parameters.AddWithValue("@itemno", SqlDbType.VarChar).Value = ItemID
@@ -119,6 +121,20 @@ values(@itemID,'" & Physi & "','" & Volume & "',case when '" & Cont & "'= 'Bottl
         Console.WriteLine(strSQL)
         cmd.ExecuteNonQuery()
         Call DisConnectSQLServer()
+    End Sub
+
+    Public Sub ManualDeduction(stock As Decimal, itemid As Int32)
+        ConnectTOSQLServer1()
+        strSQL = "update tblInventory 
+set PhysicalStock = PhysicalStock + @Physi, 
+TotalVolume = TotalVolume + ( @Physi *VolumePerStock) 
+where ItemID = @itemno"
+        cmd.Parameters.AddWithValue("@Physi", SqlDbType.Decimal).Value = stock
+        cmd.Parameters.AddWithValue("@itemno", SqlDbType.VarChar).Value = itemid
+        Console.WriteLine(strSQL)
+
+        cmd.ExecuteNonQuery()
+        DisConnectSQLServer()
     End Sub
     Public Sub AddService(ServiceName As String, Price As Decimal, Status As String, Type As String)
         Call ConnectTOSQLServer1()
@@ -231,7 +247,7 @@ where ItemStatus = 'Item had ran out of stock.') b"
         End If
 
         Call DisConnectSQLServer()
-        InventoryProcessing()
+        'InventoryProcessing()
     End Sub
 
     Public Sub AddTransaction(custname As String, add As String, Trans As String)

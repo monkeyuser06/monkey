@@ -170,6 +170,12 @@
     <Compile Include="frmAppointmentTransactions.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmDeductionForm.Designer.vb">
+      <DependentUpon>frmDeductionForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeductionForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmNotifications.Designer.vb">
       <DependentUpon>frmNotifications.vb</DependentUpon>
     </Compile>
@@ -397,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAppointmentTransactions.resx">
       <DependentUpon>frmAppointmentTransactions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeductionForm.resx">
+      <DependentUpon>frmDeductionForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNotifications.resx">
       <DependentUpon>frmNotifications.vb</DependentUpon>
