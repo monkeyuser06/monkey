@@ -31,7 +31,8 @@ SELECT        [JA-Transaction], TransactionNumber, CONVERT(varchar, [Date/Time],
                                  WHERE        b.TransactionID = a.[JA-Transaction] FOR XML PATH('')), 1, 2, '')	,ISNULL(Price,'0') as [Amount Collected] , TransactionStatus
 FROM            (SELECT        [JA-Transaction], TransactionNumber, [Date/Time], CustomerName, TransactionStatus,Price
 							
-                          FROM            tblTransactions) a 
+                          FROM            tblTransactions ) a 
+						  where TransactionStatus NOT IN('For Appointment', 'Expired')
 						  order by [Date/Time] desc "
 
         Console.WriteLine(strSQL)
@@ -85,6 +86,7 @@ FROM            (SELECT        [JA-Transaction], TransactionNumber, [Date/Time],
             Dim ab As New frmServiceCheckout
             ab.ShowDialog()
             saveType1 = 2
+            transactionidnum = 1
             lastTransID = dgvTransactionsList.CurrentRow.Cells("idno").Value
             Console.WriteLine(lastTransID)
         Else

@@ -13,7 +13,7 @@ Public Class frmServiceCheckout
         ElseIf translabel = 2 Then
             Me.Width = 814
             AcceptAppointment(AppointmentID)
-            AddTransaction(txtName.Text, txtAddress.Text, "Pending")
+            AddTransaction(txtName.Text, txtcontact1.Text, txtAddress.Text, "Pending")
             MsgBox("Please assign employees to services.", MsgBoxStyle.Information, Application.ProductName)
             GroupBox1.Enabled = False
             getdata()
@@ -138,6 +138,7 @@ and b.TransactionID = " & lastTransID & " group by c.ItemID,c.ItemBrand,c.ItemDe
             If dgvSearchService.CurrentRow.Cells("status").Value <> "Not Available" Then
                 servicecheckoutid = dgvSearchService.CurrentRow.Cells("serv_id").Value
                 txtName.Enabled = False
+                transactionidnum = 1
                 Dim ab As New frmServiceDialog
                 ab.ShowDialog()
             Else
@@ -236,7 +237,7 @@ and b.TransactionID = " & lastTransID & " group by c.ItemID,c.ItemBrand,c.ItemDe
         End If
         Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If ask = vbYes Then
-            Call AddTransaction(txtName.Text, txtAddress.Text, "Pending")
+            Call AddTransaction(txtName.Text, txtcontact1.Text, txtAddress.Text, "Pending")
             dgvSearchService.Enabled = True
             dgvServiceListing.Enabled = True
             GroupBox1.Enabled = False

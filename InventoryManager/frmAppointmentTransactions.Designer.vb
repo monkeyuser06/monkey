@@ -79,9 +79,9 @@ Partial Class frmAppointmentTransactions
         Me.btnSasve = New System.Windows.Forms.Button()
         Me.btnRemove = New Bunifu.Framework.UI.BunifuImageButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.btnSaveTransaction = New System.Windows.Forms.Button()
+        Me.cboAppointmentTime = New System.Windows.Forms.ComboBox()
+        Me.dtpAppointmentDate = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -565,9 +565,9 @@ Partial Class frmAppointmentTransactions
         'GroupBox1
         '
         Me.GroupBox1.AutoSize = True
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.btnSaveTransaction)
+        Me.GroupBox1.Controls.Add(Me.cboAppointmentTime)
+        Me.GroupBox1.Controls.Add(Me.dtpAppointmentDate)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtName)
         Me.GroupBox1.Controls.Add(Me.Label3)
@@ -581,39 +581,39 @@ Partial Class frmAppointmentTransactions
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Customer Details"
         '
-        'Button2
+        'btnSaveTransaction
         '
-        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(289, 119)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(91, 27)
-        Me.Button2.TabIndex = 73
-        Me.Button2.Text = "Save"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnSaveTransaction.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveTransaction.Location = New System.Drawing.Point(289, 119)
+        Me.btnSaveTransaction.Name = "btnSaveTransaction"
+        Me.btnSaveTransaction.Size = New System.Drawing.Size(91, 27)
+        Me.btnSaveTransaction.TabIndex = 73
+        Me.btnSaveTransaction.Text = "Save"
+        Me.btnSaveTransaction.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'cboAppointmentTime
         '
-        Me.ComboBox1.DropDownHeight = 100
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.IntegralHeight = False
-        Me.ComboBox1.Items.AddRange(New Object() {"10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM"})
-        Me.ComboBox1.Location = New System.Drawing.Point(141, 120)
-        Me.ComboBox1.MaxDropDownItems = 5
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 25)
-        Me.ComboBox1.TabIndex = 59
+        Me.cboAppointmentTime.DropDownHeight = 100
+        Me.cboAppointmentTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboAppointmentTime.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboAppointmentTime.FormattingEnabled = True
+        Me.cboAppointmentTime.IntegralHeight = False
+        Me.cboAppointmentTime.Items.AddRange(New Object() {"10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM"})
+        Me.cboAppointmentTime.Location = New System.Drawing.Point(141, 120)
+        Me.cboAppointmentTime.MaxDropDownItems = 5
+        Me.cboAppointmentTime.Name = "cboAppointmentTime"
+        Me.cboAppointmentTime.Size = New System.Drawing.Size(121, 25)
+        Me.cboAppointmentTime.TabIndex = 59
         '
-        'DateTimePicker1
+        'dtpAppointmentDate
         '
-        Me.DateTimePicker1.CustomFormat = "MM/dd/yyyy"
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(9, 119)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(126, 26)
-        Me.DateTimePicker1.TabIndex = 58
+        Me.dtpAppointmentDate.CustomFormat = "MM/dd/yyyy"
+        Me.dtpAppointmentDate.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpAppointmentDate.Location = New System.Drawing.Point(9, 119)
+        Me.dtpAppointmentDate.Name = "dtpAppointmentDate"
+        Me.dtpAppointmentDate.Size = New System.Drawing.Size(126, 26)
+        Me.dtpAppointmentDate.TabIndex = 58
         '
         'Label2
         '
@@ -774,9 +774,9 @@ Partial Class frmAppointmentTransactions
     Friend WithEvents txtcontact1 As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents txtAddress As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents ErrorProvider1 As ErrorProvider
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents cboAppointmentTime As ComboBox
+    Friend WithEvents dtpAppointmentDate As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents btnAdd As Bunifu.Framework.UI.BunifuImageButton
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnSaveTransaction As Button
 End Class

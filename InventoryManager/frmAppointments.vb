@@ -6,7 +6,7 @@ Public Class frmAppointments
     Private Sub btnAddAppointment_Click(sender As Object, e As EventArgs) Handles btnAddAppointment.Click
         saveType = 1
         frmMenu.Enabled = False
-        Dim ab As New frmAppointmentsManager
+        Dim ab As New frmAppointmentTransactions
         ab.ShowDialog()
     End Sub
 
@@ -26,7 +26,7 @@ Public Class frmAppointments
 
     Private Sub ExpiredAppointments()
         Call ConnectTOSQLServer1()
-        strSQL = "update tblAppointment set AppointmentStatus = 'Expired' where AppointmentDate < getdate()"
+        strSQL = "update tblTransactions set TransactionStatus = 'Expired' where [Date/Time] < getdate() and TransactionStatus = 'For Appointment'"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.ExecuteNonQuery()
         Call DisConnectSQLServer()
@@ -34,22 +34,21 @@ Public Class frmAppointments
 
     Private Sub LoadDatagrid()
         Call ConnectTOSQLServer1()
-        strSQL = "select * from (
-SELECT AppointmentID, cast(CONVERT(Varchar,appointmentdate,101) as Date) as Date, CONVERT(varchar(15)
-,CAST(CONVERT(VARCHAR(8),AppointmentDate,108) AS time),100) as [Time], CustomerName, ContactNumber, Address,
-[Service/s Availed] = STUFF
-                         ((SELECT DISTINCT ', ' + ServiceName
-                          FROM            vw_AppointmentAvailed b
-                          WHERE        b.AppointmentID = a.AppointmentID FOR XML PATH('')), 1, 2, '')
-, case when AppointmentStatus = 'Expired' then 'Lapsed' else AppointmentStatus end as AppointmentStatus 
-FROM tblAppointment a) f where [Service/s Availed] is not null
-  " & cond & " order by date desc, cast(time as time) desc"
+        strSQL = "SELECT        [JA-Transaction], CONVERT(varchar, [Date/Time], 110) AS [Date], Format([Date/Time], 'hh:mm tt') AS [Time], 
+ CustomerName,Address,ContactNumber, [Service/s Availed] = STUFF
+                             ((SELECT DISTINCT ', ' + [ServiceName]
+                                 FROM            vw_ServiceAvailed b
+                                 WHERE        b.TransactionID = a.[JA-Transaction] FOR XML PATH('')), 1, 2, '')	 , TransactionStatus
+FROM            (SELECT        [JA-Transaction], TransactionNumber,Address,ContactNumber, [Date/Time], CustomerName, TransactionStatus,Price
+							
+                          FROM            tblTransactions where TransactionStatus = 'For Appointment') a 
+						  order by [Date/Time] desc"
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim Appointments As New DataSet()
-        dataadapter.Fill(Appointments, "f")
+        dataadapter.Fill(Appointments, "a")
         dgvAppointments.DataSource = Appointments
-        dgvAppointments.DataMember = "f"
+        dgvAppointments.DataMember = "a"
 
         If (dgvAppointments.Rows.Count > 0) Then
             lblShow.Visible = False
@@ -69,18 +68,13 @@ FROM tblAppointment a) f where [Service/s Availed] is not null
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
         If dgvAppointments.Rows.Count > 0 Then
             If dgvAppointments.CurrentRow.Index > -1 Then
-                If dgvAppointments.CurrentRow.Cells("status").Value = "Pending" Then
+                If dgvAppointments.CurrentRow.Cells("status").Value = "For Appointment" Then
                     Dim ask = MsgBox("Are you sure you want to proceed this to transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
-                    If ask = vbYes Then
-                        translabel = 2
-                        AppointmentID = dgvAppointments.CurrentRow.Cells("id").Value
-                        Dim ab As New frmAppointmentTransactions
-                        ab.ShowDialog()
-                    End If
-                ElseIf (dgvAppointments.CurrentRow.Cells("status").Value = "Done") Then
-                    MsgBox("Appointment is already " & dgvAppointments.CurrentRow.Cells("status").Value)
-                ElseIf (dgvAppointments.CurrentRow.Cells("status").Value = "Expired") Then
-                    MsgBox("Appointment is already " & dgvAppointments.CurrentRow.Cells("status").Value)
+                    AppointmentID = dgvAppointments.CurrentRow.Cells(0).Value
+                    AcceptAppointment_V2()
+                    frmMenu.Enabled = False
+                    frmMenu.Enabled = True
+
                 End If
             End If
         End If

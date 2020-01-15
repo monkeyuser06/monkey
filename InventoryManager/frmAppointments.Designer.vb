@@ -288,7 +288,7 @@ Partial Class frmAppointments
         '
         'id
         '
-        Me.id.DataPropertyName = "AppointmentID"
+        Me.id.DataPropertyName = "JA-Transaction"
         Me.id.HeaderText = "App"
         Me.id.Name = "id"
         Me.id.ReadOnly = True
@@ -347,7 +347,7 @@ Partial Class frmAppointments
         '
         'Status
         '
-        Me.Status.DataPropertyName = "AppointmentStatus"
+        Me.Status.DataPropertyName = "TransactionStatus"
         Me.Status.HeaderText = "Status"
         Me.Status.Name = "Status"
         Me.Status.ReadOnly = True

@@ -7,7 +7,11 @@ Public Class frmServiceDialog
         If cboEmployeeAssigned.SelectedIndex > -1 Then
             Dim ask = MsgBox("Do you want to continue adding this service?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If ask = vbYes Then
-                Call AddServiceAvailed(lastTransID, servicecheckoutid, cboEmployeeAssigned.SelectedValue)
+                Console.WriteLine(lastTransID)
+                Dim transic = IIf(transactionidnum = 1, lastTransID, AppointmentID)
+                Console.WriteLine(lastTransID)
+
+                Call AddServiceAvailed(transic, servicecheckoutid, cboEmployeeAssigned.SelectedValue)
                 Me.Close()
             End If
         Else

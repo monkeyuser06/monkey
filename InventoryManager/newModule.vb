@@ -18,7 +18,7 @@ Imports System.Data.Odbc
 
 Module newModule
 
-    Public newProdID, ServiceAvailed, AppointmentID, translabel As Integer
+    Public newProdID, ServiceAvailed, AppointmentID, translabel, transtype, transactionidnum As Integer
     Public Sub ConnectTOSQLServer1()
         Connection = New SqlConnection(sqlConnectionString1)
         Try
@@ -151,15 +151,40 @@ where ItemID = @itemno"
 
     Public Sub AddAppointment_V2(datetime As DateTime, custname As String, contact As String, address As String)
         ConnectTOSQLServer1()
-        strSQL = "insert into tblTransactions([Date/Time],Author,DataStatus,CustomerName,ContactNumber,Address,TransactionStatus)
-values(@datetime,@author,'ACTIVE',@customername,@contactnumber,@address,'For Appointment')"
+        strSQL = "select * from tblTransactions
+where TransactionStatus = 'For Appointment'
+and [Date/Time] = @datetime"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@datetime", SqlDbType.VarChar).Value = datetime
-        cmd.Parameters.AddWithValue("@author", SqlDbType.VarChar).Value = login_id
-        cmd.Parameters.AddWithValue("@customername", SqlDbType.VarChar).Value = custname
-        cmd.Parameters.AddWithValue("@contactnumber", SqlDbType.VarChar).Value = contact
-        cmd.Parameters.AddWithValue("@address", SqlDbType.VarChar).Value = address
-        cmd.ExecuteNonQuery()
+
+        reader = cmd.ExecuteReader
+        If reader.Read Then
+            reader.Close()
+            Dim ask = MsgBox("There is already an appointment made for the said date and time. Would you still like to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+            If ask = vbYes Then
+                reader.Close()
+                strSQL = "insert into tblTransactions([Date/Time],Author,DataStatus,CustomerName,ContactNumber,Address,TransactionStatus)
+values(@datetime,@author,'ACTIVE',@customername,@contactnumber,@address,'For Appointment'); select SCOPE_IDENTITY()"
+                cmd = New SqlCommand(strSQL, Connection)
+                cmd.Parameters.AddWithValue("@datetime", SqlDbType.VarChar).Value = datetime
+                cmd.Parameters.AddWithValue("@author", SqlDbType.VarChar).Value = login_id
+                cmd.Parameters.AddWithValue("@customername", SqlDbType.VarChar).Value = custname
+                cmd.Parameters.AddWithValue("@contactnumber", SqlDbType.VarChar).Value = contact
+                cmd.Parameters.AddWithValue("@address", SqlDbType.VarChar).Value = address
+                AppointmentID = cmd.ExecuteScalar
+            End If
+        Else
+            reader.Close()
+            strSQL = "insert into tblTransactions([Date/Time],Author,DataStatus,CustomerName,ContactNumber,Address,TransactionStatus)
+values(@datetime,@author,'ACTIVE',@customername,@contactnumber,@address,'For Appointment'); select SCOPE_IDENTITY()"
+            cmd = New SqlCommand(strSQL, Connection)
+            cmd.Parameters.AddWithValue("@datetime", SqlDbType.VarChar).Value = datetime
+            cmd.Parameters.AddWithValue("@author", SqlDbType.VarChar).Value = login_id
+            cmd.Parameters.AddWithValue("@customername", SqlDbType.VarChar).Value = custname
+            cmd.Parameters.AddWithValue("@contactnumber", SqlDbType.VarChar).Value = contact
+            cmd.Parameters.AddWithValue("@address", SqlDbType.VarChar).Value = address
+            AppointmentID = cmd.ExecuteScalar
+        End If
         DisConnectSQLServer()
     End Sub
 
@@ -263,15 +288,15 @@ where ItemStatus = 'Item had ran out of stock.') b"
         'InventoryProcessing()
     End Sub
 
-    Public Sub AddTransaction(custname As String, add As String, Trans As String)
+    Public Sub AddTransaction(custname As String, contact As String, add As String, Trans As String)
         Call ConnectTOSQLServer1()
-        strSQL = "insert into tblTransactions(CustomerName,Address,[Date/Time],Author,TransactionStatus,DataStatus)values(@Cust,@Add,GETDATE(),@Auth,@trans,'ACTIVE'); select SCOPE_IDENTITY()"
+        strSQL = "insert into tblTransactions(CustomerName,Address,[Date/Time],Author,TransactionStatus,DataStatus,ContactNumber)values(@Cust,@Add,GETDATE(),@Auth,@trans,'ACTIVE',@ContactNumber); select SCOPE_IDENTITY()"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@Cust", SqlDbType.VarChar).Value = custname
         cmd.Parameters.AddWithValue("@Add", SqlDbType.VarChar).Value = add
         cmd.Parameters.AddWithValue("@Auth", SqlDbType.VarChar).Value = login_id
         cmd.Parameters.AddWithValue("@Trans", SqlDbType.VarChar).Value = Trans
-
+        cmd.Parameters.AddWithValue("@ContactNumber", SqlDbType.VarChar).Value = contact
         lastTransID = cmd.ExecuteScalar()
         InventoryProcessing()
         Call DisConnectSQLServer()
@@ -359,7 +384,7 @@ SET DataStatus = 'DELETED' where ServiceAvailedID = @serviceavailed
 
     Public Sub AcceptAppointment(appid As Integer)
         Call ConnectTOSQLServer1()
-        strSQL = "update tblAppointment set AppointmentStatus = 'Done' where AppointmentID = @appid"
+        strSQL = "update tblTransactions set TransactionStatus = 'Pending' where JA-Transaction = @appid"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@appid", SqlDbType.VarChar).Value = appid
         cmd.ExecuteNonQuery()
@@ -449,6 +474,15 @@ where ItemStatus = 'Item had ran out of stock.') b"
             cmd = New SqlCommand(strSQL, Connection)
             cmd.ExecuteNonQuery()
         End If
+        DisConnectSQLServer()
+    End Sub
+
+    Public Sub AcceptAppointment_V2()
+        ConnectTOSQLServer1()
+        strSQL = "update tbltransactions set TransactionStatus = 'Pending' where [JA-Transaction] = " & AppointmentID
+        Console.WriteLine(strSQL)
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.ExecuteNonQuery()
         DisConnectSQLServer()
     End Sub
 End Module
