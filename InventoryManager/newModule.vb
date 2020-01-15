@@ -19,6 +19,8 @@ Imports System.Data.Odbc
 Module newModule
 
     Public newProdID, ServiceAvailed, AppointmentID, translabel, transtype, transactionidnum As Integer
+    Public apptime, appname, appcontact, appaddress As String
+    Public appdate As Date
     Public Sub ConnectTOSQLServer1()
         Connection = New SqlConnection(sqlConnectionString1)
         Try
@@ -402,6 +404,7 @@ select TransactionID,SUM(ServicePrice) as Price from vw_ServiceAvailed group by 
 where TransactionID = " & id
         cmd = New SqlCommand(strSQL, Connection)
         cmd.ExecuteNonQuery()
+        InventoryProcessing()
         Call DisConnectSQLServer()
     End Sub
 

@@ -5,6 +5,7 @@ Public Class frmAppointments
     Dim cond = ""
     Private Sub btnAddAppointment_Click(sender As Object, e As EventArgs) Handles btnAddAppointment.Click
         saveType = 1
+        AppointmentID = Nothing
         frmMenu.Enabled = False
         Dim ab As New frmAppointmentTransactions
         ab.ShowDialog()
@@ -34,7 +35,7 @@ Public Class frmAppointments
 
     Private Sub LoadDatagrid()
         Call ConnectTOSQLServer1()
-        strSQL = "SELECT        [JA-Transaction], CONVERT(varchar, [Date/Time], 110) AS [Date], Format([Date/Time], 'hh:mm tt') AS [Time], 
+        strSQL = "SELECT        [JA-Transaction], CONVERT(varchar, [Date/Time], 101) AS [Date], Format([Date/Time], 'hh:mm tt') AS [Time], 
  CustomerName,Address,ContactNumber, [Service/s Availed] = STUFF
                              ((SELECT DISTINCT ', ' + [ServiceName]
                                  FROM            vw_ServiceAvailed b
@@ -100,5 +101,18 @@ FROM            (SELECT        [JA-Transaction], TransactionNumber,Address,Conta
         LoadDatagrid()
     End Sub
 
+    Private Sub btnEditAppointment_Click(sender As Object, e As EventArgs) Handles btnEditAppointment.Click
+        AppointmentID = dgvAppointments.CurrentRow.Cells(0).Value
+        Dim ab As New frmAppointmentTransactions
+        ab.ShowDialog()
+        appname = dgvAppointments.CurrentRow.Cells(3).Value
+        appcontact = dgvAppointments.CurrentRow.Cells(5).Value
+        appaddress = dgvAppointments.CurrentRow.Cells(4).Value
+        appdate = dgvAppointments.CurrentRow.Cells(1).Value().ToString("MM/dd/yyyy")
+        apptime = dgvAppointments.CurrentRow.Cells(2).Value
+    End Sub
 
+    Private Sub dgvAppointments_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAppointments.CellClick
+        Console.WriteLine(CStr(dgvAppointments.CurrentRow.Cells(1).Value()) + " " + CStr(dgvAppointments.CurrentRow.Cells(2).Value()))
+    End Sub
 End Class

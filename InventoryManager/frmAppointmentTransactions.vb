@@ -41,7 +41,18 @@ Public Class frmAppointmentTransactions
         Me.Width = 814
         loadtext()
         dtpAppointmentDate.MinDate = Date.Today.AddDays(1)
-        GroupBox1.Enabled = True
+        If appname = Nothing Then
+            GroupBox1.Enabled = True
+        Else
+            GroupBox1.Enabled = False
+        End If
+        txtcontact1.Text = appcontact
+        txtAddress.Text = appaddress
+        txtName.Text = appname
+        Console.WriteLine(appdate)
+        dtpAppointmentDate.Value = appdate
+
+        cboAppointmentTime.Text = apptime
         getdata()
     End Sub
 
@@ -193,5 +204,10 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
 
     Private Sub frmAppointmentTransactions_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         frmMenu.Enabled = True
+        appname = Nothing
+        appaddress = Nothing
+        appdate = Nothing
+        apptime = Nothing
+        appcontact = Nothing
     End Sub
 End Class

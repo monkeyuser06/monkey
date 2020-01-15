@@ -31,6 +31,14 @@ Partial Class frmAppointments
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAppointments))
         Me.dgvAppointments = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.date_ = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.time_ = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.custname = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.address = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.contac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Services = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtSearchServ = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.btnAccept = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnSearch = New System.Windows.Forms.Button()
@@ -40,14 +48,6 @@ Partial Class frmAppointments
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblShow = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.date_ = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.time_ = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.custname = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.address = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.contac = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Services = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvAppointments, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -100,6 +100,72 @@ Partial Class frmAppointments
         Me.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAppointments.Size = New System.Drawing.Size(911, 365)
         Me.dgvAppointments.TabIndex = 44
+        '
+        'id
+        '
+        Me.id.DataPropertyName = "JA-Transaction"
+        Me.id.HeaderText = "App"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        Me.id.Visible = False
+        '
+        'date_
+        '
+        Me.date_.DataPropertyName = "Date"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.date_.DefaultCellStyle = DataGridViewCellStyle3
+        Me.date_.HeaderText = "Appointment Date"
+        Me.date_.Name = "date_"
+        Me.date_.ReadOnly = True
+        '
+        'time_
+        '
+        Me.time_.DataPropertyName = "Time"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.time_.DefaultCellStyle = DataGridViewCellStyle4
+        Me.time_.HeaderText = "Appointment Time"
+        Me.time_.Name = "time_"
+        Me.time_.ReadOnly = True
+        '
+        'custname
+        '
+        Me.custname.DataPropertyName = "CustomerName"
+        Me.custname.HeaderText = "Customer Name"
+        Me.custname.Name = "custname"
+        Me.custname.ReadOnly = True
+        '
+        'address
+        '
+        Me.address.DataPropertyName = "Address"
+        Me.address.HeaderText = "Address"
+        Me.address.Name = "address"
+        Me.address.ReadOnly = True
+        '
+        'contac
+        '
+        Me.contac.DataPropertyName = "ContactNumber"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.contac.DefaultCellStyle = DataGridViewCellStyle5
+        Me.contac.HeaderText = "Contact Number"
+        Me.contac.Name = "contac"
+        Me.contac.ReadOnly = True
+        '
+        'Services
+        '
+        Me.Services.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Services.DataPropertyName = "Service/s Availed"
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Services.DefaultCellStyle = DataGridViewCellStyle6
+        Me.Services.HeaderText = "Services"
+        Me.Services.Name = "Services"
+        Me.Services.ReadOnly = True
+        '
+        'Status
+        '
+        Me.Status.DataPropertyName = "TransactionStatus"
+        Me.Status.HeaderText = "Status"
+        Me.Status.Name = "Status"
+        Me.Status.ReadOnly = True
         '
         'txtSearchServ
         '
@@ -202,7 +268,6 @@ Partial Class frmAppointments
         Me.btnEditAppointment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnEditAppointment.Textcolor = System.Drawing.Color.White
         Me.btnEditAppointment.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEditAppointment.Visible = False
         '
         'btnAddAppointment
         '
@@ -285,72 +350,6 @@ Partial Class frmAppointments
         Me.CheckBox1.TabIndex = 53
         Me.CheckBox1.Text = "Show All"
         Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'id
-        '
-        Me.id.DataPropertyName = "JA-Transaction"
-        Me.id.HeaderText = "App"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Visible = False
-        '
-        'date_
-        '
-        Me.date_.DataPropertyName = "Date"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.date_.DefaultCellStyle = DataGridViewCellStyle3
-        Me.date_.HeaderText = "Appointment Date"
-        Me.date_.Name = "date_"
-        Me.date_.ReadOnly = True
-        '
-        'time_
-        '
-        Me.time_.DataPropertyName = "Time"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.time_.DefaultCellStyle = DataGridViewCellStyle4
-        Me.time_.HeaderText = "Appointment Time"
-        Me.time_.Name = "time_"
-        Me.time_.ReadOnly = True
-        '
-        'custname
-        '
-        Me.custname.DataPropertyName = "CustomerName"
-        Me.custname.HeaderText = "Customer Name"
-        Me.custname.Name = "custname"
-        Me.custname.ReadOnly = True
-        '
-        'address
-        '
-        Me.address.DataPropertyName = "Address"
-        Me.address.HeaderText = "Address"
-        Me.address.Name = "address"
-        Me.address.ReadOnly = True
-        '
-        'contac
-        '
-        Me.contac.DataPropertyName = "ContactNumber"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.contac.DefaultCellStyle = DataGridViewCellStyle5
-        Me.contac.HeaderText = "Contact Number"
-        Me.contac.Name = "contac"
-        Me.contac.ReadOnly = True
-        '
-        'Services
-        '
-        Me.Services.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Services.DataPropertyName = "Service/s Availed"
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Services.DefaultCellStyle = DataGridViewCellStyle6
-        Me.Services.HeaderText = "Services"
-        Me.Services.Name = "Services"
-        Me.Services.ReadOnly = True
-        '
-        'Status
-        '
-        Me.Status.DataPropertyName = "TransactionStatus"
-        Me.Status.HeaderText = "Status"
-        Me.Status.Name = "Status"
-        Me.Status.ReadOnly = True
         '
         'frmAppointments
         '
