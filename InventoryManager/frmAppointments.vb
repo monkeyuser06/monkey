@@ -108,7 +108,7 @@ FROM            (SELECT        [JA-Transaction], TransactionNumber,Address,Conta
         appname = dgvAppointments.CurrentRow.Cells(3).Value
         appcontact = dgvAppointments.CurrentRow.Cells(5).Value
         appaddress = dgvAppointments.CurrentRow.Cells(4).Value
-        appdate = dgvAppointments.CurrentRow.Cells(1).Value().ToString("MM/dd/yyyy")
+        appdate = dgvAppointments.CurrentRow.Cells(1).Value()
         apptime = dgvAppointments.CurrentRow.Cells(2).Value
     End Sub
 

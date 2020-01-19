@@ -45,15 +45,15 @@ Public Class frmAppointmentTransactions
             GroupBox1.Enabled = True
         Else
             GroupBox1.Enabled = False
+            txtcontact1.Text = appcontact
+            txtAddress.Text = appaddress
+            txtName.Text = appname
+            Console.WriteLine(appdate)
+            dtpAppointmentDate.Value = New Date(Year(appdate), Month(appdate), DateTime.Parse(appdate).DayOfWeek)
+            cboAppointmentTime.Text = apptime
         End If
-        txtcontact1.Text = appcontact
-        txtAddress.Text = appaddress
-        txtName.Text = appname
-        Console.WriteLine(appdate)
-        dtpAppointmentDate.Value = appdate
-
-        cboAppointmentTime.Text = apptime
         getdata()
+
     End Sub
 
     Private Sub getdata()
