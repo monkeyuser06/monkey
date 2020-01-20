@@ -29,7 +29,7 @@ SELECT        [JA-Transaction], TransactionNumber, CONVERT(varchar, [Date/Time],
                              ((SELECT DISTINCT ', ' + [ServiceName]
                                  FROM            vw_ServiceAvailed b
                                  WHERE        b.TransactionID = a.[JA-Transaction] FOR XML PATH('')), 1, 2, '')	,ISNULL(Price,'0') as [Amount Collected] , TransactionStatus
-FROM            (SELECT        [JA-Transaction], TransactionNumber, [Date/Time], CustomerName, TransactionStatus,Price
+FROM            (SELECT        [JA-Transaction], TransactionNumber, [Date/Time], CustomerName,case when TransactionStatus = 'For Appointment' then 'Pending' when TransactionStatus = 'Appointment Done' then 'Done' else TransactionStatus end as TransactionStatus,Price
 							
                           FROM            tblTransactions ) a 
 						  where TransactionStatus NOT IN('For Appointment', 'Expired')

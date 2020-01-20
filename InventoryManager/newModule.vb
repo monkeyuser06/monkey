@@ -151,6 +151,55 @@ where ItemID = @itemno"
         Call DisConnectSQLServer()
     End Sub
 
+    Public Sub UpdateAppointment(datetime As DateTime, custname As String, contact As String, address As String)
+        ConnectTOSQLServer1()
+        strSQL = "select * from tblTransactions
+where TransactionStatus = 'For Appointment'
+and [Date/Time] = @datetime"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@datetime", SqlDbType.VarChar).Value = datetime
+
+        reader = cmd.ExecuteReader
+        If reader.Read Then
+            reader.Close()
+            Dim ask = MsgBox("There is already an appointment made for the said date and time. Would you still like to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+            If ask = vbYes Then
+                reader.Close()
+                strSQL = "update tblTransactions
+set CustomerName = @name,
+ContactNumber = @contact,
+Address = @address,
+[Date/Time] = @datetime
+where [JA-Transaction] = @ID"
+                cmd = New SqlCommand(strSQL, Connection)
+                cmd.Parameters.AddWithValue("@datetime", SqlDbType.VarChar).Value = datetime
+                cmd.Parameters.AddWithValue("@name", SqlDbType.VarChar).Value = custname
+                cmd.Parameters.AddWithValue("@contact", SqlDbType.VarChar).Value = contact
+                cmd.Parameters.AddWithValue("@address", SqlDbType.VarChar).Value = address
+                cmd.Parameters.AddWithValue("@ID", SqlDbType.VarChar).Value = AppointmentID
+                Console.WriteLine(strSQL)
+                cmd.ExecuteNonQuery()
+            End If
+        Else
+            reader.Close()
+            strSQL = "update tblTransactions
+set CustomerName = @name,
+ContactNumber = @contact,
+Address = @address,
+[Date/Time] = @datetime
+where [JA-Transaction] = @ID"
+            cmd = New SqlCommand(strSQL, Connection)
+            cmd.Parameters.AddWithValue("@datetime", SqlDbType.VarChar).Value = datetime
+            cmd.Parameters.AddWithValue("@name", SqlDbType.VarChar).Value = custname
+            cmd.Parameters.AddWithValue("@contact", SqlDbType.VarChar).Value = contact
+            cmd.Parameters.AddWithValue("@address", SqlDbType.VarChar).Value = address
+            cmd.Parameters.AddWithValue("@ID", SqlDbType.VarChar).Value = AppointmentID
+            Console.WriteLine(strSQL)
+            cmd.ExecuteNonQuery()
+        End If
+        DisConnectSQLServer()
+    End Sub
+
     Public Sub AddAppointment_V2(datetime As DateTime, custname As String, contact As String, address As String)
         ConnectTOSQLServer1()
         strSQL = "select * from tblTransactions
@@ -397,7 +446,11 @@ SET DataStatus = 'DELETED' where ServiceAvailedID = @serviceavailed
         Call ConnectTOSQLServer1()
         strSQL = "
 update a
-set TransactionStatus = 'Done', Price = b.Price
+set TransactionStatus = 
+case when TransactionStatus = 'Pending' THEN 'Done'
+else 'Appointment Done'
+end
+, Price = b.Price
 from tblTransactions a inner join (
 select TransactionID,SUM(ServicePrice) as Price from vw_ServiceAvailed group by TransactionID
 ) b on a.[JA-Transaction] = b.TransactionID
@@ -482,7 +535,7 @@ where ItemStatus = 'Item had ran out of stock.') b"
 
     Public Sub AcceptAppointment_V2()
         ConnectTOSQLServer1()
-        strSQL = "update tbltransactions set TransactionStatus = 'Pending' where [JA-Transaction] = " & AppointmentID
+        strSQL = "update tbltransactions set TransactionStatus = 'Appointment Accepted', [Date/Time] = getdate() where [JA-Transaction] = " & AppointmentID
         Console.WriteLine(strSQL)
         cmd = New SqlCommand(strSQL, Connection)
         cmd.ExecuteNonQuery()

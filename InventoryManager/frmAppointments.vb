@@ -42,7 +42,7 @@ Public Class frmAppointments
                                  WHERE        b.TransactionID = a.[JA-Transaction] FOR XML PATH('')), 1, 2, '')	 , TransactionStatus
 FROM            (SELECT        [JA-Transaction], TransactionNumber,Address,ContactNumber, [Date/Time], CustomerName, TransactionStatus,Price
 							
-                          FROM            tblTransactions where TransactionStatus = 'For Appointment') a 
+                          FROM            tblTransactions where TransactionStatus in  ('For Appointment','Appointment Accepted')) a 
 						  order by [Date/Time] desc"
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
@@ -103,6 +103,8 @@ FROM            (SELECT        [JA-Transaction], TransactionNumber,Address,Conta
 
     Private Sub btnEditAppointment_Click(sender As Object, e As EventArgs) Handles btnEditAppointment.Click
         AppointmentID = dgvAppointments.CurrentRow.Cells(0).Value
+        Console.WriteLine("Here it is: " & AppointmentID)
+        frmMenu.Enabled = False
         Dim ab As New frmAppointmentTransactions
         ab.ShowDialog()
         appname = dgvAppointments.CurrentRow.Cells(3).Value

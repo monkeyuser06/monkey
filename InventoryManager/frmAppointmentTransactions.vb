@@ -41,32 +41,34 @@ Public Class frmAppointmentTransactions
         Me.Width = 814
         loadtext()
         dtpAppointmentDate.MinDate = Date.Today.AddDays(1)
-        If appname = Nothing Then
-            GroupBox1.Enabled = True
-        Else
-            GroupBox1.Enabled = False
-            txtcontact1.Text = appcontact
-            txtAddress.Text = appaddress
-            txtName.Text = appname
-            Console.WriteLine(appdate)
-            dtpAppointmentDate.Value = New Date(Year(appdate), Month(appdate), DateTime.Parse(appdate).DayOfWeek)
-            cboAppointmentTime.Text = apptime
-        End If
         getdata()
 
     End Sub
 
     Private Sub getdata()
         Call ConnectTOSQLServer1()
-        'strSQL = "select CustomerName,ContactNumber,Address from tblAppointment where AppointmentID = " & AppointmentID
-        'cmd = New SqlCommand(strSQL, Connection)
-        'reader = cmd.ExecuteReader
-        'While reader.Read
-        '    txtName.Text = reader.GetString(0)
-        '    txtcontact1.Text = reader.GetString(1)
-        '    txtAddress.Text = reader.GetString(2)
-        'End While
-        'reader.Close()
+        If AppointmentID > 0 Then
+            strSQL = "SELECT        [JA-Transaction], YEAR([Date/Time]),MONTH([Date/Time]),DAY([Date/Time]), Format([Date/Time], 'hh:mm tt') AS [Time], 
+ CustomerName,Address,ContactNumber, [Service/s Availed] = STUFF
+                             ((SELECT DISTINCT ', ' + [ServiceName]
+                                 FROM            vw_ServiceAvailed b
+                                 WHERE        b.TransactionID = a.[JA-Transaction] FOR XML PATH('')), 1, 2, '')	 , TransactionStatus
+FROM            (SELECT        [JA-Transaction], TransactionNumber,Address,ContactNumber, [Date/Time], CustomerName, TransactionStatus,Price
+                          FROM            tblTransactions 
+						  where TransactionStatus in  ('For Appointment','Appointment Accepted') and [JA-Transaction] = " & AppointmentID & ") a 
+						  order by [Date/Time] desc"
+            cmd = New SqlCommand(strSQL, Connection)
+            reader = cmd.ExecuteReader
+            If reader.Read = True Then
+                txtName.Text = reader.GetString(5)
+                txtAddress.Text = reader.GetString(6)
+                txtcontact1.Text = reader.GetString(7)
+                cboAppointmentTime.Text = reader.GetString(4)
+                dtpAppointmentDate.Value = New Date(reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3))
+            End If
+            reader.Close()
+        End If
+
         strSQL = " select ServiceAvailedID,ServiceID, ServiceName,Emp_Fullname,ServicePrice from vw_ServiceAvailed where DataStatus = 'ACTIVE' and  TransactionID = " & AppointmentID
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim ServiceAvailedList As New DataSet()
@@ -100,7 +102,7 @@ where ServiceStatus = 1 and ServiceID not in (select ServiceID from vw_appointme
         strSQL = "select ItemID,ItemBrand,ItemDescription,sum(abs(ConsumedNumber)) as Consumed from vw_TransactionList a 
 inner join vw_ServiceAvailed b on a.[JA-Transaction] = b.TransactionID
 inner join vw_ServiceConsumables c on c.ServiceID = b.ServiceID
-where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by ItemID,ItemBrand,ItemDescription"
+where DataStatus = 'ACTIVE' and b.TransactionID = " & AppointmentID & "group by ItemID,ItemBrand,ItemDescription"
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim consumedlist As New DataSet()
         dataadapter.Fill(consumedlist, "vw_TransactionList")
@@ -188,13 +190,17 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
     Private Sub btnSaveTransaction_Click(sender As Object, e As EventArgs) Handles btnSaveTransaction.Click
         If txtName.Text <> "" And txtcontact1.Text <> "" And txtAddress.Text <> "" Then
             Dim ask = MsgBox("Are you sure you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+            Dim appointdate = (dtpAppointmentDate.Text + " " + cboAppointmentTime.Text)
             If ask = vbYes Then
-                Dim appointdate = (dtpAppointmentDate.Text + " " + cboAppointmentTime.Text)
-                AddAppointment_V2(appointdate, txtName.Text, txtcontact1.Text, txtAddress.Text)
-
-                GroupBox1.Enabled = False
-                MsgBox("Please select services.")
+                If AppointmentID > 0 Then
+                    UpdateAppointment(appointdate, txtName.Text, txtcontact1.Text, txtAddress.Text)
+                    Console.WriteLine("Trigger")
+                Else
+                    AddAppointment_V2(appointdate, txtName.Text, txtcontact1.Text, txtAddress.Text)
+                    MsgBox("Please select services.")
+                End If
             End If
+            GroupBox1.Enabled = False
         End If
     End Sub
 
@@ -208,6 +214,7 @@ where DataStatus = 'ACTIVE' and b.TransactionID = " & lastTransID & "group by It
         appaddress = Nothing
         appdate = Nothing
         apptime = Nothing
+        AppointmentID = Nothing
         appcontact = Nothing
     End Sub
 End Class
